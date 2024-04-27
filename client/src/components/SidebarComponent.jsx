@@ -12,19 +12,21 @@ const SidebarComponent = () => {
     <>
       <div className="flex items-center z-20" onClick={handleToggleSidebar}>
         <IoIosMenu
+          size={20}
           className={`${
             sidebarOpen ? "text-white relative left-4 hidden" : "inline-block"
           } `}
         />
         <RxCross2
+          size={20}
           className={` ${
-            sidebarOpen ? "relative left-2 inline-block text-white" : "hidden"
+            sidebarOpen ? "left-1 z-30 relative inline text-white" : "hidden"
           } `}
         />
       </div>
       <div
-        className={`bg-black fixed w-24 text-white font-bold h-full ${
-          sidebarOpen ? "right-0" : "right-full"
+        className={`bg-gray-500 fixed w-1/2 text-white font-bold h-full ${
+          sidebarOpen ? "left-1/2" : "right-full"
         }`}
       >
         <ul className="flex flex-col justify-center items-center mt-14">
@@ -34,6 +36,12 @@ const SidebarComponent = () => {
           </li>
           <li className="my-1 rounded hover:shadow hover:bg-blue-500 p-1">
             <a href="/">Login</a>
+          </li>
+          <li className="my-1 rounded hover:shadow hover:bg-blue-500 p-1">
+            <a href="/">Internships</a>
+          </li>
+          <li className="my-1 rounded hover:shadow hover:bg-blue-500 p-1">
+            <a href="/">Jobs</a>
           </li>
           <li className="my-1 rounded hover:shadow hover:bg-blue-500 p-1">
             <a href="/">Register</a>
