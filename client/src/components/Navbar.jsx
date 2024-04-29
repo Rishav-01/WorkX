@@ -3,10 +3,24 @@ import { workXLogo } from "../constants";
 import useMediaQuery from "../hooks/useMediaQuery";
 import SidebarComponent from "./SidebarComponent";
 import { IoIosSearch, IoMdArrowDropdown } from "react-icons/io";
+import { auth, provider } from "../firebase/firebase";
+import {
+  signInWithPopup,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
 
 const Navbar = () => {
-  const user = 1; // use context here
+  const user = null; // use context here
   const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
+
+  const handleLogin = () => {
+    signInWithPopup(auth, provider)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => console.log(error));
+  };
 
   return (
     <nav className="flex justify-around">
@@ -15,7 +29,7 @@ const Navbar = () => {
       </div>
 
       {!isAboveSmallScreens ? (
-        <SidebarComponent />
+        <SidebarComponent user={user} />
       ) : (
         // <></>
         <div>
@@ -57,7 +71,10 @@ const Navbar = () => {
             ) : (
               <>
                 <li>
-                  <button className="border-blue-600 border px-4 py-2 rounded-full">
+                  <button
+                    onClick={handleLogin}
+                    className="border-blue-600 border px-4 py-2 rounded-full"
+                  >
                     Login
                   </button>
                 </li>

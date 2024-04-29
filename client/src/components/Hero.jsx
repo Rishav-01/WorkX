@@ -9,7 +9,7 @@ const Hero = () => {
         <p>Hi, Rishav ! &#9996;</p>
         <p>Let's help you land your dream career !</p>
       </div>
-      <p className="my-11 font-bold text-center">Trending on WorkX &#9889;</p>
+      <p className="my-11 font-bold text-center">Hiring on WorkX &#9889;</p>
 
       {/* Jobs Component  */}
       <Cards />
