@@ -1,25 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { workXLogo } from "../constants";
 import useMediaQuery from "../hooks/useMediaQuery";
 import SidebarComponent from "./SidebarComponent";
 import { IoIosSearch, IoMdArrowDropdown } from "react-icons/io";
-import { auth, provider } from "../firebase/firebase";
-import {
-  signInWithPopup,
-  signInWithEmailAndPassword,
-  signOut,
-} from "firebase/auth";
+import { Link } from "react-router-dom";
+import Internships from "./dropdown/Internships";
+import Jobs from "./dropdown/Jobs";
 
 const Navbar = () => {
-  const user = null; // use context here
+  const user = 1,
+    recruiter = null; // use context here
   const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
+  const [isInternshipsVisible, setIsIntershipsVisible] = useState(false);
+  const [isJobsVisible, setIsJobsVisible] = useState(false);
 
-  const handleLogin = () => {
-    signInWithPopup(auth, provider)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((error) => console.log(error));
+  const toggleVisibleInternships = () => {
+    setIsIntershipsVisible(true);
+    setIsJobsVisible(false);
+  };
+
+  const toggleVisibleJobs = () => {
+    setIsJobsVisible(true);
+    setIsIntershipsVisible(false);
   };
 
   return (
@@ -31,21 +33,33 @@ const Navbar = () => {
       {!isAboveSmallScreens ? (
         <SidebarComponent user={user} />
       ) : (
-        // <></>
         <div>
-          <ul className="flex gap-9 items-center justify-center h-full">
-            {user ? (
+          <ul className="flex gap-14 items-center justify-center h-full">
+            {user && !recruiter ? (
               <>
                 <li>
-                  <div className="flex items-center gap-x-1">
-                    <p>Internships</p>
+                  <div className="flex items-center gap-x-1 cursor-default">
+                    <p
+                      onMouseEnter={toggleVisibleInternships}
+                      onClick={() => setIsIntershipsVisible(false)}
+                    >
+                      Internships
+                    </p>
                     <IoMdArrowDropdown />
+                    {/* Internships dropdown */}
+                    {isInternshipsVisible && <Internships />}
                   </div>
                 </li>
                 <li>
-                  <div className="flex items-center gap-x-1">
-                    <p>Jobs</p>
+                  <div className="flex items-center gap-x-1 cursor-default">
+                    <p
+                      onMouseEnter={toggleVisibleJobs}
+                      onClick={() => setIsJobsVisible(false)}
+                    >
+                      Jobs
+                    </p>
                     <IoMdArrowDropdown />
+                    {isJobsVisible && <Jobs />}
                   </div>
                 </li>
                 <li className="flex items-center gap-x-2">
@@ -71,22 +85,28 @@ const Navbar = () => {
             ) : (
               <>
                 <li>
-                  <button
-                    onClick={handleLogin}
+                  <Link
+                    to={"/login"}
                     className="border-blue-600 border px-4 py-2 rounded-full"
                   >
                     Login
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button className="bg-blue-500 text-white px-4 py-2 rounded-full">
+                  <Link
+                    to={"/register"}
+                    className="bg-blue-500 text-white px-4 py-2 rounded-full"
+                  >
                     Register
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button className="border-yellow-400 border hover:bg-yellow-500 hover:text-teal-50 transition duration-150 px-4 py-2 rounded-full">
+                  <Link
+                    to={"/recruiter-login"}
+                    className="border-yellow-400 border hover:bg-yellow-500 hover:text-teal-50 transition duration-150 px-4 py-2 rounded-full"
+                  >
                     Hire Talent
-                  </button>
+                  </Link>
                 </li>
               </>
             )}
