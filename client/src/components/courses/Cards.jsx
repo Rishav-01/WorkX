@@ -1,5 +1,5 @@
 import React from "react";
-import { courseData } from "../constants";
+import { courseData } from "../../constants/index";
 import { CiCircleChevLeft, CiCircleChevRight } from "react-icons/ci";
 
 const Cards = () => {
