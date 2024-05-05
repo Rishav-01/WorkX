@@ -1,6 +1,7 @@
 import React from "react";
 import { courseData } from "../../constants/index";
 import { CiCircleChevLeft, CiCircleChevRight } from "react-icons/ci";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 const Cards = () => {
   const slideLeft = () => {
@@ -11,13 +12,16 @@ const Cards = () => {
     let slider = document.getElementById("slider");
     slider.scrollLeft += 350;
   };
+  const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
   return (
     <div className="flex flex-col items-center justify-center gap-2">
       {/* Slider  */}
-      <div className="flex items-center relative">
+      <div className="flex items-center justify-center relative">
         <div
           id="slider"
-          className="flex gap-2 w-[1000px] h-full overflow-hidden whitespace-nowrap scroll-smooth"
+          className={`flex gap-2 ${
+            isAboveSmallScreens && "w-[1000px]"
+          } h-full overflow-hidden whitespace-nowrap scroll-smooth`}
         >
           {courseData.map((item) => (
             <img
