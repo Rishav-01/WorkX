@@ -6,7 +6,7 @@ const Recruiter = () => {
   return (
     <>
       <Navbar recruiter={recruiter} />
-      Recruiter
+      Recruiter details
     </>
   );
 };

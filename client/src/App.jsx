@@ -5,6 +5,7 @@ import Register from "./pages/Register";
 import Recruiter from "./pages/Recruiter";
 import RecruiterLogin from "./pages/RecruiterLogin";
 import RecruiterSignup from "./pages/RecruiterSignup";
+import User from "./pages/User";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/recruiter" element={<Recruiter />} />
         <Route path="/recruiter-login" element={<RecruiterLogin />} />
         <Route path="/recruiter-signup" element={<RecruiterSignup />} />
+        <Route path="/user" element={<User />} />
       </Routes>
     </BrowserRouter>
   );

@@ -3,7 +3,7 @@ import { workXLogo } from "../constants";
 import useMediaQuery from "../hooks/useMediaQuery";
 import SidebarComponent from "./SidebarComponent";
 import { IoIosSearch, IoMdArrowDropdown } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Internships from "./dropdown/Internships";
 import Jobs from "./dropdown/Jobs";
 
@@ -13,6 +13,7 @@ const Navbar = () => {
   const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
   const [isInternshipsVisible, setIsIntershipsVisible] = useState(false);
   const [isJobsVisible, setIsJobsVisible] = useState(false);
+  const navigate = useNavigate();
 
   const toggleVisibleInternships = () => {
     setIsIntershipsVisible(true);
@@ -26,7 +27,7 @@ const Navbar = () => {
 
   return (
     <nav className="flex justify-around">
-      <div className="h-20 w-20">
+      <div className="h-20 w-20 cursor-pointer" onClick={() => navigate("/")}>
         <img src={workXLogo} className="h-18 w-18" alt="logo" />
       </div>
 
@@ -77,6 +78,7 @@ const Navbar = () => {
                 <li>
                   <img
                     src={workXLogo}
+                    onClick={() => navigate("/user")}
                     alt="user-profile"
                     className="w-7 h-7 rounded-full cursor-pointer"
                   />
