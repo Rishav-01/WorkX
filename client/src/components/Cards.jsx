@@ -1,12 +1,21 @@
 import React from "react";
-import Card from "./Card";
+import {
+  courseTwo,
+  courseOne,
+  courseThree,
+  courseFour,
+} from "../constants/index";
 
 const Cards = () => {
   return (
-    <div className="flex items-center justify-center gap-5 bg-blue-50 h-[380px]">
-      <Card />
-      <Card />
-      <Card />
+    <div className="flex items-center justify-center gap-5">
+      {/* Slider  */}
+      <div className="">
+        <img src={courseOne} alt="" />
+        <img src={courseTwo} alt="" />
+        <img src={courseThree} alt="" />
+        <img src={courseFour} alt="" />
+      </div>
     </div>
   );
 };
