@@ -2,16 +2,14 @@ import React from "react";
 
 const Card = () => {
   return (
-    <div className="w-[250px] h-full mt-15 rounded-md border cursor-pointer hover:scale-105 transition duration-200">
-      <img
-        src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsb2d8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
-        alt="Laptop"
-        className="h-[150px] w-full rounded-t-md object-cover"
-      />
-      <div className="p-2">
-        <h1 className="inline-flex items-center text-lg font-semibold">
-          About Macbook &nbsp;
-        </h1>
+    <div className="w-[250px] rounded-md border mt-5 cursor-pointer hover:scale-105 transition duration-200">
+      <div className="p-4">
+        <div>
+          <h1 className="text-lg font-semibold">
+            Software Developer Intern &nbsp;
+          </h1>
+          <span>Company Name</span>
+        </div>
         <p className="mt-2 text-sm text-gray-600">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi,
           debitis?
