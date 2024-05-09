@@ -1,4 +1,5 @@
 import Cards from "./courses/Cards";
+import JobCards from "./jobs/JobCards";
 
 const Hero = () => {
   return (
@@ -11,6 +12,8 @@ const Hero = () => {
 
       {/* Courses Component  */}
       <Cards />
+      {/* Job & Internship Cards */}
+      <JobCards/>
     </section>
   );
 };
