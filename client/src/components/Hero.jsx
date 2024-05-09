@@ -13,7 +13,10 @@ const Hero = () => {
       {/* Courses Component  */}
       <Cards />
       {/* Job & Internship Cards */}
-      <JobCards/>
+      <h1 className="text-center my-10 font-semibold text-3xl">
+        Latest Internships & Jobs on WorkX
+      </h1>
+      <JobCards />
     </section>
   );
 };
