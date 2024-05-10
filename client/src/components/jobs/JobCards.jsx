@@ -32,7 +32,7 @@ const JobCards = ({ category }) => {
               No jobs available for {category} !
             </p>
           ) : (
-            jobsData.map((item) => (
+            filteredJobs.map((item) => (
               <JobCard
                 title={item.title}
                 company={item.company}
