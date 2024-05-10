@@ -20,6 +20,7 @@ const internshipsData = [
     location: "Work from home",
     salary: "₹ 8,000 - 12,000 / month",
     duration: "3 Months",
+    category: "Big brands",
   },
   {
     title: "Actively hiring",
@@ -27,6 +28,7 @@ const internshipsData = [
     location: "Gurgaon",
     salary: "₹ 10,000 / month",
     duration: "3 Months",
+    category: "Big brands",
   },
   {
     title: "Actively hiring",
@@ -34,6 +36,7 @@ const internshipsData = [
     location: "Gurgaon",
     salary: "₹ 18,000 / month",
     duration: "6 Months",
+    category: "Engineering",
   },
   {
     title: "Actively hiring",
@@ -41,6 +44,7 @@ const internshipsData = [
     location: "Bangalore",
     salary: "₹ 35,000 /month",
     duration: "3 Months",
+    category: "Engineering",
   },
   {
     title: "Actively hiring",
@@ -48,6 +52,7 @@ const internshipsData = [
     location: "Bangalore",
     salary: "₹ 35,000 /month",
     duration: "3 Months",
+    category: "Engineering",
   },
   {
     title: "Actively hiring",
@@ -55,6 +60,7 @@ const internshipsData = [
     location: "Bangalore",
     salary: "₹ 35,000 /month",
     duration: "3 Months",
+    category: "Engineering",
   },
   {
     title: "Actively hiring",
@@ -62,6 +68,7 @@ const internshipsData = [
     location: "Bangalore",
     salary: "₹ 35,000 /month",
     duration: "3 Months",
+    category: "Engineering",
   },
   {
     title: "Actively hiring",
@@ -69,6 +76,7 @@ const internshipsData = [
     location: "Bangalore",
     salary: "₹ 35,000 /month",
     duration: "3 Months",
+    category: "Data Science",
   },
 ];
 
@@ -79,6 +87,7 @@ const jobsData = [
     location: "Noida",
     salary: "₹ 10 LPA",
     experienceRequired: "2 Years of experience",
+    category: "Big brands",
   },
   {
     title: "Actively hiring",
@@ -86,6 +95,7 @@ const jobsData = [
     location: "Noida",
     salary: "₹ 10 LPA",
     experienceRequired: "2 Years of experience",
+    category: "Engineering",
   },
   {
     title: "Actively hiring",
@@ -93,6 +103,7 @@ const jobsData = [
     location: "Noida",
     salary: "₹ 10 LPA",
     experienceRequired: "2 Years of experience",
+    category: "Data Science",
   },
   {
     title: "Actively hiring",
@@ -100,6 +111,7 @@ const jobsData = [
     location: "Noida",
     salary: "₹ 10 LPA",
     experienceRequired: "2 Years of experience",
+    category: "Engineering",
   },
   {
     title: "Actively hiring",
@@ -107,6 +119,7 @@ const jobsData = [
     location: "Noida",
     salary: "₹ 10 LPA",
     experienceRequired: "2 Years of experience",
+    category: "MBA",
   },
 ];
 

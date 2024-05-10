@@ -3,7 +3,11 @@ import useMediaQuery from "../../hooks/useMediaQuery";
 import { CiCircleChevLeft, CiCircleChevRight } from "react-icons/ci";
 import { internshipsData } from "../../constants";
 
-const InternshipCards = () => {
+const InternshipCards = ({ category }) => {
+  const filteredInternships = internshipsData.filter((item) => {
+    return item.category === category;
+  });
+
   const slideLeft = () => {
     let slider = document.getElementById("interncard");
     slider.scrollLeft -= 350;
@@ -24,33 +28,41 @@ const InternshipCards = () => {
               isAboveSmallScreens && "w-[1000px]"
             } h-full overflow-hidden whitespace-nowrap scroll-smooth`}
           >
-            {internshipsData.map((item) => (
-              <InternshipCard
-                title={item.title}
-                company={item.company}
-                location={item.location}
-                salary={item.salary}
-                duration={item.duration}
-              />
-            ))}
+            {filteredInternships.length === 0 ? (
+              <p className="h-[200px] text-base w-full text-center">
+                No internships available for {category} !
+              </p>
+            ) : (
+              filteredInternships.map((item) => (
+                <InternshipCard
+                  title={item.title}
+                  company={item.company}
+                  location={item.location}
+                  salary={item.salary}
+                  duration={item.duration}
+                />
+              ))
+            )}
           </div>
         </div>
 
         {/* Buttons  */}
-        <div className="flex gap-2">
-          <button onClick={slideLeft}>
-            <CiCircleChevLeft
-              className="opacity-50 hover:opacity-100"
-              size={35}
-            />
-          </button>
-          <button onClick={slideRight}>
-            <CiCircleChevRight
-              className="opacity-50 hover:opacity-100"
-              size={35}
-            />
-          </button>
-        </div>
+        {filteredInternships.length > 0 && (
+          <div className="flex gap-2">
+            <button onClick={slideLeft}>
+              <CiCircleChevLeft
+                className="opacity-50 hover:opacity-100"
+                size={35}
+              />
+            </button>
+            <button onClick={slideRight}>
+              <CiCircleChevRight
+                className="opacity-50 hover:opacity-100"
+                size={35}
+              />
+            </button>
+          </div>
+        )}
       </div>
     </>
   );
