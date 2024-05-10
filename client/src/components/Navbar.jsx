@@ -4,8 +4,8 @@ import useMediaQuery from "../hooks/useMediaQuery";
 import SidebarComponent from "./SidebarComponent";
 import { IoIosSearch, IoMdArrowDropdown } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
-import Internships from "./dropdown/Internships";
-import Jobs from "./dropdown/Jobs";
+import InternshipsDropdown from "./dropdown/InternshipsDropdown";
+import JobsDropdown from "./dropdown/JobsDropdown";
 
 const Navbar = () => {
   const user = 1,
@@ -48,7 +48,7 @@ const Navbar = () => {
                     </p>
                     <IoMdArrowDropdown />
                     {/* Internships dropdown */}
-                    {isInternshipsVisible && <Internships />}
+                    {isInternshipsVisible && <InternshipsDropdown />}
                   </div>
                 </li>
                 <li>
@@ -60,7 +60,7 @@ const Navbar = () => {
                       Jobs
                     </p>
                     <IoMdArrowDropdown />
-                    {isJobsVisible && <Jobs />}
+                    {isJobsVisible && <JobsDropdown />}
                   </div>
                 </li>
                 <li className="flex items-center gap-x-2">

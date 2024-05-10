@@ -72,4 +72,55 @@ const internshipsData = [
   },
 ];
 
-export { workXLogo, courseData, internshipsData };
+const jobsData = [
+  {
+    title: "Actively hiring",
+    company: "XYZ Company",
+    location: "Noida",
+    salary: "10 LPA",
+    experienceRequired: "2 Years of experience",
+  },
+  {
+    title: "Actively hiring",
+    company: "XYZ Company",
+    location: "Noida",
+    salary: "10 LPA",
+    experienceRequired: "2 Years of experience",
+  },
+  {
+    title: "Actively hiring",
+    company: "XYZ Company",
+    location: "Noida",
+    salary: "10 LPA",
+    experienceRequired: "2 Years of experience",
+  },
+  {
+    title: "Actively hiring",
+    company: "XYZ Company",
+    location: "Noida",
+    salary: "10 LPA",
+    experienceRequired: "2 Years of experience",
+  },
+  {
+    title: "Actively hiring",
+    company: "XYZ Company",
+    location: "Noida",
+    salary: "10 LPA",
+    experienceRequired: "2 Years of experience",
+  },
+];
+
+const categories = [
+  {
+    title: "Big brands",
+  },
+  { title: "Work from home" },
+  { title: "Part-time" },
+  { title: "MBA" },
+  { title: "Engineering" },
+  { title: "Media" },
+  { title: "Design" },
+  { title: "Data Science" },
+];
+
+export { workXLogo, courseData, internshipsData, categories, jobsData };

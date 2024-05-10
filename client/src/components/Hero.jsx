@@ -1,5 +1,6 @@
 import Cards from "./courses/Cards";
-import JobCards from "./jobs/JobCards";
+import Internships from "./internships/Internships";
+import Jobs from "./jobs/Jobs";
 
 const Hero = () => {
   return (
@@ -12,11 +13,16 @@ const Hero = () => {
 
       {/* Courses Component  */}
       <Cards />
-      {/* Job & Internship Cards */}
+      {/* Internship Cards */}
       <h1 className="text-center my-10 font-semibold text-3xl">
-        Latest Internships & Jobs on WorkX
+        Latest Internships on WorkX
       </h1>
-      <JobCards />
+      <Internships />
+
+      <h1 className="text-center my-10 font-semibold text-3xl">
+        Latest Jobs on WorkX
+      </h1>
+      <Jobs />
     </section>
   );
 };
