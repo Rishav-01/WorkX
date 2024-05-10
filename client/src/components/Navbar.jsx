@@ -39,26 +39,24 @@ const Navbar = () => {
             {user && !recruiter ? (
               <>
                 <li>
-                  <div className="flex items-center gap-x-1 cursor-default">
-                    <p
-                      onMouseEnter={toggleVisibleInternships}
-                      onClick={() => setIsIntershipsVisible(false)}
-                    >
-                      Internships
-                    </p>
+                  <div
+                    className="flex items-center gap-x-1 cursor-default"
+                    onMouseEnter={toggleVisibleInternships}
+                    onClick={() => setIsIntershipsVisible(false)}
+                  >
+                    <p>Internships</p>
                     <IoMdArrowDropdown />
                     {/* Internships dropdown */}
                     {isInternshipsVisible && <InternshipsDropdown />}
                   </div>
                 </li>
                 <li>
-                  <div className="flex items-center gap-x-1 cursor-default">
-                    <p
-                      onMouseEnter={toggleVisibleJobs}
-                      onClick={() => setIsJobsVisible(false)}
-                    >
-                      Jobs
-                    </p>
+                  <div
+                    onMouseEnter={toggleVisibleJobs}
+                    onClick={() => setIsJobsVisible(false)}
+                    className="flex items-center gap-x-1 cursor-default"
+                  >
+                    <p>Jobs</p>
                     <IoMdArrowDropdown />
                     {isJobsVisible && <JobsDropdown />}
                   </div>

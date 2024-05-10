@@ -6,6 +6,9 @@ const Jobs = () => {
   const [activeState, setActiveState] = useState("");
   return (
     <div className="mt-14">
+      <h1 className="text-center my-10 font-semibold text-3xl">
+        Latest Jobs on WorkX
+      </h1>
       {/* Different Categories */}
       <div className="flex flex-col items-center justify-center lg:flex-row mb-20">
         <h2 className="mb-4 lg:mb-0 mr-8 whitespace-nowrap">
