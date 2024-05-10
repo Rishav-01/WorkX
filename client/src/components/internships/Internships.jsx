@@ -17,7 +17,7 @@ export default function JobCards() {
         <div className="flex flex-wrap gap-4">
           {categories.map((item) => (
             <button
-              id="Internship-categories"
+              id="internship-categories"
               onClick={() => setActiveState(item.title)}
               className={`px-2 py-1 text-sm ${
                 activeState === item.title
