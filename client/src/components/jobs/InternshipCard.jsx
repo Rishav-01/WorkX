@@ -1,9 +1,14 @@
+import { IoIosTrendingUp } from "react-icons/io";
+
 const InternshipCard = ({ title, company, location, salary, duration }) => {
   return (
     <div className="w-60 rounded-md border mt-5 cursor-pointer hover:scale-105 transition duration-200">
       <div className="p-4">
         <div className="w-52">
-          <h2 className="text-xs font-semibold">{title}</h2>
+          <div className="flex gap-1 items-center">
+            <h2 className="text-xs font-semibold">{title}</h2>
+            <IoIosTrendingUp size={20} />
+          </div>
           <span className="text-sm font-bold">{company}</span>
         </div>
         <p className="mt-2 text-sm text-gray-600">{location}</p>
