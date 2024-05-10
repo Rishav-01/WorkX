@@ -13,4 +13,63 @@ const courseData = [
   { id: 6, img: courseTwo },
 ];
 
-export { workXLogo, courseData };
+const internshipsData = [
+  {
+    title: "Actively Hiring",
+    company: "Work X",
+    location: "Work from home",
+    salary: "₹ 8,000 - 12,000 / month",
+    duration: "3 Months",
+  },
+  {
+    title: "Actively hiring",
+    company: "CollegeDekho.com",
+    location: "Gurgaon",
+    salary: "₹ 10,000 / month",
+    duration: "3 Months",
+  },
+  {
+    title: "Actively hiring",
+    company: "Internshala Trainings",
+    location: "Gurgaon",
+    salary: "₹ 18,000 / month",
+    duration: "6 Months",
+  },
+  {
+    title: "Actively hiring",
+    company: "More Retail Private Limited",
+    location: "Bangalore",
+    salary: "₹ 35,000 /month",
+    duration: "3 Months",
+  },
+  {
+    title: "Actively hiring",
+    company: "More Retail Private Limited",
+    location: "Bangalore",
+    salary: "₹ 35,000 /month",
+    duration: "3 Months",
+  },
+  {
+    title: "Actively hiring",
+    company: "More Retail Private Limited",
+    location: "Bangalore",
+    salary: "₹ 35,000 /month",
+    duration: "3 Months",
+  },
+  {
+    title: "Actively hiring",
+    company: "More Retail Private Limited",
+    location: "Bangalore",
+    salary: "₹ 35,000 /month",
+    duration: "3 Months",
+  },
+  {
+    title: "Actively hiring",
+    company: "More Retail Private Limited",
+    location: "Bangalore",
+    salary: "₹ 35,000 /month",
+    duration: "3 Months",
+  },
+];
+
+export { workXLogo, courseData, internshipsData };
