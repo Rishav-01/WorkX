@@ -15,18 +15,22 @@ const SidebarComponent = ({ user }) => {
         <IoIosMenu
           size={20}
           className={`${
-            sidebarOpen ? "relative left-4 hidden" : "inline-block"
+            sidebarOpen
+              ? "relative left-4 hidden"
+              : "inline-block cursor-pointer"
           } `}
         />
         <RxCross2
           size={20}
           className={` ${
-            sidebarOpen ? "left-1 z-30 relative inline text-black" : "hidden"
+            sidebarOpen
+              ? "cursor-pointer z-20 fixed right-40 text-black"
+              : "hidden"
           } `}
         />
       </div>
       <div
-        className={`bg-gray-300 fixed w-1/2 text-black font-bold h-full ${
+        className={`bg-gray-300 fixed w-1/2 z-10 text-black font-bold h-80 ${
           sidebarOpen ? "left-1/2" : "right-full"
         }`}
       >

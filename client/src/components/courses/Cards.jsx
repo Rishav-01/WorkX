@@ -20,13 +20,15 @@ const Cards = () => {
         <div
           id="slider"
           className={`flex gap-2 ${
-            isAboveSmallScreens && "w-[1000px]"
-          } h-full overflow-hidden whitespace-nowrap scroll-smooth`}
+            isAboveSmallScreens ? "max-w-[1000px]" : "max-w-96"
+          } h-full overflow-hidden z-0 whitespace-nowrap scroll-smooth`}
         >
           {courseData.map((item) => (
             <img
               src={item.img}
-              className="h-56 hover:scale-105 p-2 duration-200 cursor-pointer"
+              className={`${
+                isAboveSmallScreens ? "max-h-56" : "max-h-44"
+              } hover:scale-105 p-2 duration-200 cursor-pointer`}
               key={item.id}
               alt="img"
             />
