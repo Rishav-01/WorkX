@@ -20,7 +20,6 @@ export default function App() {
         <Route path="/recruiter-signup" element={<RecruiterSignup />} />
         <Route path="/user" element={<User />} />
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 }

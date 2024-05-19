@@ -8,7 +8,7 @@ import InternshipsDropdown from "./dropdown/InternshipsDropdown";
 import JobsDropdown from "./dropdown/JobsDropdown";
 
 const Navbar = () => {
-  const user = 1,
+  const user = null,
     recruiter = null; // use context here
   const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
   const [isInternshipsVisible, setIsIntershipsVisible] = useState(false);
