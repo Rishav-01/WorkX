@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { IoMdHome, IoIosMenu } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 import { RxCross2 } from "react-icons/rx";
+import { Link } from "react-router-dom";
 
 const SidebarComponent = ({ user }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -39,18 +40,18 @@ const SidebarComponent = ({ user }) => {
             <>
               <li className="flex gap-x-1 items-center rounded hover:shadow hover:bg-blue-500 my-1 p-1">
                 <IoMdHome className="inline-block" size={15} />
-                <a href="/">Home</a>
+                <Link href="/">Home</Link>
               </li>
               <li className="my-1 rounded hover:shadow hover:bg-blue-500 p-1">
-                <a href="/">Internships</a>
+                <Link to="/internships">Internships</Link>
               </li>
               <li className="my-1 rounded hover:shadow hover:bg-blue-500 p-1">
-                <a href="/">Jobs</a>
+                <Link href="/">Jobs</Link>
               </li>
 
               <li className="flex gap-x-1 items-center my-1 rounded hover:shadow hover:bg-blue-500 p-1">
                 <CgProfile />
-                <a href="/">Profile</a>
+                <Link href="/">Profile</Link>
               </li>
             </>
           ) : (

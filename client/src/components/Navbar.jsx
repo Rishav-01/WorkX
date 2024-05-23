@@ -8,7 +8,7 @@ import InternshipsDropdown from "./dropdown/InternshipsDropdown";
 import JobsDropdown from "./dropdown/JobsDropdown";
 
 const Navbar = () => {
-  const user = null,
+  const user = 1,
     recruiter = null; // use context here
   const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
   const [isInternshipsVisible, setIsIntershipsVisible] = useState(false);
@@ -44,7 +44,7 @@ const Navbar = () => {
                     onMouseEnter={toggleVisibleInternships}
                     onClick={() => setIsIntershipsVisible(false)}
                   >
-                    <p>Internships</p>
+                    <Link to={"/internships"}>Internships</Link>
                     <IoMdArrowDropdown />
                     {/* Internships dropdown */}
                     {isInternshipsVisible && <InternshipsDropdown />}
