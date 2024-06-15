@@ -56,7 +56,7 @@ const Navbar = () => {
                     onClick={() => setIsJobsVisible(false)}
                     className="flex items-center gap-x-1 cursor-default"
                   >
-                    <p>Jobs</p>
+                    <Link to={"/jobs"}>Jobs</Link>
                     <IoMdArrowDropdown />
                     {isJobsVisible && <JobsDropdown />}
                   </div>

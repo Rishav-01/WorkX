@@ -18,13 +18,17 @@ const Internships = () => {
             <p>Profile</p>
             <input
               type="text"
-              className="border"
+              className="border p-1 rounded-lg"
               placeholder="Eg - Marketing"
             />
           </div>
           <div className="mt-2 flex flex-col gap-1">
             <p>Location</p>
-            <input type="text" className="border" placeholder="Eg - Mumbai" />
+            <input
+              type="text"
+              className="border p-1 rounded-lg"
+              placeholder="Eg - Mumbai"
+            />
           </div>
 
           <div className="flex mt-3 mx-auto flex-col items-start justify-center gap-2">

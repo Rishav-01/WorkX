@@ -6,7 +6,6 @@ import Recruiter from "./pages/Recruiter";
 import RecruiterLogin from "./pages/RecruiterLogin";
 import RecruiterSignup from "./pages/RecruiterSignup";
 import User from "./pages/User";
-import Footer from "./components/footer/Footer";
 import Internships from "./pages/Internships";
 
 export default function App() {
