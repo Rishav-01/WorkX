@@ -43,10 +43,10 @@ const Internships = () => {
     const internships = internshipsData.filter((item) => {
       return (
         category &&
-        location &&
         item.category
           .toLowerCase()
           .includes(category.current.value.toLowerCase()) &&
+        location &&
         item.location
           .toLowerCase()
           .includes(location.current.value.toLowerCase())
@@ -245,9 +245,7 @@ const Internships = () => {
               {internshipsData.length} Total Internships
             </p>
             <div>
-              {filteredInternships.map((item, index) => (
-                <InternshipPageCard key={index} item={item} />
-              ))}
+              <InternshipPageCard filteredInternships={filteredInternships} />
             </div>
           </div>
         </div>
