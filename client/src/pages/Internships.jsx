@@ -70,6 +70,7 @@ const Internships = () => {
       totalInternships = partTimeInternships.concat(wfhInternships);
     else if (partTime) totalInternships = partTimeInternships;
     else if (wfh) totalInternships = wfhInternships;
+    else totalInternships = internships;
 
     setFilteredInternships(totalInternships);
   };
