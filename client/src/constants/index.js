@@ -17,10 +17,11 @@ const internshipsData = [
   {
     title: "Actively Hiring",
     company: "Work X",
-    location: "Work from home",
+    location: "Mumbai",
     salary: "₹ 8,000 - 12,000 / month",
     duration: "3 Months",
     category: "Big brands",
+    type: "Work from home",
   },
   {
     title: "Actively hiring",
@@ -29,6 +30,7 @@ const internshipsData = [
     salary: "₹ 10,000 / month",
     duration: "3 Months",
     category: "Big brands",
+    type: "Work from home",
   },
   {
     title: "Actively hiring",
@@ -37,6 +39,7 @@ const internshipsData = [
     salary: "₹ 18,000 / month",
     duration: "6 Months",
     category: "Engineering",
+    type: "Work from home",
   },
   {
     title: "Actively hiring",
@@ -45,6 +48,7 @@ const internshipsData = [
     salary: "₹ 35,000 /month",
     duration: "3 Months",
     category: "Engineering",
+    type: "Work from home",
   },
   {
     title: "Actively hiring",
@@ -53,6 +57,7 @@ const internshipsData = [
     salary: "₹ 35,000 /month",
     duration: "3 Months",
     category: "Engineering",
+    type: "Work from home",
   },
   {
     title: "Actively hiring",
@@ -61,6 +66,7 @@ const internshipsData = [
     salary: "₹ 35,000 /month",
     duration: "3 Months",
     category: "Engineering",
+    type: "Part time",
   },
   {
     title: "Actively hiring",
@@ -69,6 +75,7 @@ const internshipsData = [
     salary: "₹ 35,000 /month",
     duration: "3 Months",
     category: "Engineering",
+    type: "Part time",
   },
   {
     title: "Actively hiring",
@@ -77,6 +84,7 @@ const internshipsData = [
     salary: "₹ 35,000 /month",
     duration: "3 Months",
     category: "Data Science",
+    type: "Work from home",
   },
 ];
 
@@ -88,6 +96,7 @@ const jobsData = [
     salary: "₹ 10 LPA",
     experienceRequired: "2 Years of experience",
     category: "Big brands",
+    type: "Part time",
   },
   {
     title: "Actively hiring",
@@ -96,6 +105,7 @@ const jobsData = [
     salary: "₹ 10 LPA",
     experienceRequired: "2 Years of experience",
     category: "Engineering",
+    type: "Part time",
   },
   {
     title: "Actively hiring",
@@ -104,6 +114,7 @@ const jobsData = [
     salary: "₹ 10 LPA",
     experienceRequired: "2 Years of experience",
     category: "Data Science",
+    type: "Part time",
   },
   {
     title: "Actively hiring",
@@ -112,6 +123,7 @@ const jobsData = [
     salary: "₹ 10 LPA",
     experienceRequired: "2 Years of experience",
     category: "Engineering",
+    type: "Part time",
   },
   {
     title: "Actively hiring",
@@ -120,6 +132,7 @@ const jobsData = [
     salary: "₹ 10 LPA",
     experienceRequired: "2 Years of experience",
     category: "MBA",
+    type: "Work from home",
   },
 ];
 

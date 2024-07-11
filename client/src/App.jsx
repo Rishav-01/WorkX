@@ -7,6 +7,7 @@ import RecruiterLogin from "./pages/RecruiterLogin";
 import RecruiterSignup from "./pages/RecruiterSignup";
 import User from "./pages/User";
 import Internships from "./pages/Internships";
+import Jobs from "./pages/Jobs";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/recruiter-login" element={<RecruiterLogin />} />
         <Route path="/recruiter-signup" element={<RecruiterSignup />} />
         <Route path="/internships" element={<Internships />} />
+        <Route path="/jobs" element={<Jobs />} />
         <Route path="/user" element={<User />} />
       </Routes>
     </BrowserRouter>

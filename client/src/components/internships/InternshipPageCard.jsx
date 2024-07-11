@@ -1,6 +1,7 @@
 import React from "react";
 
-const InternshipPageCard = () => {
+const InternshipPageCard = ({ item }) => {
+  // console.log(item);
   return <div>Internship Page Card</div>;
 };
 
