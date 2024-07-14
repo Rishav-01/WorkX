@@ -244,8 +244,10 @@ const Internships = () => {
             <p className="text-center text-3xl font-bold">
               {internshipsData.length} Total Internships
             </p>
+
+            {/* Internship Cards with Pagination  */}
             <div>
-              <InternshipPageCard filteredInternships={filteredInternships} />
+              <InternshipPageCard internships={filteredInternships} />
             </div>
           </div>
         </div>

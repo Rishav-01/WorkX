@@ -1,13 +1,11 @@
 import React from "react";
 
-const InternshipPageCard = ({ filteredInternships }) => {
+const InternshipPageCard = ({ internships }) => {
   return (
     <div>
-      {filteredInternships.length === 0
+      {internships.length === 0
         ? "No Internships"
-        : filteredInternships.map((item, idx) => (
-            <div key={idx}>{item.category}</div>
-          ))}
+        : internships.map((item, idx) => <div key={idx}>{item.category}</div>)}
     </div>
   );
 };
