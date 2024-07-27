@@ -16,6 +16,7 @@ const courseData = [
 const internshipsData = [
   {
     title: "Actively Hiring",
+    role: "Software Developer Intern",
     company: "Work X",
     location: "Mumbai",
     salary: "₹ 8,000 - 12,000 / month",
@@ -25,6 +26,7 @@ const internshipsData = [
   },
   {
     title: "Actively hiring",
+    role: "Software Developer Intern",
     company: "CollegeDekho.com",
     location: "Gurgaon",
     salary: "₹ 10,000 / month",
@@ -34,6 +36,7 @@ const internshipsData = [
   },
   {
     title: "Actively hiring",
+    role: "Software Developer Intern",
     company: "Internshala Trainings",
     location: "Gurgaon",
     salary: "₹ 18,000 / month",
@@ -43,6 +46,7 @@ const internshipsData = [
   },
   {
     title: "Actively hiring",
+    role: "Software Developer Intern",
     company: "More Retail Private Limited",
     location: "Bangalore",
     salary: "₹ 35,000 /month",
@@ -52,6 +56,7 @@ const internshipsData = [
   },
   {
     title: "Actively hiring",
+    role: "Software Developer Intern",
     company: "More Retail Private Limited",
     location: "Bangalore",
     salary: "₹ 35,000 /month",
@@ -61,6 +66,7 @@ const internshipsData = [
   },
   {
     title: "Actively hiring",
+    role: "Software Developer Intern",
     company: "More Retail Private Limited",
     location: "Bangalore",
     salary: "₹ 35,000 /month",
@@ -70,6 +76,7 @@ const internshipsData = [
   },
   {
     title: "Actively hiring",
+    role: "Software Developer Intern",
     company: "More Retail Private Limited",
     location: "Bangalore",
     salary: "₹ 35,000 /month",
@@ -79,6 +86,7 @@ const internshipsData = [
   },
   {
     title: "Actively hiring",
+    role: "Data Analyst Intern",
     company: "More Retail Private Limited",
     location: "Bangalore",
     salary: "₹ 35,000 /month",
@@ -91,6 +99,7 @@ const internshipsData = [
 const jobsData = [
   {
     title: "Actively hiring",
+    role: "Software Developer",
     company: "XYZ Company",
     location: "Noida",
     salary: "₹ 10 LPA",
@@ -100,6 +109,7 @@ const jobsData = [
   },
   {
     title: "Actively hiring",
+    role: "Software Developer",
     company: "XYZ Company",
     location: "Noida",
     salary: "₹ 10 LPA",
@@ -109,6 +119,7 @@ const jobsData = [
   },
   {
     title: "Actively hiring",
+    role: "Data Analyst",
     company: "XYZ Company",
     location: "Noida",
     salary: "₹ 10 LPA",
@@ -119,6 +130,7 @@ const jobsData = [
   {
     title: "Actively hiring",
     company: "XYZ Company",
+    role: "Software Engineer",
     location: "Noida",
     salary: "₹ 10 LPA",
     experienceRequired: "2 Years of experience",
@@ -128,6 +140,7 @@ const jobsData = [
   {
     title: "Actively hiring",
     company: "XYZ Company",
+    role: "Product Manager",
     location: "Noida",
     salary: "₹ 10 LPA",
     experienceRequired: "2 Years of experience",
@@ -137,9 +150,7 @@ const jobsData = [
 ];
 
 const categories = [
-  {
-    title: "Big brands",
-  },
+  { title: "Big brands" },
   { title: "Work from home" },
   { title: "Part-time" },
   { title: "MBA" },
