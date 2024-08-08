@@ -39,7 +39,7 @@ const JobPageCard = ({ item }) => {
         </div>
         <div>
           <h2 className="font-medium">Salary</h2>
-          <h3>{item.salary}</h3>
+          <h3>₹ {item.salary} LPA</h3>
         </div>
       </div>
 

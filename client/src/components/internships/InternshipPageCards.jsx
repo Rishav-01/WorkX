@@ -33,7 +33,7 @@ const InternshipPageCard = ({ item }) => {
       <h2 className="font-semibold">{item.company}</h2>
 
       {/* Details  */}
-      <div className="flex gap-20 mt-4">
+      <div className="flex gap-14 mt-4">
         <div>
           <h3 className="font-medium">{item.location}</h3>
           <h3 className="font-normal">{item.type}</h3>
@@ -45,7 +45,7 @@ const InternshipPageCard = ({ item }) => {
         </div>
         <div>
           <h2 className="font-medium">Stipend</h2>
-          <h3>{item.salary}</h3>
+          <h3>₹ {item.salary} / month</h3>
         </div>
       </div>
 

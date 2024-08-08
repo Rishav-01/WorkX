@@ -1,12 +1,11 @@
 import React from "react";
-import { workXLogo } from "../../constants";
 import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
   const navigate = useNavigate();
   return (
     <footer className="w-full mt-5">
-      <div className="bg-blue-600 flex mx-auto rounded-md max-w-[80vw] items-center justify-between px-4 py-2 lg:px-0">
+      <div className="bg-blue-600 flex mx-auto rounded-md max-w-[90vw] items-center justify-between px-4 py-2 lg:px-0">
         <div className="p-4 inline-flex items-center">
           <p className="text-white">Empower your career with WorkX today</p>
         </div>
@@ -28,7 +27,7 @@ const Footer = () => {
         </div>
       </div>
       <hr className="my-3" />
-      <div className=" bg-gray-700 rounded-md p-3 mx-auto flex max-w-[80vw] flex-col items-start space-x-8 md:flex-row">
+      <div className=" bg-gray-700 rounded-md p-3 mx-auto flex max-w-[90vw] flex-col items-start space-x-8 md:flex-row">
         <div className="mt-8 grid grid-cols-3 gap-6 md:mt-0 lg:w-3/4 lg:grid-cols-4">
           <div className="mb-8 lg:mb-0">
             <p className="mb-6 text-lg font-semibold text-white">

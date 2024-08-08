@@ -5,7 +5,7 @@ import { internshipsData } from "../../constants";
 
 const InternshipCards = ({ category }) => {
   const filteredInternships = internshipsData.filter((item) => {
-    return item.category === category;
+    return item.category === category || item.type === category;
   });
 
   const slideLeft = () => {

@@ -19,13 +19,14 @@ const Internships = () => {
     partTime: false,
     workFromHome: false,
   }); // Either WFH or part time
+  const stipendRange = useRef();
 
   // States for smaller screens
   // const categorySmall = useRef();
   // const locationSmall = useRef();
   // const filterSmall = useRef();
 
-  const handleFilter = (e) => {
+  const handleFilterCheckBox = (e) => {
     const { id, checked } = e.target;
     filter.current = {
       ...filter.current,
@@ -33,8 +34,12 @@ const Internships = () => {
     };
   };
 
-  const handleFilterSubmit = () => {
+  const handleFilterSubmit = (e) => {
+    e.preventDefault();
+    if (isFilterDivAvailable) setisFilterDivAvailable(false);
     // console.log(category.current.value, location.current.value, filter.current);
+    let stipendVal = stipendRange.current.value * 1000;
+
     let wfh = false,
       partTime = false;
     if (filter.current.partTime) partTime = true;
@@ -73,6 +78,13 @@ const Internships = () => {
     else if (wfh) totalInternships = wfhInternships;
     else totalInternships = internships;
 
+    console.log(totalInternships);
+
+    totalInternships = totalInternships.filter((item) => {
+      let salary = parseInt(item.salary.replace(/,/g, ""));
+      return salary >= stipendVal;
+    });
+
     setFilteredInternships(totalInternships);
   };
   // console.log(filteredInternships);
@@ -83,7 +95,7 @@ const Internships = () => {
       <div className="flex border-gray-500 my-2 max-w-full bg-gray-100">
         {/* Filters section  for bigger screens */}
         {isAboveSmallScreens && (
-          <div className="sticky h-fit top-5 max-w-1/6 bg-white mt-2 border-gray-500 border my-2 rounded p-3 text-wrap ml-5 flex flex-col">
+          <form className="sticky h-fit top-5 max-w-1/6 bg-white mt-2 border-gray-500 border my-2 rounded p-3 text-wrap ml-5 flex flex-col">
             <p className="text-center flex items-center justify-center">
               <CiFilter color="blue" />
               Filters
@@ -109,12 +121,16 @@ const Internships = () => {
 
             <div className="flex mt-3 mx-auto flex-col items-start justify-center gap-2">
               <div className="flex gap-4">
-                <input onChange={handleFilter} type="checkbox" id="partTime" />
+                <input
+                  onChange={handleFilterCheckBox}
+                  type="checkbox"
+                  id="partTime"
+                />
                 <label htmlFor="partTime">Part-Time</label>
               </div>
               <div className="flex gap-4">
                 <input
-                  onChange={handleFilter}
+                  onChange={handleFilterCheckBox}
                   type="checkbox"
                   id="workFromHome"
                 />
@@ -123,7 +139,12 @@ const Internships = () => {
             </div>
             <div className="mt-2 flex flex-col gap-2">
               <p>Desired minimum monthly Stipend (&#8377;)</p>
-              <input type="range" id="stipend-range" />
+              <input
+                type="range"
+                id="stipend-range"
+                max={10}
+                ref={stipendRange}
+              />
               <label htmlFor="stipend-range" className="flex justify-between">
                 <p>0</p>
                 <p>2K</p>
@@ -142,18 +163,7 @@ const Internships = () => {
             <p className="mt-3 cursor-pointer text-end text-blue-400">
               Clear All
             </p>
-            <div className="flex gap-1 items-center">
-              <input
-                className="ml-4 p-1 my-2 border-gray-500 rounded-md border outline-none"
-                type="text"
-                placeholder="Eg - Design, Mumbai"
-              />
-              <CiSearch
-                size={30}
-                className="bg-blue-500 text-white cursor-pointer rounded"
-              />
-            </div>
-          </div>
+          </form>
         )}
 
         {/* Internships card showcase section  */}
@@ -169,7 +179,7 @@ const Internships = () => {
                 Filters
               </p>
               {isFilterDivAvailable && (
-                <div className="z-10 max-w-1/6 absolute top-4 right-[50%] bg-white mt-2 border-gray-500 border my-2 rounded p-3 text-wrap ml-5 flex flex-col">
+                <form className="z-10 max-w-1/6 absolute top-4 right-[50%] bg-white mt-2 border-gray-500 border my-2 rounded p-3 text-wrap ml-5 flex flex-col">
                   <div className="flex flex-col gap-1">
                     <p>Profile</p>
                     <input
@@ -191,7 +201,7 @@ const Internships = () => {
                   <div className="flex mt-3 mx-auto flex-col items-start justify-center gap-2">
                     <div className="flex gap-4">
                       <input
-                        onChange={handleFilter}
+                        onChange={handleFilterCheckBox}
                         type="checkbox"
                         id="partTime"
                       />
@@ -199,7 +209,7 @@ const Internships = () => {
                     </div>
                     <div className="flex gap-4">
                       <input
-                        onChange={handleFilter}
+                        onChange={handleFilterCheckBox}
                         type="checkbox"
                         id="workFromHome"
                       />
@@ -208,7 +218,12 @@ const Internships = () => {
                   </div>
                   <div className="mt-2 flex flex-col gap-2">
                     <p>Desired minimum monthly Stipend (&#8377;)</p>
-                    <input type="range" id="stipend-range" />
+                    <input
+                      type="range"
+                      id="stipend-range"
+                      ref={stipendRange}
+                      max={10}
+                    />
                     <label
                       htmlFor="stipend-range"
                       className="flex justify-between"
@@ -230,7 +245,7 @@ const Internships = () => {
                   <p className="mt-3 cursor-pointer text-end text-blue-400">
                     Clear All
                   </p>
-                </div>
+                </form>
               )}
             </div>
           )}
