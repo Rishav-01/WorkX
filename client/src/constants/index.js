@@ -15,6 +15,7 @@ const courseData = [
 
 const internshipsData = [
   {
+    id: 1,
     title: "Actively Hiring",
     role: "Software Developer Intern",
     company: "Work X",
@@ -25,6 +26,7 @@ const internshipsData = [
     type: "Work from home",
   },
   {
+    id: 2,
     title: "Actively hiring",
     role: "Software Developer Intern",
     company: "CollegeDekho.com",
@@ -35,6 +37,7 @@ const internshipsData = [
     type: "Work from home",
   },
   {
+    id: 3,
     title: "Actively hiring",
     role: "Software Developer Intern",
     company: "Internshala Trainings",
@@ -45,6 +48,7 @@ const internshipsData = [
     type: "Work from home",
   },
   {
+    id: 4,
     title: "Actively hiring",
     role: "Software Developer Intern",
     company: "More Retail Private Limited",
@@ -55,6 +59,7 @@ const internshipsData = [
     type: "Work from home",
   },
   {
+    id: 5,
     title: "Actively hiring",
     role: "Software Developer Intern",
     company: "More Retail Private Limited",
@@ -65,6 +70,7 @@ const internshipsData = [
     type: "Work from home",
   },
   {
+    id: 6,
     title: "Actively hiring",
     role: "Software Developer Intern",
     company: "More Retail Private Limited",
@@ -75,6 +81,7 @@ const internshipsData = [
     type: "Part time",
   },
   {
+    id: 7,
     title: "Actively hiring",
     role: "Software Developer Intern",
     company: "More Retail Private Limited",
@@ -85,6 +92,7 @@ const internshipsData = [
     type: "Part time",
   },
   {
+    id: 8,
     title: "Actively hiring",
     role: "Data Analyst Intern",
     company: "More Retail Private Limited",
@@ -98,6 +106,7 @@ const internshipsData = [
 
 const jobsData = [
   {
+    id: 1,
     title: "Actively hiring",
     role: "Software Developer",
     company: "XYZ Company",
@@ -108,6 +117,7 @@ const jobsData = [
     type: "Part time",
   },
   {
+    id: 2,
     title: "Actively hiring",
     role: "Software Developer",
     company: "XYZ Company",
@@ -118,6 +128,7 @@ const jobsData = [
     type: "Part time",
   },
   {
+    id: 3,
     title: "Actively hiring",
     role: "Software Developer",
     company: "XYZ Company",
@@ -128,6 +139,7 @@ const jobsData = [
     type: "Part time",
   },
   {
+    id: 4,
     title: "Actively hiring",
     role: "Software Developer",
     company: "XYZ Company",
@@ -138,6 +150,7 @@ const jobsData = [
     type: "Part time",
   },
   {
+    id: 5,
     title: "Actively hiring",
     role: "Software Developer",
     company: "XYZ Company",
@@ -148,6 +161,7 @@ const jobsData = [
     type: "Part time",
   },
   {
+    id: 6,
     title: "Actively hiring",
     role: "Data Analyst",
     company: "XYZ Company",
@@ -158,6 +172,7 @@ const jobsData = [
     type: "Part time",
   },
   {
+    id: 7,
     title: "Actively hiring",
     company: "XYZ Company",
     role: "Software Engineer",
@@ -168,6 +183,7 @@ const jobsData = [
     type: "Part time",
   },
   {
+    id: 8,
     title: "Actively hiring",
     company: "XYZ Company",
     role: "Product Manager",
@@ -180,14 +196,14 @@ const jobsData = [
 ];
 
 const categories = [
-  { title: "Big brands" },
-  { title: "Work from home" },
-  { title: "Part time" },
-  { title: "MBA" },
-  { title: "Engineering" },
-  { title: "Media" },
-  { title: "Design" },
-  { title: "Data Science" },
+  { id: 1, title: "Big brands" },
+  { id: 2, title: "Work from home" },
+  { id: 3, title: "Part time" },
+  { id: 4, title: "MBA" },
+  { id: 5, title: "Engineering" },
+  { id: 6, title: "Media" },
+  { id: 7, title: "Design" },
+  { id: 8, title: "Data Science" },
 ];
 
 export { workXLogo, courseData, internshipsData, categories, jobsData };
