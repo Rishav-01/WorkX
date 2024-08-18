@@ -1,6 +1,7 @@
 import React from "react";
 import { IoIosTrendingUp } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import { FaBusinessTime } from "react-icons/fa";
 
 const JobPageCards = ({ jobs }) => {
   return (
@@ -36,11 +37,17 @@ const JobPageCard = ({ item }) => {
       <h2 className="font-semibold">{item.company}</h2>
 
       {/* Details  */}
-      <div className="flex gap-52 mt-4">
+      <div className="flex gap-24 mt-4">
         <div>
           <h3 className="font-medium">{item.location}</h3>
           <h3 className="font-normal">{item.type}</h3>
           <h3>Start Date - Immediately</h3>
+        </div>
+        <div>
+          <h3 className="flex gap-1 items-center">
+            <FaBusinessTime /> Experience
+          </h3>
+          <h3>0 - {item.experienceRequired} years</h3>
         </div>
         <div>
           <h2 className="font-medium">Salary</h2>

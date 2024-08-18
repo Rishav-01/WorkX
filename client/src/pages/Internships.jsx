@@ -21,11 +21,6 @@ const Internships = () => {
   }); // Either WFH or part time
   const stipendRange = useRef();
 
-  // States for smaller screens
-  // const categorySmall = useRef();
-  // const locationSmall = useRef();
-  // const filterSmall = useRef();
-
   const handleFilterCheckBox = (e) => {
     const { id, checked } = e.target;
     filter.current = {
