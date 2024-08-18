@@ -1,19 +1,24 @@
 import React from "react";
 import { IoIosTrendingUp } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 const JobPageCards = ({ jobs }) => {
   return (
     <div>
       {jobs.length === 0
         ? "No Jobs"
-        : jobs.map((item, idx) => <JobPageCard key={idx} item={item} />)}
+        : jobs.map((item) => <JobPageCard key={item.id} item={item} />)}
     </div>
   );
 };
 
 const JobPageCard = ({ item }) => {
+  const navigate = useNavigate();
   return (
-    <div className="shadow-lg bg-white hover:bg-slate-100 my-4 p-2 cursor-pointer hover:scale-105 transition max-w-[600px] duration-200 rounded-md border">
+    <div
+      onClick={() => navigate(`/jobs/jobDetails/${item.id}`)}
+      className="shadow-lg bg-white hover:bg-slate-100 my-4 p-2 cursor-pointer hover:scale-105 transition max-w-[600px] duration-200 rounded-md border"
+    >
       {/* Heading  */}
       <div className="p-2 flex justify-between">
         <div className="inline-flex items-center gap-1 text-lg font-semibold">

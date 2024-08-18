@@ -24,6 +24,15 @@ const internshipsData = [
     duration: "3 Months",
     category: "Big brands",
     type: "Work from home",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit culpa molestiae explicabo, nisi perferendis dolores iste. Inventore sapiente quia odio rerum amet. Maiores a quidem ratione ducimus veritatis nesciunt ex nam consectetur? Quaerat atque eligendi dolores eius dolorum iure nobis!",
+    responsibilities: [
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+    ],
+    skillsRequired: ["React", "Node.js", "Express", "Databases", "Engineering"],
   },
   {
     id: 2,
@@ -35,6 +44,15 @@ const internshipsData = [
     duration: "3 Months",
     category: "Big brands",
     type: "Work from home",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit culpa molestiae explicabo, nisi perferendis dolores iste. Inventore sapiente quia odio rerum amet. Maiores a quidem ratione ducimus veritatis nesciunt ex nam consectetur? Quaerat atque eligendi dolores eius dolorum iure nobis!",
+    responsibilities: [
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+    ],
+    skillsRequired: ["React", "Node.js", "Express", "Databases", "Engineering"],
   },
   {
     id: 3,
@@ -46,6 +64,15 @@ const internshipsData = [
     duration: "6 Months",
     category: "Engineering",
     type: "Work from home",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit culpa molestiae explicabo, nisi perferendis dolores iste. Inventore sapiente quia odio rerum amet. Maiores a quidem ratione ducimus veritatis nesciunt ex nam consectetur? Quaerat atque eligendi dolores eius dolorum iure nobis!",
+    responsibilities: [
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+    ],
+    skillsRequired: ["React", "Node.js", "Express", "Databases", "Engineering"],
   },
   {
     id: 4,
@@ -57,6 +84,15 @@ const internshipsData = [
     duration: "3 Months",
     category: "Engineering",
     type: "Work from home",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit culpa molestiae explicabo, nisi perferendis dolores iste. Inventore sapiente quia odio rerum amet. Maiores a quidem ratione ducimus veritatis nesciunt ex nam consectetur? Quaerat atque eligendi dolores eius dolorum iure nobis!",
+    responsibilities: [
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+    ],
+    skillsRequired: ["React", "Node.js", "Express", "Databases", "Engineering"],
   },
   {
     id: 5,
@@ -68,6 +104,15 @@ const internshipsData = [
     duration: "3 Months",
     category: "Engineering",
     type: "Work from home",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit culpa molestiae explicabo, nisi perferendis dolores iste. Inventore sapiente quia odio rerum amet. Maiores a quidem ratione ducimus veritatis nesciunt ex nam consectetur? Quaerat atque eligendi dolores eius dolorum iure nobis!",
+    responsibilities: [
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+    ],
+    skillsRequired: ["React", "Node.js", "Express", "Databases", "Engineering"],
   },
   {
     id: 6,
@@ -79,6 +124,15 @@ const internshipsData = [
     duration: "3 Months",
     category: "Engineering",
     type: "Part time",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit culpa molestiae explicabo, nisi perferendis dolores iste. Inventore sapiente quia odio rerum amet. Maiores a quidem ratione ducimus veritatis nesciunt ex nam consectetur? Quaerat atque eligendi dolores eius dolorum iure nobis!",
+    responsibilities: [
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+    ],
+    skillsRequired: ["React", "Node.js", "Express", "Databases", "Engineering"],
   },
   {
     id: 7,
@@ -90,6 +144,15 @@ const internshipsData = [
     duration: "3 Months",
     category: "Engineering",
     type: "Part time",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit culpa molestiae explicabo, nisi perferendis dolores iste. Inventore sapiente quia odio rerum amet. Maiores a quidem ratione ducimus veritatis nesciunt ex nam consectetur? Quaerat atque eligendi dolores eius dolorum iure nobis!",
+    responsibilities: [
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+    ],
+    skillsRequired: ["React", "Node.js", "Express", "Databases", "Engineering"],
   },
   {
     id: 8,
@@ -101,6 +164,15 @@ const internshipsData = [
     duration: "3 Months",
     category: "Data Science",
     type: "Work from home",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit culpa molestiae explicabo, nisi perferendis dolores iste. Inventore sapiente quia odio rerum amet. Maiores a quidem ratione ducimus veritatis nesciunt ex nam consectetur? Quaerat atque eligendi dolores eius dolorum iure nobis!",
+    responsibilities: [
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+    ],
+    skillsRequired: ["React", "Node.js", "Express", "Databases", "Engineering"],
   },
 ];
 
@@ -115,6 +187,15 @@ const jobsData = [
     experienceRequired: "2 Years of experience",
     category: "Big brands",
     type: "Part time",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit culpa molestiae explicabo, nisi perferendis dolores iste. Inventore sapiente quia odio rerum amet. Maiores a quidem ratione ducimus veritatis nesciunt ex nam consectetur? Quaerat atque eligendi dolores eius dolorum iure nobis!",
+    responsibilities: [
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+    ],
+    skillsRequired: ["React", "Node.js", "Express", "Databases", "Engineering"],
   },
   {
     id: 2,
@@ -126,6 +207,15 @@ const jobsData = [
     experienceRequired: "2 Years of experience",
     category: "Engineering",
     type: "Part time",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit culpa molestiae explicabo, nisi perferendis dolores iste. Inventore sapiente quia odio rerum amet. Maiores a quidem ratione ducimus veritatis nesciunt ex nam consectetur? Quaerat atque eligendi dolores eius dolorum iure nobis!",
+    responsibilities: [
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+    ],
+    skillsRequired: ["React", "Node.js", "Express", "Databases", "Engineering"],
   },
   {
     id: 3,
@@ -137,6 +227,15 @@ const jobsData = [
     experienceRequired: "2 Years of experience",
     category: "Engineering",
     type: "Part time",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit culpa molestiae explicabo, nisi perferendis dolores iste. Inventore sapiente quia odio rerum amet. Maiores a quidem ratione ducimus veritatis nesciunt ex nam consectetur? Quaerat atque eligendi dolores eius dolorum iure nobis!",
+    responsibilities: [
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+    ],
+    skillsRequired: ["React", "Node.js", "Express", "Databases", "Engineering"],
   },
   {
     id: 4,
@@ -148,6 +247,15 @@ const jobsData = [
     experienceRequired: "2 Years of experience",
     category: "Engineering",
     type: "Part time",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit culpa molestiae explicabo, nisi perferendis dolores iste. Inventore sapiente quia odio rerum amet. Maiores a quidem ratione ducimus veritatis nesciunt ex nam consectetur? Quaerat atque eligendi dolores eius dolorum iure nobis!",
+    responsibilities: [
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+    ],
+    skillsRequired: ["React", "Node.js", "Express", "Databases", "Engineering"],
   },
   {
     id: 5,
@@ -159,6 +267,15 @@ const jobsData = [
     experienceRequired: "2 Years of experience",
     category: "Engineering",
     type: "Part time",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit culpa molestiae explicabo, nisi perferendis dolores iste. Inventore sapiente quia odio rerum amet. Maiores a quidem ratione ducimus veritatis nesciunt ex nam consectetur? Quaerat atque eligendi dolores eius dolorum iure nobis!",
+    responsibilities: [
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+    ],
+    skillsRequired: ["React", "Node.js", "Express", "Databases", "Engineering"],
   },
   {
     id: 6,
@@ -170,6 +287,15 @@ const jobsData = [
     experienceRequired: "2 Years of experience",
     category: "Data Science",
     type: "Part time",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit culpa molestiae explicabo, nisi perferendis dolores iste. Inventore sapiente quia odio rerum amet. Maiores a quidem ratione ducimus veritatis nesciunt ex nam consectetur? Quaerat atque eligendi dolores eius dolorum iure nobis!",
+    responsibilities: [
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+    ],
+    skillsRequired: ["React", "Node.js", "Express", "Databases", "Engineering"],
   },
   {
     id: 7,
@@ -181,6 +307,15 @@ const jobsData = [
     experienceRequired: "2 Years of experience",
     category: "Engineering",
     type: "Part time",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit culpa molestiae explicabo, nisi perferendis dolores iste. Inventore sapiente quia odio rerum amet. Maiores a quidem ratione ducimus veritatis nesciunt ex nam consectetur? Quaerat atque eligendi dolores eius dolorum iure nobis!",
+    responsibilities: [
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+    ],
+    skillsRequired: ["React", "Node.js", "Express", "Databases", "Engineering"],
   },
   {
     id: 8,
@@ -192,6 +327,13 @@ const jobsData = [
     experienceRequired: "2 Years of experience",
     category: "MBA",
     type: "Work from home",
+    responsibilities: [
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, iusto?",
+    ],
+    skillsRequired: ["React", "Node.js", "Express", "Databases", "Engineering"],
   },
 ];
 
