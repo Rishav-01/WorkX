@@ -37,7 +37,7 @@ const InternshipDetails = () => {
             Apply for {internship.role}
           </h1>
           <form onSubmit={handleSubmit}>
-            <div className="shadow-lg mx-auto mt-20 bg-white my-4 p-2 w-[750px] rounded-md border">
+            <div className="shadow-lg mx-auto mt-20 bg-white my-4 p-2 max-w-[750px] rounded-md border">
               <RxCrossCircled
                 onClick={() => setIsApplyDivVisible(false)}
                 size={20}
@@ -45,7 +45,7 @@ const InternshipDetails = () => {
               />
               <h2 className="font-semibold mt-7 text-2xl">Application Form</h2>
               <div className="flex flex-col gap-4 mt-4">
-                <label>
+                <label className="flex gap-2">
                   Upload your resume:
                   <input type="file" onChange={handleResumeChange} />
                 </label>
@@ -60,7 +60,7 @@ const InternshipDetails = () => {
                     Availability:
                   </h2>
                   <div className="flex gap-4">
-                    <label>
+                    <label className="flex gap-1">
                       <input
                         type="radio"
                         name="availability"
@@ -70,7 +70,7 @@ const InternshipDetails = () => {
                       />
                       Morning
                     </label>
-                    <label>
+                    <label className="flex gap-1">
                       <input
                         type="radio"
                         name="availability"
@@ -97,7 +97,7 @@ const InternshipDetails = () => {
           <h1 className="text-center text-3xl font-bold mb-2">
             Applying for {internship.role}
           </h1>
-          <div className="shadow-lg mx-auto mt-20 bg-white my-4 p-2 w-[750px] rounded-md border">
+          <div className="shadow-lg mx-auto mt-20 bg-white my-4 p-2 max-w-[750px] rounded-md border">
             {/* Heading  */}
             <div className="p-2 flex justify-between">
               <div className="flex items-center gap-1 text-lg font-semibold">
@@ -201,7 +201,10 @@ const InternshipDetails = () => {
             {/* Apply Button  */}
             <div className="text-center mt-7">
               <button
-                onClick={() => setIsApplyDivVisible(true)}
+                onClick={() => {
+                  setIsApplyDivVisible(true);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
                 className="px-4 py-2 bg-blue-500 text-white mx"
               >
                 Apply Now

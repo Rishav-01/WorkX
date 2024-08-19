@@ -40,30 +40,30 @@ const SidebarComponent = ({ user }) => {
             <>
               <li className="flex gap-x-1 items-center rounded hover:shadow hover:bg-blue-500 my-1 p-1">
                 <IoMdHome className="inline-block" size={15} />
-                <Link href="/">Home</Link>
+                <Link to="/">Home</Link>
               </li>
               <li className="my-1 rounded hover:shadow hover:bg-blue-500 p-1">
                 <Link to="/internships">Internships</Link>
               </li>
               <li className="my-1 rounded hover:shadow hover:bg-blue-500 p-1">
-                <Link href="/">Jobs</Link>
+                <Link to="/jobs">Jobs</Link>
               </li>
 
               <li className="flex gap-x-1 items-center my-1 rounded hover:shadow hover:bg-blue-500 p-1">
                 <CgProfile />
-                <Link href="/">Profile</Link>
+                <Link to="/user">Profile</Link>
               </li>
             </>
           ) : (
             <>
               <li className="my-1 rounded hover:shadow hover:bg-blue-500 p-1">
-                <a href="/">Login</a>
+                <Link to="/login">Login</Link>
               </li>
               <li className="my-1 rounded hover:shadow hover:bg-blue-500 p-1">
-                <a href="/">Register</a>
+                <Link to="/register">Register</Link>
               </li>
               <li className="my-1 rounded hover:shadow hover:bg-blue-500 p-1">
-                <a href="/">Hire Talent</a>
+                <Link to="/recruiter-login">Hire Talent</Link>
               </li>
             </>
           )}
