@@ -41,7 +41,11 @@ const Navbar = () => {
       </div>
 
       {!isAboveSmallScreens ? (
-        <SidebarComponent jobSeeker={jobSeeker} recruiter={recruiter} />
+        <SidebarComponent
+          handleLogout={handleLogout}
+          jobSeeker={jobSeeker}
+          recruiter={recruiter}
+        />
       ) : (
         <div>
           <ul className="flex gap-14 items-center justify-center h-full">

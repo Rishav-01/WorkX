@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { IoMdHome, IoIosMenu } from "react-icons/io";
-import { CgProfile } from "react-icons/cg";
+// import { CgProfile } from "react-icons/cg";
 import { RxCross2 } from "react-icons/rx";
 import { Link } from "react-router-dom";
+import { IoLogOutOutline } from "react-icons/io5";
 
-const SidebarComponent = ({ jobSeeker, recruiter }) => {
+const SidebarComponent = ({ handleLogout, jobSeeker, recruiter }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const handleToggleSidebar = () => {
     setSidebarOpen((prevState) => !prevState);
@@ -48,9 +49,12 @@ const SidebarComponent = ({ jobSeeker, recruiter }) => {
                 <Link to="/jobs">Jobs</Link>
               </li>
 
-              <li className="flex gap-x-1 items-center my-1 rounded hover:shadow hover:bg-blue-500 p-1">
-                <CgProfile />
-                <Link to="/user">Profile</Link>
+              <li
+                onClick={handleLogout}
+                className="flex gap-x-1 items-center my-1 rounded hover:shadow hover:bg-blue-500 p-1"
+              >
+                <IoLogOutOutline />
+                <Link to="/">Logout</Link>
               </li>
             </>
           ) : (
