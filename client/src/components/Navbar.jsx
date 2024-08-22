@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { workXLogo } from "../constants";
 import useMediaQuery from "../hooks/useMediaQuery";
 import SidebarComponent from "./SidebarComponent";
@@ -6,13 +6,15 @@ import { IoIosSearch, IoMdArrowDropdown } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import InternshipsDropdown from "./dropdown/InternshipsDropdown";
 import JobsDropdown from "./dropdown/JobsDropdown";
+import { JobSeekerContext } from "../context/JobSeekerContext";
 
 const Navbar = () => {
-  const user = 1,
-    recruiter = null; // use context here
+  const { jobSeeker, setJobSeeker } = useContext(JobSeekerContext);
+  const [recruiter, setRecruiter] = useState(null);
   const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
   const [isInternshipsVisible, setIsIntershipsVisible] = useState(false);
   const [isJobsVisible, setIsJobsVisible] = useState(false);
+  const [isUserDivVisible, setIsUserDivVisible] = useState(false);
   const navigate = useNavigate();
 
   const toggleVisibleInternships = () => {
@@ -25,6 +27,13 @@ const Navbar = () => {
     setIsIntershipsVisible(false);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("jobSeeker");
+    setJobSeeker(null);
+    setIsUserDivVisible(false);
+    navigate("/");
+  };
+
   return (
     <nav className="flex justify-around">
       <div className="h-20 w-20 cursor-pointer" onClick={() => navigate("/")}>
@@ -32,11 +41,11 @@ const Navbar = () => {
       </div>
 
       {!isAboveSmallScreens ? (
-        <SidebarComponent user={user} />
+        <SidebarComponent jobSeeker={jobSeeker} recruiter={recruiter} />
       ) : (
         <div>
           <ul className="flex gap-14 items-center justify-center h-full">
-            {user && !recruiter ? (
+            {jobSeeker && !recruiter ? (
               <>
                 <li>
                   <div className="flex items-center gap-x-1 cursor-default">
@@ -67,11 +76,32 @@ const Navbar = () => {
                 </li>
                 <li>
                   <img
+                    onMouseEnter={() => setIsUserDivVisible(true)}
                     src={workXLogo}
-                    onClick={() => navigate("/user")}
                     alt="user-profile"
                     className="w-7 h-7 rounded-full cursor-pointer"
                   />
+                  {isUserDivVisible && (
+                    <div
+                      onMouseLeave={() => setIsUserDivVisible(false)}
+                      className="absolute rounded shadow-md z-10 p-2 bg-white"
+                    >
+                      <ul className="flex flex-col">
+                        <Link to={"/"} className="p-1">
+                          Home
+                        </Link>
+                        <Link
+                          to={`/user/${jobSeeker.id}/applications`}
+                          className="p-1"
+                        >
+                          My Applications
+                        </Link>
+                        <Link onClick={handleLogout} className="p-1">
+                          Logout
+                        </Link>
+                      </ul>
+                    </div>
+                  )}
                 </li>
               </>
             ) : (

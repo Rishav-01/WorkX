@@ -2,14 +2,14 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/footer/Footer";
 
-const User = () => {
+const MyApplications = () => {
   return (
     <>
       <Navbar />
-      User details
+      <section>Applications Page of the user</section>
       <Footer />
     </>
   );
 };
 
-export default User;
+export default MyApplications;

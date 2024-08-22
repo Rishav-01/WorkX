@@ -17,6 +17,7 @@ const Jobs = () => {
         <div className="flex flex-wrap gap-4">
           {categories.map((item) => (
             <button
+              key={item.id}
               id="jobs-categories"
               onClick={() => setSelectedCategory(item.title)}
               className={`px-2 py-1 text-sm ${

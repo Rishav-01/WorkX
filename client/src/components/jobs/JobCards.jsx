@@ -34,6 +34,7 @@ const JobCards = ({ category }) => {
           ) : (
             filteredJobs.map((item) => (
               <JobCard
+                key={item.id}
                 title={item.title}
                 company={item.company}
                 location={item.location}

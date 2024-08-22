@@ -18,7 +18,10 @@ const InternshipPageCard = ({ item }) => {
   const navigate = useNavigate();
   return (
     <div
-      onClick={() => navigate(`/internships/internshipDetails/${item.id}`)}
+      onClick={() => {
+        navigate(`/internships/internshipDetails/${item.id}`);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }}
       className="shadow-lg bg-white hover:bg-slate-100 my-4 p-2 cursor-pointer hover:scale-105 transition max-w-[700px] duration-200 rounded-md border"
     >
       {/* Heading  */}

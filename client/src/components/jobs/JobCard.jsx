@@ -14,8 +14,10 @@ const JobCard = ({ title, company, location, salary, yearsOfExperience }) => {
             <span className="text-sm font-bold">{company}</span>
           </div>
           <p className="mt-2 text-sm text-gray-600">{location}</p>
-          <p className="mt-2 text-sm text-gray-600">{salary}</p>
-          <p className="mt-2 text-sm text-gray-600">{yearsOfExperience}</p>
+          <p className="mt-2 text-sm text-gray-600">Salary - {salary} LPA</p>
+          <p className="mt-2 text-sm text-gray-600">
+            Experience - {yearsOfExperience} years
+          </p>
           <div className="mt-2">
             <span className="mb-1 mr-2 inline-block rounded-full bg-gray-100 px-2 py-1 text-[10px] font-semibold text-gray-900">
               Jobs

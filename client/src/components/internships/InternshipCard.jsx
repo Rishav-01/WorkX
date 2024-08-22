@@ -12,8 +12,8 @@ const InternshipCard = ({ title, company, location, salary, duration }) => {
           <span className="text-sm font-bold">{company}</span>
         </div>
         <p className="mt-2 text-sm text-gray-600">{location}</p>
-        <p className="mt-2 text-sm text-gray-600">{salary}</p>
-        <p className="mt-2 text-sm text-gray-600">{duration}</p>
+        <p className="mt-2 text-sm text-gray-600">Stipend - ₹{salary}</p>
+        <p className="mt-2 text-sm text-gray-600">Duration - {duration}</p>
         <div className="mt-2">
           <span className="mb-1 mr-2 inline-block rounded-full bg-gray-100 px-2 py-1 text-[10px] font-semibold text-gray-900">
             Internship

@@ -17,7 +17,10 @@ const JobPageCard = ({ item }) => {
   const navigate = useNavigate();
   return (
     <div
-      onClick={() => navigate(`/jobs/jobDetails/${item.id}`)}
+      onClick={() => {
+        navigate(`/jobs/jobDetails/${item.id}`);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }}
       className="shadow-lg bg-white hover:bg-slate-100 my-4 p-2 cursor-pointer hover:scale-105 transition max-w-[600px] duration-200 rounded-md border"
     >
       {/* Heading  */}
