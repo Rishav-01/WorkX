@@ -4,15 +4,8 @@ const JobseekerSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
     email: { type: String, required: true },
-    resume: {
-      type: Buffer,
-      contentType: String,
-      required: true,
-    },
-    appliedJobs: [{ type: mongoose.Schema.Types.ObjectId, ref: "AllJobs" }],
-    appliedInternships: [
-      { type: mongoose.Schema.Types.ObjectId, ref: "AllJobs" },
-    ],
+    appliedJobs: [{ type: mongoose.Schema.Types.ObjectId, ref: "Job" }],
+    appliedInternships: [{ type: mongoose.Schema.Types.ObjectId, ref: "Job" }],
     experience: { type: Number, required: true },
   },
   { timestamps: true }
