@@ -35,6 +35,7 @@ const InternshipCards = ({ category }) => {
             ) : (
               filteredInternships.map((item) => (
                 <InternshipCard
+                  id={item.id}
                   key={item.id}
                   title={item.title}
                   company={item.company}

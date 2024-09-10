@@ -7,10 +7,13 @@ import { Link, useNavigate } from "react-router-dom";
 import InternshipsDropdown from "./dropdown/InternshipsDropdown";
 import JobsDropdown from "./dropdown/JobsDropdown";
 import { JobSeekerContext } from "../context/JobSeekerContext";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase/firebase";
+import { RecruiterContext } from "../context/RecruiterContext";
 
-const Navbar = () => {
+const Navbar = ({ selectedTab }) => {
   const { jobSeeker, setJobSeeker } = useContext(JobSeekerContext);
-  const [recruiter, setRecruiter] = useState(null);
+  const { recruiter, setRecruiter } = useContext(RecruiterContext);
   const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
   const [isInternshipsVisible, setIsIntershipsVisible] = useState(false);
   const [isJobsVisible, setIsJobsVisible] = useState(false);
@@ -28,15 +31,28 @@ const Navbar = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("jobSeeker");
-    setJobSeeker(null);
-    setIsUserDivVisible(false);
-    navigate("/");
+    signOut(auth)
+      .then(() => {
+        localStorage.removeItem("jobSeeker");
+        localStorage.removeItem("recruiter");
+        setJobSeeker(null);
+        setRecruiter(null);
+        setIsUserDivVisible(false);
+        navigate("/");
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
     <nav className="flex justify-around">
-      <div className="h-20 w-20 cursor-pointer" onClick={() => navigate("/")}>
+      <div
+        className="h-20 w-20 cursor-pointer"
+        onClick={() => {
+          if (recruiter) {
+            navigate("/recruiter");
+          } else navigate("/");
+        }}
+      >
         <img src={workXLogo} className="h-18 w-18" alt="logo" />
       </div>
 
@@ -49,7 +65,7 @@ const Navbar = () => {
       ) : (
         <div>
           <ul className="flex gap-14 items-center justify-center h-full">
-            {jobSeeker && !recruiter ? (
+            {jobSeeker && (
               <>
                 <li>
                   <div className="flex items-center gap-x-1 cursor-default">
@@ -108,32 +124,53 @@ const Navbar = () => {
                   )}
                 </li>
               </>
-            ) : (
+            )}
+            {recruiter && (
               <>
-                <li>
-                  <Link
-                    to={"/login"}
-                    className="border-blue-600 border px-4 py-2 rounded-full"
-                  >
-                    Login
-                  </Link>
+                <li className={`${selectedTab === "home" && "underline"}`}>
+                  <Link to={"/recruiter"}>Home</Link>
+                </li>
+                <li className={`${selectedTab === "postJob" && "underline"}`}>
+                  <Link to={"/post-job"}>Post a Job</Link>
+                </li>
+                <li className={`${selectedTab === "myJobs" && "underline"}`}>
+                  <Link to={"/my-jobs"}>My jobs</Link>
                 </li>
                 <li>
-                  <Link
-                    to={"/register"}
-                    className="bg-blue-500 text-white px-4 py-2 rounded-full"
-                  >
-                    Register
+                  <Link to={"/"} onClick={handleLogout}>
+                    Logout
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    to={"/recruiter-login"}
-                    className="border-yellow-400 border hover:bg-yellow-500 hover:text-teal-50 transition duration-150 px-4 py-2 rounded-full"
-                  >
-                    Hire Talent
-                  </Link>
-                </li>
+              </>
+            )}
+            {!jobSeeker && !recruiter && (
+              <>
+                <>
+                  <li>
+                    <Link
+                      to={"/login"}
+                      className="border-blue-600 border px-4 py-2 rounded-full"
+                    >
+                      Login
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to={"/register"}
+                      className="bg-blue-500 text-white px-4 py-2 rounded-full"
+                    >
+                      Register
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to={"/recruiter-login"}
+                      className="border-yellow-400 border hover:bg-yellow-500 hover:text-teal-50 transition duration-150 px-4 py-2 rounded-full"
+                    >
+                      Hire Talent
+                    </Link>
+                  </li>
+                </>
               </>
             )}
             <li>

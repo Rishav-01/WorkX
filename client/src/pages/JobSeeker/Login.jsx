@@ -1,44 +1,56 @@
 import React, { useContext, useRef, useState } from "react";
-import { workXLogo } from "../constants";
-import {
-  signInWithPopup,
-  signInWithEmailAndPassword,
-  signOut,
-} from "firebase/auth";
-import { auth, provider } from "../firebase/firebase";
+import { workXLogo } from "../../constants";
+import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
+import { auth, provider } from "../../firebase/firebase";
 import { Link, useNavigate } from "react-router-dom";
-import { JobSeekerContext } from "../context/JobSeekerContext";
+import { JobSeekerContext } from "../../context/JobSeekerContext";
 
 const Login = () => {
   const navigate = useNavigate();
   const { jobSeeker, setJobSeeker } = useContext(JobSeekerContext);
+  const [error, setError] = useState(null);
   if (jobSeeker) navigate("/");
   const name = useRef();
   const email = useRef();
   const password = useRef();
 
   const handleLogin = () => {
-    console.log("Login without Google");
-    const jobSeekerValues = {
-      id: Date.now(),
-      username: name.current.value,
-      email: email.current.value,
-    };
-    setJobSeeker(jobSeekerValues);
-    localStorage.setItem("jobSeeker", JSON.stringify(jobSeekerValues));
-    navigate("/");
+    const nameValue = name.current.value;
+    const emailValue = email.current.value;
+    const passwordValue = password.current.value;
+    signInWithEmailAndPassword(auth, emailValue, passwordValue)
+      .then((userCredentials) => {
+        const user = userCredentials.user;
+        const jobSeekerValues = {
+          username: nameValue,
+          email: emailValue,
+          id: user.uid,
+        };
+        localStorage.setItem("jobSeeker", JSON.stringify(jobSeekerValues));
+        setJobSeeker(jobSeekerValues);
+        navigate("/");
+      })
+      .catch((error) => setError(error));
   };
 
   const handleLoginWithGoogle = () => {
     signInWithPopup(auth, provider)
-      .then((res) => {
-        console.log(res);
+      .then((result) => {
+        const jobSeekerValues = {
+          id: result.user.uid,
+          username: result.user.displayName,
+          email: result.user.email,
+        };
+        setJobSeeker(jobSeekerValues);
+        localStorage.setItem("jobSeeker", JSON.stringify(jobSeekerValues));
+        navigate("/");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => setError(error.message));
   };
 
   return (
     <section>
+      {error && alert(error)}
       <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
         <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
           <div className="mb-2 flex justify-center">

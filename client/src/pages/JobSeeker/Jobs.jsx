@@ -1,16 +1,16 @@
 import React, { useRef, useState } from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/footer/Footer";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/footer/Footer";
 import { CiFilter, CiSearch } from "react-icons/ci";
-import InternshipPageCards from "../components/internships/InternshipPageCards";
-import useMediaQuery from "../hooks/useMediaQuery";
-import { internshipsData } from "../constants";
+// import InternshipPageCards from "../components/jobs/InternshipPageCards";
+import useMediaQuery from "../../hooks/useMediaQuery";
+import { jobsData } from "../../constants";
+import JobPageCards from "../../components/jobs/JobPageCards";
 
-const Internships = () => {
+const Jobs = () => {
   const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
   const [isFilterDivAvailable, setisFilterDivAvailable] = useState(false);
-  const [filteredInternships, setFilteredInternships] =
-    useState(internshipsData);
+  const [filteredJobs, setFilteredJobs] = useState(jobsData);
 
   // States for the bigger screens filter options
   const category = useRef();
@@ -19,7 +19,7 @@ const Internships = () => {
     partTime: false,
     workFromHome: false,
   }); // Either WFH or part time
-  const stipendRange = useRef();
+  const salRange = useRef();
 
   const handleFilterCheckBox = (e) => {
     const { id, checked } = e.target;
@@ -32,16 +32,18 @@ const Internships = () => {
   const handleFilterSubmit = (e) => {
     e.preventDefault();
     if (isFilterDivAvailable) setisFilterDivAvailable(false);
+
     // console.log(category.current.value, location.current.value, filter.current);
-    let stipendVal = stipendRange.current.value * 1000;
+    let salVal = salRange.current.value;
+    console.log(salVal);
 
     let wfh = false,
       partTime = false;
     if (filter.current.partTime) partTime = true;
     if (filter.current.workFromHome) wfh = true;
 
-    // Filter internships on the basis of profile, location and wfh or part time
-    const internships = internshipsData.filter((item) => {
+    // Filter jobs on the basis of profile, location and wfh or part time
+    const jobs = jobsData.filter((item) => {
       return (
         category &&
         item.category
@@ -53,36 +55,29 @@ const Internships = () => {
           .includes(location.current.value.toLowerCase())
       );
     });
-    let partTimeInternships = [],
-      wfhInternships = [];
+    let partTimeJobs = [],
+      wfhJobs = [];
     if (partTime) {
-      partTimeInternships = internships.filter(
-        (item) => item.type == "Part time"
-      );
+      partTimeJobs = jobs.filter((item) => item.type == "Part time");
     }
     if (wfh) {
-      wfhInternships = internships.filter(
-        (item) => item.type == "Work from home"
-      );
+      wfhJobs = jobs.filter((item) => item.type == "Work from home");
     }
 
-    let totalInternships = [];
-    if (partTime && wfh)
-      totalInternships = partTimeInternships.concat(wfhInternships);
-    else if (partTime) totalInternships = partTimeInternships;
-    else if (wfh) totalInternships = wfhInternships;
-    else totalInternships = internships;
+    let totalJobs = [];
+    if (partTime && wfh) totalJobs = partTimeJobs.concat(wfhJobs);
+    else if (partTime) totalJobs = partTimeJobs;
+    else if (wfh) totalJobs = wfhJobs;
+    else totalJobs = jobs;
 
-    console.log(totalInternships);
-
-    totalInternships = totalInternships.filter((item) => {
+    totalJobs = totalJobs.filter((item) => {
       let salary = parseInt(item.salary.replace(/,/g, ""));
-      return salary >= stipendVal;
+      return salary >= salVal;
     });
 
-    setFilteredInternships(totalInternships);
+    setFilteredJobs(totalJobs);
   };
-  // console.log(filteredInternships);
+  // console.log(filteredJobs);
 
   return (
     <>
@@ -133,20 +128,15 @@ const Internships = () => {
               </div>
             </div>
             <div className="mt-2 flex flex-col gap-2">
-              <p>Desired minimum monthly Stipend (&#8377;)</p>
-              <input
-                type="range"
-                id="stipend-range"
-                max={10}
-                ref={stipendRange}
-              />
+              <p>Desired minimum CTC in Lakhs (&#8377;)</p>
+              <input type="range" id="stipend-range" ref={salRange} max={10} />
               <label htmlFor="stipend-range" className="flex justify-between">
-                <p>0</p>
-                <p>2K</p>
-                <p>4K</p>
-                <p>6K</p>
-                <p>8K</p>
-                <p>10K</p>
+                <p>0L</p>
+                <p>2L</p>
+                <p>4L</p>
+                <p>6L</p>
+                <p>8L</p>
+                <p>10L</p>
               </label>
             </div>
             <button
@@ -161,7 +151,7 @@ const Internships = () => {
           </form>
         )}
 
-        {/* Internships card showcase section  */}
+        {/* Jobs card showcase section  */}
         <div className="gap-1 p-4 mx-auto">
           {/* Filter section for small devices  */}
           {!isAboveSmallScreens && (
@@ -212,11 +202,11 @@ const Internships = () => {
                     </div>
                   </div>
                   <div className="mt-2 flex flex-col gap-2">
-                    <p>Desired minimum monthly Stipend (&#8377;)</p>
+                    <p>Desired minimum CTC (&#8377;) in Lakhs</p>
                     <input
                       type="range"
                       id="stipend-range"
-                      ref={stipendRange}
+                      ref={salRange}
                       max={10}
                     />
                     <label
@@ -224,11 +214,11 @@ const Internships = () => {
                       className="flex justify-between"
                     >
                       <p>0</p>
-                      <p>2K</p>
-                      <p>4K</p>
-                      <p>6K</p>
-                      <p>8K</p>
-                      <p>10K</p>
+                      <p>2L</p>
+                      <p>4L</p>
+                      <p>6L</p>
+                      <p>8L</p>
+                      <p>10L</p>
                     </label>
                   </div>
                   <button
@@ -248,7 +238,7 @@ const Internships = () => {
             {/* Internship Cards with Pagination  */}
             <div className="flex gap-10 items-center">
               {/* <FaChevronLeft className="cursor-pointer" size={20} /> */}
-              <InternshipPageCards internships={filteredInternships} />
+              <JobPageCards jobs={filteredJobs} />
               {/* <FaChevronRight className="cursor-pointer" size={20} /> */}
             </div>
           </div>
@@ -259,4 +249,4 @@ const Internships = () => {
   );
 };
 
-export default Internships;
+export default Jobs;

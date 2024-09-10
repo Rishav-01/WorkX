@@ -1,12 +1,12 @@
 import React, { useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import { internshipsData } from "../constants";
+import { internshipsData } from "../../constants";
 import { IoIosTrendingUp } from "react-icons/io";
 import { CiLocationOn } from "react-icons/ci";
 import { IoTimeOutline } from "react-icons/io5";
 import { PiMoneyDuotone } from "react-icons/pi";
-import Navbar from "../components/Navbar";
-import Footer from "../components/footer/Footer";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/footer/Footer";
 import { RxCrossCircled } from "react-icons/rx";
 
 const InternshipDetails = () => {
@@ -25,7 +25,7 @@ const InternshipDetails = () => {
     e.preventDefault();
     // Handle form submission logic here
     let whyHireMePara = whyHireMe.current.value;
-    console.log(internshipId, whyHireMePara, availability);
+    console.log(internshipId, whyHireMePara, availability, resume);
   };
 
   return (

@@ -1,11 +1,11 @@
 import React, { useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import { jobsData } from "../constants";
+import { jobsData } from "../../constants";
 import { IoIosTrendingUp } from "react-icons/io";
 import { CiLocationOn } from "react-icons/ci";
 import { PiMoneyDuotone } from "react-icons/pi";
-import Navbar from "../components/Navbar";
-import Footer from "../components/footer/Footer";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/footer/Footer";
 import { RxCrossCircled } from "react-icons/rx";
 import { FaBusinessTime } from "react-icons/fa";
 

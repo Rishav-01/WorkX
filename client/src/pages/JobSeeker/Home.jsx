@@ -1,8 +1,8 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
-import Statistics from "../components/footer/Statistics";
-import Footer from "../components/footer/Footer";
+import Navbar from "../../components/Navbar";
+import Hero from "../../components/Hero";
+import Statistics from "../../components/footer/Statistics";
+import Footer from "../../components/footer/Footer";
 
 const Home = () => {
   return (

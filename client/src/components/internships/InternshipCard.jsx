@@ -1,6 +1,8 @@
 import { IoIosTrendingUp } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
-const InternshipCard = ({ title, company, location, salary, duration }) => {
+const InternshipCard = ({ id, title, company, location, salary, duration }) => {
+  const navigate = useNavigate();
   return (
     <div className="max-w-64 rounded-md border mt-5 cursor-pointer hover:scale-105 transition duration-200">
       <div className="p-4">
@@ -20,6 +22,7 @@ const InternshipCard = ({ title, company, location, salary, duration }) => {
           </span>
         </div>
         <button
+          onClick={() => navigate(`/internships/internshipDetails/${id}`)}
           type="button"
           className="mt-2 w-full rounded-sm bg-black px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
         >
