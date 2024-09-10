@@ -15,7 +15,7 @@ const jobSchema = new mongoose.Schema({
     {
       id: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "JobSeeker",
+        ref: "Jobseeker",
         required: true,
       },
       isAccepted: { type: Boolean, required: true },
