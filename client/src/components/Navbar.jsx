@@ -95,30 +95,31 @@ const Navbar = ({ selectedTab }) => {
                   </div>
                 </li>
                 <li>
-                  <img
+                  <span
                     onMouseEnter={() => setIsUserDivVisible(true)}
                     src={workXLogo}
                     alt="user-profile"
-                    className="w-7 h-7 rounded-full cursor-pointer"
-                  />
+                    className="w-7 h-7 p-2 bg-orange-300 rounded-full cursor-pointer"
+                  >
+                    {jobSeeker.username}
+                  </span>
                   {isUserDivVisible && (
                     <div
                       onMouseLeave={() => setIsUserDivVisible(false)}
                       className="absolute rounded shadow-md z-10 p-2 bg-white"
                     >
                       <ul className="flex flex-col">
-                        <Link to={"/"} className="p-1">
-                          Home
-                        </Link>
-                        <Link
-                          to={`/user/${jobSeeker.id}/applications`}
-                          className="p-1"
-                        >
-                          My Applications
-                        </Link>
-                        <Link onClick={handleLogout} className="p-1">
-                          Logout
-                        </Link>
+                        <li className="p-1 rounded hover:bg-slate-200 transition duration-100">
+                          <Link to={"/"}>Home</Link>
+                        </li>
+                        <li className="p-1 rounded hover:bg-slate-200 transition duration-100">
+                          <Link to={`/user/${jobSeeker.id}/applications`}>
+                            My Applications
+                          </Link>
+                        </li>
+                        <li className="p-1 rounded hover:bg-slate-200 transition duration-100">
+                          <Link onClick={handleLogout}>Logout</Link>
+                        </li>
                       </ul>
                     </div>
                   )}

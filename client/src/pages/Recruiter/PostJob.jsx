@@ -13,6 +13,7 @@ const PostJob = () => {
   const locationRef = useRef(null);
   const durationRef = useRef(null);
   const [jobType, setJobType] = useState("");
+  const [companyLogo, setCompanyLogo] = useState(null);
 
   const addResponsibility = () => {
     setResponsibilities((prev) => [...prev, ""]);
@@ -282,6 +283,19 @@ const PostJob = () => {
             >
               Add Skill
             </button>
+          </div>
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <span>Company Logo -:</span>
+            </div>
+            <div>
+              <input
+                type="file"
+                accept=".jpg, .jpeg, .png"
+                className="block w-full text-sm text-gray-500 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-100 file:text-blue-700 hover:file:bg-blue-200"
+                onChange={(e) => setCompanyLogo(e.target.files[0])}
+              />
+            </div>
           </div>
           <button
             type="submit"

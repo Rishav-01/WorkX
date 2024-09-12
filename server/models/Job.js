@@ -10,18 +10,8 @@ const jobSchema = new mongoose.Schema({
   duration: { type: String, required: true },
   category: { type: String, required: true },
   type: { type: String, required: true },
-  status: { type: String, required: true },
-  applicants: [
-    {
-      id: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Jobseeker",
-        required: true,
-      },
-      isAccepted: { type: Boolean, required: true },
-      resume: { type: Buffer, required: true },
-    },
-  ],
+  status: { type: String, default: "Pending" },
+  applicants: [{ type: mongoose.Schema.Types.ObjectId, ref: "Application" }],
   aboutCompany: { type: String, required: true },
   description: { type: String, required: true },
   responsibilities: [{ type: String, required: true }],
