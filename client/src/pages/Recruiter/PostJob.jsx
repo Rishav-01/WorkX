@@ -14,7 +14,7 @@ const PostJob = () => {
   } = useForm();
   const [responsibilities, setResponsibilities] = useState([""]);
   const [companyLogo, setCompanyLogo] = useState(null);
-  const jobType = watch("jobType");
+  const jobType = watch("type");
 
   const handleAddResponsibility = () => {
     setResponsibilities([...responsibilities, ""]);
@@ -39,9 +39,9 @@ const PostJob = () => {
         ...data,
         skills,
         responsibilities,
-        datePosted: Date.now(),
       };
       const formData = new FormData();
+      // console.log(data);
       formData.append("logo", companyLogo);
       formData.append("data", JSON.stringify(data));
       const res = await axios.post(
@@ -49,7 +49,7 @@ const PostJob = () => {
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
-      // console.log(res.data);
+      console.log(res.data);
       reset();
       setResponsibilities([""]);
       toast.success("Job Posted Successfully", {
@@ -74,14 +74,14 @@ const PostJob = () => {
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="companyName"
+              htmlFor="company"
             >
               Company Name
             </label>
             <input
               type="text"
-              id="companyName"
-              {...register("companyName", { required: true })}
+              id="company"
+              {...register("company", { required: true })}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
             {errors.companyName && <div>{errors.companyName.message}</div>}
@@ -104,13 +104,13 @@ const PostJob = () => {
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="jobType"
+              htmlFor="type"
             >
               Job Type
             </label>
             <select
-              id="jobType"
-              {...register("jobType", { required: true })}
+              id="type"
+              {...register("type", { required: true })}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             >
               <option value="">Select Job Type</option>
@@ -155,14 +155,14 @@ const PostJob = () => {
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="jobCategory"
+              htmlFor="category"
             >
               Job Category
             </label>
             <input
               type="text"
-              id="jobCategory"
-              {...register("jobCategory", { required: true })}
+              id="category"
+              {...register("category", { required: true })}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
             {errors.jobCategory && <div>{errors.jobCategory.message}</div>}
@@ -170,13 +170,13 @@ const PostJob = () => {
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="jobDescription"
+              htmlFor="description"
             >
               Job Description
             </label>
             <textarea
-              id="jobDescription"
-              {...register("jobDescription", { required: true })}
+              id="description"
+              {...register("description", { required: true })}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
             {errors.jobDescription && (
@@ -186,13 +186,13 @@ const PostJob = () => {
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="modeOfWork"
+              htmlFor="mode"
             >
               Mode of Work
             </label>
             <select
-              id="modeOfWork"
-              {...register("modeOfWork", { required: true })}
+              id="mode"
+              {...register("mode", { required: true })}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             >
               <option value="">Select Mode of Work</option>
@@ -204,14 +204,14 @@ const PostJob = () => {
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="jobRole"
+              htmlFor="role"
             >
               Job Role
             </label>
             <input
               type="text"
-              id="jobRole"
-              {...register("jobRole", { required: true })}
+              id="role"
+              {...register("role", { required: true })}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
             {errors.jobRole && <div>{errors.jobRole.message}</div>}
@@ -280,6 +280,21 @@ const PostJob = () => {
             >
               Add Responsibility
             </button>
+          </div>
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="openings"
+            >
+              Job Openings
+            </label>
+            <input
+              type="number"
+              id="openings"
+              {...register("openings", { required: true })}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+            {errors.openings && <div>{errors.openings.message}</div>}
           </div>
           <div className="mb-4">
             <label

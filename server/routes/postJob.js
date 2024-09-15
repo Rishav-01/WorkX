@@ -17,13 +17,20 @@ const postJobRouter = express.Router();
 
 // After /api/postJob
 postJobRouter.post("/", upload.single("logo"), async (req, res) => {
-  // Process the uploaded file
-  const logo = req.file;
-  const data = JSON.parse(req.body);
-  const job = new Job(data);
-  job.logo = logo;
-  await job.save();
-  res.json(job);
+  try {
+    // Process the uploaded file
+    const fileName = req.file.originalname;
+    let { data } = req.body;
+    data = JSON.parse(data);
+    // console.log(data);
+    const job = new Job(data);
+    job.logo = fileName;
+    await job.save();
+    res.json(job);
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ message: "Error" });
+  }
 });
 
 export default postJobRouter;
