@@ -1,10 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import Navbar from "../../components/Navbar";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const PostJob = () => {
+  const navigate = useNavigate();
+  let email;
+
+  useEffect(() => {
+    try {
+      email = JSON.parse(localStorage.getItem("recruiter")).email;
+    } catch (err) {
+      localStorage.removeItem("recruiter");
+      navigate("/recruiter-login");
+    }
+  }, []);
+
   const {
     register,
     handleSubmit,
@@ -39,9 +52,9 @@ const PostJob = () => {
         ...data,
         skills,
         responsibilities,
+        recruiterEmail: email,
       };
       const formData = new FormData();
-      // console.log(data);
       formData.append("logo", companyLogo);
       formData.append("data", JSON.stringify(data));
       const res = await axios.post(
@@ -59,7 +72,7 @@ const PostJob = () => {
     } catch (error) {
       console.error(error);
       toast.error("Error posting Job", {
-        duration: 1000,
+        duration: 2000,
         position: "top-center",
       });
     }

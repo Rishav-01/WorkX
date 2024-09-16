@@ -4,6 +4,7 @@ import { RecruiterContext } from "../../context/RecruiterContext";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { toast } from "react-hot-toast";
 
 const RecruiterLogin = () => {
   const navigate = useNavigate();
@@ -30,7 +31,12 @@ const RecruiterLogin = () => {
         setRecruiter(recruiterValues);
         navigate("/recruiter");
       })
-      .catch((error) => setError(error));
+      .catch(() =>
+        toast.error("Invalid Credentials", {
+          duration: 2000,
+          position: "top-center",
+        })
+      );
   };
 
   return (

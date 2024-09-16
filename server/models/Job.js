@@ -18,6 +18,7 @@ const jobSchema = new mongoose.Schema(
     logo: { type: String, required: true },
     experience: { type: Number, default: 0 },
     mode: { type: String, required: true },
+    recruiterEmail: String,
   },
   { timestamps: true }
 );
