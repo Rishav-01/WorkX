@@ -387,8 +387,8 @@ const jobsData = [
 
 const categories = [
   { id: 1, title: "Big brands" },
-  { id: 2, title: "Work from home" },
-  { id: 3, title: "Part time" },
+  { id: 2, title: "Work from Home" },
+  { id: 3, title: "In Office" },
   { id: 4, title: "MBA" },
   { id: 5, title: "Engineering" },
   { id: 6, title: "Media" },

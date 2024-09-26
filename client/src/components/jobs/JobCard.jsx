@@ -2,14 +2,7 @@ import React from "react";
 import { IoIosTrendingUp } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 
-const JobCard = ({
-  id,
-  title,
-  company,
-  location,
-  salary,
-  yearsOfExperience,
-}) => {
+const JobCard = ({ id, company, location, salary, yearsOfExperience }) => {
   const navigate = useNavigate();
   return (
     <div>
@@ -17,13 +10,13 @@ const JobCard = ({
         <div className="p-4">
           <div className="w-52">
             <div className="flex gap-1 items-center">
-              <h2 className="text-xs font-semibold">{title}</h2>
+              <h2 className="text-xs font-semibold">Actively Hiring</h2>
               <IoIosTrendingUp size={20} />
             </div>
             <span className="text-sm font-bold">{company}</span>
           </div>
           <p className="mt-2 text-sm text-gray-600">{location}</p>
-          <p className="mt-2 text-sm text-gray-600">Salary - {salary} LPA</p>
+          <p className="mt-2 text-sm text-gray-600">Salary - ₹{salary} LPA</p>
           <p className="mt-2 text-sm text-gray-600">
             Experience - {yearsOfExperience} years
           </p>

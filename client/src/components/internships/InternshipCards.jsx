@@ -3,9 +3,9 @@ import useMediaQuery from "../../hooks/useMediaQuery";
 import { CiCircleChevLeft, CiCircleChevRight } from "react-icons/ci";
 import { internshipsData } from "../../constants";
 
-const InternshipCards = ({ category }) => {
-  const filteredInternships = internshipsData.filter((item) => {
-    return item.category === category || item.type === category;
+const InternshipCards = ({ category, allInternships }) => {
+  const filteredInternships = allInternships.filter((item) => {
+    return item.category === category || item.mode === category;
   });
 
   const slideLeft = () => {
@@ -28,16 +28,16 @@ const InternshipCards = ({ category }) => {
               isAboveSmallScreens ? "max-w-[1000px]" : "max-w-md"
             } h-full overflow-hidden whitespace-nowrap scroll-smooth`}
           >
-            {filteredInternships.length === 0 ? (
+            {!category && <p className="text-base">Select a Category</p>}
+            {category && filteredInternships.length === 0 ? (
               <p className="h-32 text-base w-full text-center">
                 No internships available for {category} !
               </p>
             ) : (
               filteredInternships.map((item) => (
                 <InternshipCard
-                  id={item.id}
-                  key={item.id}
-                  title={item.title}
+                  id={item._id}
+                  key={item._id}
                   company={item.company}
                   location={item.location}
                   salary={item.salary}

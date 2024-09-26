@@ -4,9 +4,9 @@ import { CiCircleChevLeft, CiCircleChevRight } from "react-icons/ci";
 import { jobsData } from "../../constants";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
-const JobCards = ({ category }) => {
-  const filteredJobs = jobsData.filter((item) => {
-    return item.category === category;
+const JobCards = ({ category, allJobs }) => {
+  const filteredJobs = allJobs.filter((item) => {
+    return item.category === category || item.mode === category;
   });
   const slideLeft = () => {
     let slider = document.getElementById("job-card");
@@ -27,20 +27,20 @@ const JobCards = ({ category }) => {
             isAboveSmallScreens ? "max-w-[1000px]" : "max-w-md"
           } h-full overflow-hidden whitespace-nowrap scroll-smooth`}
         >
-          {filteredJobs.length === 0 ? (
+          {!category && <p className="text-base">Select a category</p>}
+          {category && filteredJobs.length === 0 ? (
             <p className="h-32 text-base w-full text-center">
               No jobs available for {category} !
             </p>
           ) : (
             filteredJobs.map((item) => (
               <JobCard
-                id={item.id}
-                key={item.id}
-                title={item.title}
+                id={item._id}
+                key={item._id}
                 company={item.company}
                 location={item.location}
                 salary={item.salary}
-                yearsOfExperience={item.experienceRequired}
+                yearsOfExperience={item.experience}
               />
             ))
           )}

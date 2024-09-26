@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { jobsData } from "../../constants";
 import { IoIosTrendingUp } from "react-icons/io";
@@ -8,28 +8,106 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/footer/Footer";
 import { RxCrossCircled } from "react-icons/rx";
 import { FaBusinessTime } from "react-icons/fa";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const JobDetails = () => {
-  const jobId = Number(useParams().id);
-  const job = jobsData.find((item) => item.id === jobId);
+  const navigate = useNavigate();
+  const jobId = useParams().id;
+  // const job = jobsData.find((item) => item.id === jobId);
+  const [job, setJob] = useState();
   const [isApplyDivVisible, setIsApplyDivVisible] = useState(false);
   const [resume, setResume] = useState(null);
   const yearsOfExperience = useRef(null);
   const whyHireMe = useRef("");
+  const [isAlreadyApplied, setIsAlreadyApplied] = useState(false);
+  const [userId, setUserId] = useState(null);
+  const [name, setName] = useState(null);
+  const [email, setEmail] = useState(null);
+
+  // If job is already applied
+  const getAppliedJobs = async (userId) => {
+    try {
+      const res = await axios.get(
+        `http://localhost:3000/api/jobSeeker/${userId}`
+      );
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  // Load required Job
+  const getJob = async () => {
+    try {
+      const res = await axios.get(`http://localhost:3000/api/getJobs/${jobId}`);
+      setJob(res.data);
+    } catch (error) {
+      toast.error("Error Fetching Job", {
+        duration: 2000,
+        position: "top-center",
+      });
+    }
+  };
+
+  useEffect(() => {
+    try {
+      const jobSeeker = JSON.parse(localStorage.getItem("jobSeeker"));
+      setUserId(jobSeeker.id);
+      setName(jobSeeker.username);
+      setEmail(jobSeeker.email);
+      getJob();
+      getAppliedJobs(userId).then((res) => {
+        if (res.includes(jobId)) {
+          setIsAlreadyApplied(true);
+        }
+      });
+    } catch (error) {
+      localStorage.removeItem("jobSeeker");
+      navigate("/login");
+    }
+  }, [userId, setUserId, jobId]);
 
   const handleResumeChange = (event) => {
     setResume(event.target.files[0]);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Handle form submission logic here
-    console.log("Form submitted!");
     let whyHireMePara = whyHireMe.current.value;
     let yearsOfExperienceVal = Number(yearsOfExperience.current.value);
-    console.log(jobId, whyHireMePara, yearsOfExperienceVal);
-    whyHireMe.current.value = "";
-    yearsOfExperience.current.value = null;
+    const formData = new FormData();
+    formData.append("resume", resume);
+    formData.append(
+      "data",
+      JSON.stringify({
+        jobId,
+        userId,
+        coverLetter: whyHireMePara,
+        yearsOfExperience: yearsOfExperienceVal,
+        name,
+        email,
+      })
+    );
+
+    // API call to send data to server
+    try {
+      await axios.post("http://localhost:3000/api/apply/job", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      toast.success("Applied successfully", {
+        duration: 2000,
+        position: "top-center",
+      });
+      navigate("/jobs");
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to apply", {
+        duration: 2000,
+        position: "top-center",
+      });
+    }
   };
 
   return (
@@ -78,7 +156,7 @@ const JobDetails = () => {
       ) : (
         <div className="p-3">
           <h1 className="text-center text-3xl font-bold mb-2">
-            Applying for {job.role}
+            Applying for {job && job.role}
           </h1>
           <div className="shadow-lg mx-auto mt-20 bg-white my-4 p-2 max-w-[750px] rounded-md border">
             {/* Heading  */}
@@ -98,29 +176,29 @@ const JobDetails = () => {
             </div>
 
             {/* Title and Role  */}
-            <h1 className="mt-2 font-bold">{job.role}</h1>
-            <h2 className="font-semibold">{job.company}</h2>
+            <h1 className="mt-2 font-bold">{job && job.role}</h1>
+            <h2 className="font-semibold">{job && job.company}</h2>
 
             {/* Details  */}
             <div className="flex justify-between gap-14 mt-4">
               <div>
                 <h3 className="flex items-center gap-2 font-medium">
-                  <CiLocationOn /> {job.location}
+                  <CiLocationOn /> {job && job.location}
                 </h3>
-                <h3 className="font-normal">{job.type}</h3>
+                <h3 className="font-normal">{job && job.type}</h3>
                 <h3>Start Date - Immediately</h3>
               </div>
               <div>
                 <h3 className="flex gap-1 items-center">
                   <FaBusinessTime /> Experience
                 </h3>
-                <h3>0 - {job.experienceRequired} years</h3>
+                <h3>0 - {job && job.experience} years</h3>
               </div>
               <div>
                 <h2 className="flex items-center gap-2 font-medium">
                   <PiMoneyDuotone /> Salary
                 </h2>
-                <h3>₹ {job.salary} LPA</h3>
+                <h3>₹ {job && job.salary} LPA</h3>
               </div>
             </div>
 
@@ -132,31 +210,33 @@ const JobDetails = () => {
             <hr />
 
             {/* About company */}
-            <section>
+            {/* <section>
               <h1 className="font-semibold mt-10 text-2xl">
-                About {job.company}
+                About {job && job.company}
               </h1>
-              <h3>{job.aboutCompany}</h3>
-            </section>
+              <h3>{job && job.aboutCompany}</h3>
+            </section> */}
 
             {/* About role  */}
             <section>
               <h2 className="font-semibold mt-7 text-2xl">About Job</h2>
-              <h3>{job.description}</h3>
+              <h3>{job && job.description}</h3>
             </section>
 
             {/* Required Skills ?  */}
             <section>
               <h2 className="font-semibold mt-7 text-base">Required Skills</h2>
               <div className="flex mt-2 gap-3">
-                {job.skillsRequired.map((skill, idx) => (
-                  <h3
-                    key={idx}
-                    className="text-xs rounded-xl px-2 py-2 bg-blue-200"
-                  >
-                    {skill}
-                  </h3>
-                ))}
+                {job &&
+                  job.skills &&
+                  job.skills.map((skill, idx) => (
+                    <h3
+                      key={idx}
+                      className="text-xs rounded-xl px-2 py-2 bg-blue-200"
+                    >
+                      {skill}
+                    </h3>
+                  ))}
               </div>
             </section>
 
@@ -166,31 +246,34 @@ const JobDetails = () => {
                 Responsibilities -:
               </h2>
               <ul>
-                {job.responsibilities.map((responsibility, idx) => (
-                  <li key={idx} className="text-sm mt-2">
-                    {idx + 1}. {responsibility}
-                  </li>
-                ))}
+                {job &&
+                  job.responsibilities &&
+                  job.responsibilities.map((responsibility, idx) => (
+                    <li key={idx} className="text-sm mt-2">
+                      {idx + 1}. {responsibility}
+                    </li>
+                  ))}
               </ul>
             </section>
 
             {/* Number of Openings  */}
             <section>
               <h2 className="font-semibold text-base mt-7">
-                Number of Openings - <span>{job.openings}</span>
+                Number of Openings - <span>{job && job.openings}</span>
               </h2>
             </section>
 
             {/* Apply Button  */}
             <div className="text-center mt-7">
               <button
+                disabled={isAlreadyApplied}
                 onClick={() => {
                   setIsApplyDivVisible(true);
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
                 className="px-4 py-2 bg-blue-500 text-white mx"
               >
-                Apply Now
+                {isAlreadyApplied ? "Applied" : "Apply Now"}
               </button>
             </div>
           </div>

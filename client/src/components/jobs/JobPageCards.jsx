@@ -8,7 +8,7 @@ const JobPageCards = ({ jobs }) => {
     <div>
       {jobs.length === 0
         ? "No Jobs"
-        : jobs.map((item) => <JobPageCard key={item.id} item={item} />)}
+        : jobs.map((item) => <JobPageCard key={item._id} item={item} />)}
     </div>
   );
 };
@@ -18,7 +18,7 @@ const JobPageCard = ({ item }) => {
   return (
     <div
       onClick={() => {
-        navigate(`/jobs/jobDetails/${item.id}`);
+        navigate(`/jobs/jobDetails/${item._id}`);
         window.scrollTo({ top: 0, behavior: "smooth" });
       }}
       className="shadow-lg bg-white hover:bg-slate-100 my-4 p-2 cursor-pointer hover:scale-105 transition max-w-[600px] duration-200 rounded-md border"
@@ -43,14 +43,14 @@ const JobPageCard = ({ item }) => {
       <div className="flex gap-24 mt-4">
         <div>
           <h3 className="font-medium">{item.location}</h3>
-          <h3 className="font-normal">{item.type}</h3>
+          <h3 className="font-normal">Full Time</h3>
           <h3>Start Date - Immediately</h3>
         </div>
         <div>
           <h3 className="flex gap-1 items-center">
             <FaBusinessTime /> Experience
           </h3>
-          <h3>0 - {item.experienceRequired} years</h3>
+          <h3>0 - {item.experience} years</h3>
         </div>
         <div>
           <h2 className="font-medium">Salary</h2>
@@ -61,7 +61,7 @@ const JobPageCard = ({ item }) => {
       {/* Date Posted and Apply Now Button*/}
       <div className="mt-4">
         <h1>Posted on</h1>
-        <h1 className="text-green-400">28/06/2024</h1>
+        <h1 className="text-green-400">{item.createdAt.slice(0, 10)}</h1>
       </div>
     </div>
   );

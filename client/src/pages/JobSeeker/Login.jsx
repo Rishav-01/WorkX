@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { workXLogo } from "../../constants";
 import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
 import { auth, provider } from "../../firebase/firebase";
@@ -9,7 +9,6 @@ const Login = () => {
   const navigate = useNavigate();
   const { jobSeeker, setJobSeeker } = useContext(JobSeekerContext);
   const [error, setError] = useState(null);
-  if (jobSeeker) navigate("/");
   const name = useRef();
   const email = useRef();
   const password = useRef();
@@ -47,6 +46,10 @@ const Login = () => {
       })
       .catch((error) => setError(error.message));
   };
+
+  useEffect(() => {
+    if (jobSeeker) navigate("/");
+  }, [jobSeeker]);
 
   return (
     <section>

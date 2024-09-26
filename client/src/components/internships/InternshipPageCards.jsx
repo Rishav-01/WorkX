@@ -8,7 +8,7 @@ const InternshipPageCards = ({ internships }) => {
       {internships.length === 0
         ? "No Internships"
         : internships.map((item) => (
-            <InternshipPageCard key={item.id} item={item} />
+            <InternshipPageCard key={item._id} item={item} />
           ))}
     </div>
   );
@@ -16,10 +16,11 @@ const InternshipPageCards = ({ internships }) => {
 
 const InternshipPageCard = ({ item }) => {
   const navigate = useNavigate();
+
   return (
     <div
       onClick={() => {
-        navigate(`/internships/internshipDetails/${item.id}`);
+        navigate(`/internships/internshipDetails/${item._id}`);
         window.scrollTo({ top: 0, behavior: "smooth" });
       }}
       className="shadow-lg bg-white hover:bg-slate-100 my-4 p-2 cursor-pointer hover:scale-105 transition max-w-[700px] duration-200 rounded-md border"
@@ -32,7 +33,11 @@ const InternshipPageCard = ({ item }) => {
         </div>
         {/* Logo  */}
         <div>
-          <img src="img/work-x-logo.png" className="w-7" alt="company-logo" />
+          <img
+            src={`http://localhost:3000/uploads/${item.logo}`}
+            className="w-7"
+            alt="company-logo"
+          />
         </div>
       </div>
 
@@ -44,12 +49,12 @@ const InternshipPageCard = ({ item }) => {
       <div className="flex gap-14 mt-4">
         <div>
           <h3 className="font-medium">{item.location}</h3>
-          <h3 className="font-normal">{item.type}</h3>
+          <h3 className="font-normal">Internship ({item.mode})</h3>
           <h3>Start Date - Immediately</h3>
         </div>
         <div>
           <h3 className="font-medium">Duration</h3>
-          <h4>{item.duration}</h4>
+          <h4>{item.duration} months</h4>
         </div>
         <div>
           <h2 className="font-medium">Stipend</h2>
@@ -60,7 +65,7 @@ const InternshipPageCard = ({ item }) => {
       {/* Date Posted and Apply Now Button*/}
       <div className="mt-4">
         <h1>Posted on</h1>
-        <h1 className="text-green-400">28/06/2024</h1>
+        <h1 className="text-green-400">{item.createdAt.slice(0, 10)}</h1>
       </div>
     </div>
   );

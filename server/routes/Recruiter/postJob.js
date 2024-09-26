@@ -1,6 +1,6 @@
 import express from "express";
 import multer from "multer";
-import Job from "../models/Job.js";
+import Job from "../../models/Job.js";
 
 // Configure multer
 const storage = multer.diskStorage({
@@ -19,7 +19,7 @@ const postJobRouter = express.Router();
 postJobRouter.post("/", upload.single("logo"), async (req, res) => {
   try {
     // Process the uploaded file
-    const fileName = req.file.originalname;
+    const fileName = req.file.originalname + Date.now();
     let { data } = req.body;
     data = JSON.parse(data);
     // console.log(data);
@@ -29,7 +29,7 @@ postJobRouter.post("/", upload.single("logo"), async (req, res) => {
     res.json(job);
   } catch (error) {
     console.log(error);
-    res.status(400).json({ message: "Error" });
+    res.status(400).send("Error");
   }
 });
 

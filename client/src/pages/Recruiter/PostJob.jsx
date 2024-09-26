@@ -7,16 +7,17 @@ import { useNavigate } from "react-router-dom";
 
 const PostJob = () => {
   const navigate = useNavigate();
-  let email;
+  const [recruiterEmail, setRecruiterEmail] = useState(null);
 
   useEffect(() => {
     try {
-      email = JSON.parse(localStorage.getItem("recruiter")).email;
+      const recruiter = JSON.parse(localStorage.getItem("recruiter"));
+      setRecruiterEmail(recruiter.email);
     } catch (err) {
       localStorage.removeItem("recruiter");
       navigate("/recruiter-login");
     }
-  }, []);
+  }, [recruiterEmail]);
 
   const {
     register,
@@ -48,21 +49,22 @@ const PostJob = () => {
   const onSubmit = async (data) => {
     try {
       const skills = data.skills.split(",");
-      data = {
+      const updatedData = {
         ...data,
         skills,
         responsibilities,
-        recruiterEmail: email,
+        recruiterEmail,
       };
+      console.log(updatedData);
       const formData = new FormData();
       formData.append("logo", companyLogo);
-      formData.append("data", JSON.stringify(data));
+      formData.append("data", JSON.stringify(updatedData));
       const res = await axios.post(
         "http://localhost:3000/api/postJob",
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
-      console.log(res.data);
+      // console.log(res.data);
       reset();
       setResponsibilities([""]);
       toast.success("Job Posted Successfully", {
@@ -210,7 +212,7 @@ const PostJob = () => {
             >
               <option value="">Select Mode of Work</option>
               <option value="Work from Home">Work from Home</option>
-              <option value="Part Time">In Office</option>
+              <option value="In Office">In Office</option>
             </select>
             {errors.modeOfWork && <div>{errors.modeOfWork.message}</div>}
           </div>

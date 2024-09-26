@@ -1,9 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import InternshipCards from "./InternshipCards";
 import { categories } from "../../constants";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 export default function JobCards() {
-  const [selectedCategory, setSelectedCategory] = useState("Big brands");
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [allInternships, setAllInternships] = useState([]);
+
+  const getInternships = async () => {
+    try {
+      const res = await axios.get(
+        "http://localhost:3000/api/jobSeeker/internships"
+      );
+      // console.log(res.data);
+      setAllInternships(res.data);
+    } catch (error) {
+      toast.error("Error fetching Internships", {
+        duration: 2000,
+        position: "top-center",
+      });
+    }
+  };
+
+  useEffect(() => {
+    getInternships();
+  }, []);
+
   return (
     <div className="mt-14">
       <h1 className="text-center my-10 font-semibold text-3xl">
@@ -21,7 +44,7 @@ export default function JobCards() {
               id="internship-categories"
               onClick={() => setSelectedCategory(item.title)}
               className={`px-2 py-1 text-sm  ${
-                selectedCategory === item.title
+                selectedCategory && selectedCategory === item.title
                   ? "text-blue-500 border-blue-500 hover:text-blue-700"
                   : "text-gray-500 hover:text-gray-700 border-gray-300"
               } rounded-full border `}
@@ -32,7 +55,10 @@ export default function JobCards() {
         </div>
       </div>
       {/* Internship Listing Cards */}
-      <InternshipCards category={selectedCategory} />
+      <InternshipCards
+        category={selectedCategory}
+        allInternships={allInternships}
+      />
     </div>
   );
 }
