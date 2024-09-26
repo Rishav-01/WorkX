@@ -8,7 +8,10 @@ const storage = multer.diskStorage({
     cb(null, "./uploads");
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname);
+    let fileName = file.originalname.split(".");
+    fileName[0] += "_abcd";
+    fileName = fileName.join(".");
+    cb(null, fileName);
   },
 });
 const upload = multer({ storage });
@@ -19,14 +22,16 @@ const postJobRouter = express.Router();
 postJobRouter.post("/", upload.single("logo"), async (req, res) => {
   try {
     // Process the uploaded file
-    const fileName = req.file.originalname + Date.now();
+    let fileName = req.file.originalname.split(".");
+    fileName[0] += "_abcd";
+    fileName = fileName.join(".");
     let { data } = req.body;
     data = JSON.parse(data);
-    // console.log(data);
     const job = new Job(data);
     job.logo = fileName;
     await job.save();
-    res.json(job);
+    console.log(job);
+    res.json("Success");
   } catch (error) {
     console.log(error);
     res.status(400).send("Error");

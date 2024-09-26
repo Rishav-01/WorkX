@@ -101,7 +101,7 @@ const Navbar = ({ selectedTab }) => {
                     alt="user-profile"
                     className="w-7 h-7 p-2 bg-orange-300 rounded-full cursor-pointer"
                   >
-                    {jobSeeker.username}
+                    {jobSeeker.name ? jobSeeker.name : jobSeeker.username}
                   </span>
                   {isUserDivVisible && (
                     <div
