@@ -48,6 +48,11 @@ const SidebarComponent = ({ handleLogout, jobSeeker, recruiter }) => {
               <li className="my-1 rounded hover:shadow hover:bg-blue-500 p-1">
                 <Link to="/jobs">Jobs</Link>
               </li>
+              <li className="my-1 rounded hover:shadow hover:bg-blue-500 p-1">
+                <Link to={`/user/${jobSeeker.id}/applications`}>
+                  My Applications
+                </Link>
+              </li>
 
               <li
                 onClick={handleLogout}
