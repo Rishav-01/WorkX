@@ -168,7 +168,7 @@ const JobDetails = () => {
               {/* Logo  */}
               <div>
                 <img
-                  src={`${VITE_BACKEND_URL}/uploads/${job.logo}`}
+                  src={`${VITE_BACKEND_URL}/uploads/${job && job.logo}`}
                   className="w-7"
                   alt="company-logo"
                 />
