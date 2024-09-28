@@ -48,7 +48,7 @@ const JobPageCard = ({ item }) => {
       <div className="flex gap-24 mt-4">
         <div>
           <h3 className="font-medium">{item.location}</h3>
-          <h3 className="font-normal">Full Time</h3>
+          <h3 className="font-normal">Full Time ({item.mode})</h3>
           <h3>Start Date - Immediately</h3>
         </div>
         <div>
