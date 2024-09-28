@@ -2,9 +2,9 @@ import React from "react";
 
 const Statistics = () => {
   return (
-    <div className="flex gap-x-4 text-wrap max-w-full justify-around items-center mt-10">
+    <div className="flex gap-x-4 text-wrap max-w-full justify-around mt-10">
       <div>
-        <div className="flex flex-col items-center gap-1 justify-center">
+        <div className="flex flex-col gap-1 justify-center">
           <h1 className="text-base md:text-4xl text-blue-600 font-bold">
             500+
           </h1>
@@ -14,7 +14,7 @@ const Statistics = () => {
         </div>
       </div>
       <div>
-        <div className="flex flex-col gap-1 justify-center items-center">
+        <div className="flex flex-col gap-1 justify-center">
           <h1 className="text-base md:text-4xl text-blue-600 font-bold">
             1000+
           </h1>
@@ -24,7 +24,7 @@ const Statistics = () => {
         </div>
       </div>
       <div>
-        <div className="flex flex-col gap-1 justify-center items-center">
+        <div className="flex flex-col gap-1 justify-center">
           <h1 className="text-base md:text-4xl text-blue-600 font-bold">
             500+
           </h1>
@@ -34,7 +34,7 @@ const Statistics = () => {
         </div>
       </div>
       <div>
-        <div className="flex flex-col gap-1 justify-center items-center">
+        <div className="flex flex-col gap-1 justify-center">
           <h1 className="text-base md:text-4xl text-blue-600 font-bold">
             500+
           </h1>
