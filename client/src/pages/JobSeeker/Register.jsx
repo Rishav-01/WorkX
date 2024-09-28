@@ -4,14 +4,20 @@ import { signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, provider } from "../../firebase/firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { JobSeekerContext } from "../../context/JobSeekerContext";
+import toast from "react-hot-toast";
+import { RecruiterContext } from "../../context/RecruiterContext";
 
 const Register = () => {
   const navigate = useNavigate();
   const { jobSeeker, setJobSeeker } = useContext(JobSeekerContext);
-  const [error, setError] = useState(null);
+  const { recruiter } = useContext(RecruiterContext);
   const name = useRef();
   const email = useRef();
   const password = useRef();
+
+  useEffect(() => {
+    if (jobSeeker || recruiter) navigate("/");
+  }, [jobSeeker, recruiter]);
 
   const handleRegister = () => {
     const emailValue = email.current.value;
@@ -24,35 +30,37 @@ const Register = () => {
           id: user.uid,
           name: nameValue,
           email: emailValue,
+          role: "jobSeeker",
         };
-        // console.log(user);
         localStorage.setItem("jobSeeker", JSON.stringify(jobSeekerValues));
         setJobSeeker(jobSeekerValues);
+        toast.success("Created User successfully", { duration: 2000 });
         navigate("/");
       })
-      .catch((error) => setError(error.message));
+      .catch(() => toast.error("Some error occurred", { duration: 2000 }));
   };
 
   const handleRegisterWithGoogle = () => {
-    signInWithPopup(auth, provider).then((result) => {
-      const jobSeekerValues = {
-        id: result.user.uid,
-        username: result.user.displayName,
-        email: result.user.email,
-      };
-      setJobSeeker(jobSeekerValues);
-      localStorage.setItem("jobSeeker", JSON.stringify(jobSeekerValues));
-      navigate("/");
-    });
+    try {
+      signInWithPopup(auth, provider).then((result) => {
+        const jobSeekerValues = {
+          id: result.user.uid,
+          username: result.user.displayName,
+          email: result.user.email,
+          role: "jobSeeker",
+        };
+        setJobSeeker(jobSeekerValues);
+        localStorage.setItem("jobSeeker", JSON.stringify(jobSeekerValues));
+        toast.success("Created User successfully", { duration: 2000 });
+        navigate("/");
+      });
+    } catch (error) {
+      toast.error("Some error occurred", { duration: 2000 });
+    }
   };
-
-  useEffect(() => {
-    if (jobSeeker) navigate("/");
-  }, [jobSeeker]);
 
   return (
     <section>
-      {error && alert(error)}
       <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
         <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
           <div className="mb-2 flex justify-center">

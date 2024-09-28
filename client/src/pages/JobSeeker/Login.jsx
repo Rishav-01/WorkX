@@ -4,14 +4,20 @@ import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
 import { auth, provider } from "../../firebase/firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { JobSeekerContext } from "../../context/JobSeekerContext";
+import { RecruiterContext } from "../../context/RecruiterContext";
 
 const Login = () => {
   const navigate = useNavigate();
   const { jobSeeker, setJobSeeker } = useContext(JobSeekerContext);
+  const { recruiter } = useContext(RecruiterContext);
   const [error, setError] = useState(null);
   const name = useRef();
   const email = useRef();
   const password = useRef();
+
+  useEffect(() => {
+    if (jobSeeker || recruiter) navigate("/");
+  }, [jobSeeker, recruiter]);
 
   const handleLogin = () => {
     const nameValue = name.current.value;
@@ -24,6 +30,7 @@ const Login = () => {
           username: nameValue,
           email: emailValue,
           id: user.uid,
+          role: "jobSeeker",
         };
         localStorage.setItem("jobSeeker", JSON.stringify(jobSeekerValues));
         setJobSeeker(jobSeekerValues);
@@ -39,6 +46,7 @@ const Login = () => {
           id: result.user.uid,
           username: result.user.displayName,
           email: result.user.email,
+          role: "jobSeeker",
         };
         setJobSeeker(jobSeekerValues);
         localStorage.setItem("jobSeeker", JSON.stringify(jobSeekerValues));
@@ -46,10 +54,6 @@ const Login = () => {
       })
       .catch((error) => setError(error.message));
   };
-
-  useEffect(() => {
-    if (jobSeeker) navigate("/");
-  }, [jobSeeker]);
 
   return (
     <section>

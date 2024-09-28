@@ -36,7 +36,7 @@ const SidebarComponent = ({ handleLogout, jobSeeker, recruiter }) => {
         }`}
       >
         <ul className="flex flex-col justify-center items-center mt-14">
-          {jobSeeker && !recruiter ? (
+          {jobSeeker ? (
             <>
               <li className="flex gap-x-1 items-center rounded hover:shadow hover:bg-blue-500 my-1 p-1">
                 <IoMdHome className="inline-block" size={15} />
@@ -52,6 +52,25 @@ const SidebarComponent = ({ handleLogout, jobSeeker, recruiter }) => {
               <li
                 onClick={handleLogout}
                 className="flex gap-x-1 items-center my-1 rounded hover:shadow hover:bg-blue-500 p-1"
+              >
+                <IoLogOutOutline />
+                <Link to="/">Logout</Link>
+              </li>
+            </>
+          ) : recruiter ? (
+            <>
+              <li className="my-1 rounded hover:shadow hover:bg-blue-500 p-1">
+                <Link to="/recruiter">Home</Link>
+              </li>
+              <li className="my-1 rounded hover:shadow hover:bg-blue-500 p-1">
+                <Link to="/post-job">Post A Job</Link>
+              </li>
+              <li className="my-1 rounded hover:shadow hover:bg-blue-500 p-1">
+                <Link to="/my-jobs">Posted Jobs</Link>
+              </li>
+              <li
+                onClick={handleLogout}
+                className="flex gap-1 items-center my-1 rounded hover:shadow hover:bg-blue-500 p-1"
               >
                 <IoLogOutOutline />
                 <Link to="/">Logout</Link>

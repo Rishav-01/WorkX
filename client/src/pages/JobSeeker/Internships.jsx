@@ -9,6 +9,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const Internships = () => {
+  const { VITE_BACKEND_URL } = import.meta.env;
   const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
   const [isFilterDivAvailable, setisFilterDivAvailable] = useState(false);
   const [allInternships, setAllInternships] = useState([]);
@@ -18,7 +19,7 @@ const Internships = () => {
   const getInternships = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:3000/api/jobSeeker/internships"
+        `${VITE_BACKEND_URL}/api/jobSeeker/internships`
       );
       const internships = res.data.filter(
         (internship) => internship.openings > 0
@@ -107,7 +108,7 @@ const Internships = () => {
   };
 
   return (
-    <>
+    <div className="flex flex-col h-screen">
       <Navbar />
       {isLoading ? (
         <div className="flex justify-center items-center w-full h-full flex-row gap-2">
@@ -286,7 +287,7 @@ const Internships = () => {
       )}
 
       <Footer />
-    </>
+    </div>
   );
 };
 

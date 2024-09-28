@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const MyApplications = () => {
+  const { VITE_BACKEND_URL } = import.meta.env;
   const navigate = useNavigate();
   const [userId, setUserId] = useState(null);
   const [applications, setApplications] = useState([]);
@@ -14,7 +15,7 @@ const MyApplications = () => {
   const getApplications = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:3000/api/jobSeeker/applications/${userId}`
+        `${VITE_BACKEND_URL}/api/jobSeeker/applications/${userId}`
       );
       setIsLoading(false);
       return res.data;
@@ -45,7 +46,7 @@ const MyApplications = () => {
   }, [userId, setUserId, applications, setApplications]);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col h-screen">
       <Navbar />
       {isLoading ? (
         <div className="flex justify-center items-center w-full h-full flex-row gap-2">

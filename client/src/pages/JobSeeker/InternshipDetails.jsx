@@ -13,6 +13,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const InternshipDetails = () => {
+  const { VITE_BACKEND_URL } = import.meta.env;
   const navigate = useNavigate();
   const internshipId = useParams().id;
   const [internship, setInternship] = useState();
@@ -31,7 +32,7 @@ const InternshipDetails = () => {
   const getAppliedInternships = async (userId) => {
     try {
       const res = await axios.get(
-        `http://localhost:3000/api/jobSeeker/${userId}`
+        `${VITE_BACKEND_URL}/api/jobSeeker/${userId}`
       );
       return res.data;
     } catch (error) {
@@ -45,7 +46,7 @@ const InternshipDetails = () => {
   const getInternship = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:3000/api/getJobs/${internshipId}`
+        `${VITE_BACKEND_URL}/api/getJobs/${internshipId}`
       );
       setInternship(res.data);
     } catch (error) {
@@ -97,7 +98,7 @@ const InternshipDetails = () => {
     );
     // API call to send data to server
     try {
-      await axios.post("http://localhost:3000/api/apply/internship", formData, {
+      await axios.post(`${VITE_BACKEND_URL}/api/apply/internship`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       toast.success("Applied successfully !", {
@@ -252,14 +253,6 @@ const InternshipDetails = () => {
                   </h1>
                 </div>
                 <hr />
-
-                {/* About company */}
-                {/* <section>
-              <h1 className="font-semibold mt-10 text-2xl">
-                About {internship.company}
-              </h1>
-              <h3>{internship.aboutCompany}</h3>
-            </section> */}
 
                 {/* About role  */}
                 <section>

@@ -12,7 +12,7 @@ getAllJobsRouter.get("/internships", async (req, res) => {
     const allInternships = await Job.find({
       type: "internship",
       status: "Pending",
-    }).exec();
+    });
     res.json(allInternships);
   } catch (error) {
     console.log(error);

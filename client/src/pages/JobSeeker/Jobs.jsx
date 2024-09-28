@@ -9,6 +9,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const Jobs = () => {
+  const { VITE_BACKEND_URL } = import.meta.env;
   const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
   const [isFilterDivAvailable, setisFilterDivAvailable] = useState(false);
   const [allJobs, setAllJobs] = useState([]);
@@ -17,7 +18,7 @@ const Jobs = () => {
 
   const getJobs = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/jobSeeker/jobs");
+      const res = await axios.get(`${VITE_BACKEND_URL}/api/jobSeeker/jobs`);
       const jobs = res.data.filter((job) => job.openings > 0);
       setAllJobs(jobs);
       setFilteredJobs(jobs);
@@ -102,7 +103,7 @@ const Jobs = () => {
   };
 
   return (
-    <>
+    <div className="flex flex-col h-screen">
       <Navbar />
       {isLoading ? (
         <div className="flex justify-center items-center w-full h-full flex-row gap-2">
@@ -281,7 +282,7 @@ const Jobs = () => {
       )}
 
       <Footer />
-    </>
+    </div>
   );
 };
 

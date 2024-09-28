@@ -10,6 +10,7 @@ import { JobSeekerContext } from "../context/JobSeekerContext";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase/firebase";
 import { RecruiterContext } from "../context/RecruiterContext";
+import toast from "react-hot-toast";
 
 const Navbar = ({ selectedTab }) => {
   const { jobSeeker, setJobSeeker } = useContext(JobSeekerContext);
@@ -38,9 +39,10 @@ const Navbar = ({ selectedTab }) => {
         setJobSeeker(null);
         setRecruiter(null);
         setIsUserDivVisible(false);
+        toast.success("Successfully Logged out !", { duration: 2000 });
         navigate("/");
       })
-      .catch((error) => console.log(error));
+      .catch(() => toast.error("Some error occurred", { duration: 2000 }));
   };
 
   return (

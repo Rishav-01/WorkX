@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { JobSeekerContext } from "../../context/JobSeekerContext";
+import { RecruiterContext } from "../../context/RecruiterContext";
 
-const Footer = ({ recruiter = null }) => {
+const Footer = () => {
   const navigate = useNavigate();
+  const { jobSeeker } = useContext(JobSeekerContext);
+  const { recruiter } = useContext(RecruiterContext);
   return (
     <footer className="w-full mt-5">
-      {!recruiter && (
+      {recruiter || jobSeeker ? null : (
         <div className="bg-blue-600 flex mx-auto rounded-md max-w-[90vw] items-center justify-between px-4 py-2 lg:px-0">
           <div className="p-4 inline-flex items-center">
             <p className="text-white">Empower your career with WorkX today</p>

@@ -13,9 +13,9 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const JobDetails = () => {
+  const { VITE_BACKEND_URL } = import.meta.env;
   const navigate = useNavigate();
   const jobId = useParams().id;
-  // const job = jobsData.find((item) => item.id === jobId);
   const [job, setJob] = useState();
   const [isApplyDivVisible, setIsApplyDivVisible] = useState(false);
   const [resume, setResume] = useState(null);
@@ -30,7 +30,7 @@ const JobDetails = () => {
   const getAppliedJobs = async (userId) => {
     try {
       const res = await axios.get(
-        `http://localhost:3000/api/jobSeeker/${userId}`
+        `${VITE_BACKEND_URL}/api/jobSeeker/${userId}`
       );
       return res.data;
     } catch (error) {
@@ -40,7 +40,7 @@ const JobDetails = () => {
   // Load required Job
   const getJob = async () => {
     try {
-      const res = await axios.get(`http://localhost:3000/api/getJobs/${jobId}`);
+      const res = await axios.get(`${VITE_BACKEND_URL}/api/getJobs/${jobId}`);
       setJob(res.data);
     } catch (error) {
       toast.error("Error Fetching Job", {
@@ -93,7 +93,7 @@ const JobDetails = () => {
 
     // API call to send data to server
     try {
-      await axios.post("http://localhost:3000/api/apply/job", formData, {
+      await axios.post(`${VITE_BACKEND_URL}/api/apply/job`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       toast.success("Applied successfully", {

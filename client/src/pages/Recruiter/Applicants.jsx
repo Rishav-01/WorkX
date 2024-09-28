@@ -8,6 +8,7 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 
 const Applicants = () => {
+  const { VITE_BACKEND_URL } = import.meta.env;
   const [applicantsList, setApplicantsList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [job, setJob] = useState();
@@ -15,7 +16,7 @@ const Applicants = () => {
 
   const getJob = async () => {
     try {
-      const res = await axios.get(`http://localhost:3000/api/getJobs/${jobId}`);
+      const res = await axios.get(`${VITE_BACKEND_URL}/api/getJobs/${jobId}`);
       setApplicantsList(res.data.applicants);
       setJob(res.data);
       setIsLoading(false);
@@ -31,30 +32,12 @@ const Applicants = () => {
     getJob();
   }, [job, setJob]);
 
-  // const [jobApplicants, setJobApplicants] = useState([]);
-
-  // useEffect(() => {
-  //   if (job.internship) {
-  //     applicantsList = applicants.filter((applicant) =>
-  //       applicant.appliedForInternship.includes(jobId)
-  //     );
-  //   } else {
-  //     applicantsList = applicants.filter((applicant) =>
-  //       applicant.appliedForJob.includes(jobId)
-  //     );
-  //   }
-  //   setJobApplicants(applicantsList);
-  // }, [jobId, job, applicants]);
-
   const handleAccept = async (applicant) => {
     console.log("Accept");
     // Add logic to handle accept functionality
     try {
       const obj = { applicationId: applicant._id, jobId };
-      await axios.post(
-        "http://localhost:3000/api/recruiter/action/accept",
-        obj
-      );
+      await axios.post(`${VITE_BACKEND_URL}/api/recruiter/action/accept`, obj);
       const remaining = applicantsList.filter(
         (item) => item._id !== applicant._id
       );
@@ -74,10 +57,7 @@ const Applicants = () => {
     // Add logic to handle reject functionality
     try {
       const obj = { applicationId: applicant._id, jobId };
-      await axios.post(
-        "http://localhost:3000/api/recruiter/action/reject",
-        obj
-      );
+      await axios.post(`${VITE_BACKEND_URL}/api/recruiter/action/reject`, obj);
       const remaining = applicantsList.filter(
         (item) => item._id !== applicant._id
       );
@@ -91,7 +71,7 @@ const Applicants = () => {
   };
 
   return (
-    <>
+    <div className="flex flex-col h-screen">
       <Navbar />
       {isLoading ? (
         <div className="flex justify-center items-center w-full h-full flex-row gap-2">
@@ -162,7 +142,7 @@ const Applicants = () => {
       )}
 
       <Footer recruiter={true} />
-    </>
+    </div>
   );
 };
 

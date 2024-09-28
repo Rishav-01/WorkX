@@ -6,6 +6,7 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const PostJob = () => {
+  const { VITE_BACKEND_URL } = import.meta.env;
   const navigate = useNavigate();
   const [recruiterEmail, setRecruiterEmail] = useState(null);
 
@@ -59,12 +60,9 @@ const PostJob = () => {
       const formData = new FormData();
       formData.append("logo", companyLogo);
       formData.append("data", JSON.stringify(updatedData));
-      const res = await axios.post(
-        "http://localhost:3000/api/postJob",
-        formData,
-        { headers: { "Content-Type": "multipart/form-data" } }
-      );
-      // console.log(res.data);
+      await axios.post(`${VITE_BACKEND_URL}/api/postJob`, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
       reset();
       setResponsibilities([""]);
       toast.success("Job Posted Successfully", {
