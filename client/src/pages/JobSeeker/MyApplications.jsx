@@ -60,20 +60,20 @@ const MyApplications = () => {
             <h1 className="text-3xl font-bold text-center mb-5">
               My Applications
             </h1>
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-3 mb-4">
-              <div className="bg-gray-200 p-2 text-center rounded-md">
-                <span className="font-bold">Company Name</span>
+            <div className="grid md:text-lg text-base md:max-w-[85%] md:mx-auto md:gap-x-4 grid-cols-5 gap-x-2 mb-4">
+              <div className="bg-gray-200 text-center p-1 rounded-md">
+                <span className="font-bold text-sm">Company Name</span>
               </div>
-              <div className="bg-gray-200 p-2 text-center rounded-md">
+              <div className="bg-gray-200 text-center rounded-md">
                 <span className="font-bold">Category</span>
               </div>
-              <div className="bg-gray-200 p-2 text-center rounded-md">
+              <div className="bg-gray-200 text-center p-1 rounded-md">
                 <span className="font-bold">Type</span>
               </div>
-              <div className="bg-gray-200 p-2 text-center rounded-md">
+              <div className="bg-gray-200 text-center p-1 rounded-md">
                 <span className="font-bold">Applied On</span>
               </div>
-              <div className="bg-gray-200 p-2 text-center rounded-md">
+              <div className="bg-gray-200 text-center p-1 rounded-md">
                 <span className="font-bold">Application Status</span>
               </div>
             </div>
@@ -81,24 +81,24 @@ const MyApplications = () => {
             {applications.map((application, idx) => (
               <div
                 key={idx}
-                className="grid grid-cols-1 lg:grid-cols-5 gap-3 mb-4 bg-white shadow-md rounded-md p-4"
+                className="md:max-w-[85%] md:mx-auto md:gap-x-4 grid grid-cols-5 bg-blue-50 gap-x-3 mb-4 shadow-md rounded-md p-2"
               >
-                <div className="text-lg text-center">
+                <div className="text-base md:text-lg text-center my-auto">
                   {application.jobId.company}
                 </div>
-                <div className="text-lg text-center">
+                <div className="text-base md:text-lg text-center my-auto">
                   {application.jobId.category}
                 </div>
-                <div className="text-lg text-center">
+                <div className="text-base md:text-lg text-center my-auto">
                   {application.jobId.type === "internship"
                     ? "Internship"
                     : "Full Time"}
                 </div>
-                <div className="text-lg text-center">
+                <div className="text-base md:text-lg text-center my-auto">
                   {application.createdAt.slice(0, 10)}
                 </div>
                 <div
-                  className={`text-lg text-center text-white px-2 py-1 rounded-md ${
+                  className={`text-base md:text-lg text-center text-white px-2 py-1 rounded-md ${
                     application.status === "Accepted"
                       ? "bg-green-400 "
                       : application.status === "Rejected"
@@ -113,7 +113,6 @@ const MyApplications = () => {
           </section>
         </main>
       )}
-
       <Footer />
     </div>
   );
