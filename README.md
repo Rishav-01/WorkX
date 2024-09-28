@@ -31,10 +31,6 @@ To run the project locally, follow these steps:
 3. Start the server: `npm start`
 4. Access the application: `http://localhost:3000`
 
-### API Documentation 📄
-
-API endpoints and usage will be documented separately. Please refer to the [API Documentation](https://github.com/your-username/WorkX/blob/main/API.md) for more information.
-
 ### Contributing 🤝
 
 Contributions are welcome. Please submit a pull request with a detailed description of changes.
