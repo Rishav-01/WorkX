@@ -98,11 +98,11 @@ const MyApplications = () => {
                   {application.createdAt.slice(0, 10)}
                 </div>
                 <div
-                  className={`text-base md:text-lg text-center text-white px-2 py-1 rounded-md ${
+                  className={`text-base md:text-lg my-auto text-center text-white px-2 py-1 rounded-md ${
                     application.status === "Accepted"
                       ? "bg-green-400 "
                       : application.status === "Rejected"
-                      ? "bg-red-400 "
+                      ? "bg-red-400"
                       : "bg-yellow-400 "
                   }`}
                 >
