@@ -6,9 +6,11 @@ import { FaBusinessTime } from "react-icons/fa";
 const JobPageCards = ({ jobs }) => {
   return (
     <div>
-      {jobs.length === 0
-        ? "No Jobs"
-        : jobs.map((item) => <JobPageCard key={item._id} item={item} />)}
+      {jobs.length === 0 ? (
+        <p className="text-balance">No Jobs</p>
+      ) : (
+        jobs.map((item) => <JobPageCard key={item._id} item={item} />)
+      )}
     </div>
   );
 };
@@ -22,7 +24,7 @@ const JobPageCard = ({ item }) => {
         navigate(`/jobs/jobDetails/${item._id}`);
         window.scrollTo({ top: 0, behavior: "smooth" });
       }}
-      className="text-base md:text-lg shadow-lg bg-white hover:bg-slate-100 my-4 p-2 cursor-pointer hover:scale-105 transition max-w-full duration-200 rounded-md border"
+      className="text-base md:text-lg shadow-lg bg-white hover:bg-slate-100 my-4 cursor-pointer hover:scale-105 p-2 transition w-full duration-200 rounded-md border"
     >
       {/* Heading  */}
       <div className="p-2 flex justify-between">
@@ -41,19 +43,21 @@ const JobPageCard = ({ item }) => {
       </div>
 
       {/* Title and Role  */}
-      <h1 className="mt-2 font-bold">{item.role}</h1>
-      <h2 className="font-semibold">{item.company}</h2>
+      <div className="flex flex-col">
+        <h1 className="mt-2 font-bold">{item.role}</h1>
+        <h2 className="font-semibold">{item.company}</h2>
+      </div>
 
       {/* Details  */}
       <div className="flex gap-14 mt-4">
         <div>
           <h3 className="font-medium">{item.location}</h3>
           <h3 className="font-normal">Full Time ({item.mode})</h3>
-          <h3>Start Date - Immediately</h3>
+          <h3 className="underline">Start Date - Immediately</h3>
         </div>
         <div>
           <h3 className="flex gap-1 font-medium items-center">
-            <FaBusinessTime /> Experience
+            <FaBusinessTime /> Exp
           </h3>
           <h3>0 - {item.experience} years</h3>
         </div>

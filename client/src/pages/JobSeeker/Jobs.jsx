@@ -99,11 +99,14 @@ const Jobs = () => {
       return salary >= salVal;
     });
 
+    filter.current.inOffice = false;
+    filter.current.workFromHome = false;
     setFilteredJobs(totalJobs);
+    setisFilterDivAvailable(false);
   };
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-full w-full">
       <Navbar />
       {isLoading ? (
         <div className="flex justify-center items-center w-full h-full flex-row gap-2">
@@ -112,7 +115,7 @@ const Jobs = () => {
           <div className="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:.7s]"></div>
         </div>
       ) : (
-        <div className="flex border-gray-500 my-2 max-w-full bg-gray-100">
+        <div className="flex border-gray-500 my-2 bg-gray-100">
           {/* Filters section  for bigger screens */}
           {isAboveSmallScreens && (
             <form className="sticky h-fit top-5 max-w-1/6 bg-white mt-2 border-gray-500 border my-2 rounded p-3 text-wrap ml-5 flex flex-col">
@@ -144,9 +147,9 @@ const Jobs = () => {
                   <input
                     onChange={handleFilterCheckBox}
                     type="checkbox"
-                    id="partTime"
+                    id="inOffice"
                   />
-                  <label htmlFor="partTime">Part-Time</label>
+                  <label htmlFor="inOffice">Part-Time</label>
                 </div>
                 <div className="flex gap-4">
                   <input
@@ -187,19 +190,19 @@ const Jobs = () => {
           )}
 
           {/* Jobs card showcase section  */}
-          <div className="gap-1 p-4 mx-auto">
+          <div className="p-4 mx-auto">
             {/* Filter section for small devices  */}
             {!isAboveSmallScreens && (
-              <div className="flex items-center justify-center relative">
+              <div className="flex w-full items-center justify-center">
                 <CiFilter className="text-blue-600" />
                 <p
-                  className="cursor-pointer"
+                  className="cursor-pointer relative"
                   onClick={() => setisFilterDivAvailable((prev) => !prev)}
                 >
                   Filters
                 </p>
                 {isFilterDivAvailable && (
-                  <form className="z-10 max-w-1/6 absolute top-4 right-[50%] bg-white mt-2 border-gray-500 border my-2 rounded p-3 text-wrap ml-5 flex flex-col">
+                  <form className="z-10 w-1/2 absolute top-32 bg-white border-gray-500 border rounded p-3 text-wrap flex flex-col">
                     <div className="flex flex-col gap-1">
                       <p>Profile</p>
                       <input
@@ -223,9 +226,9 @@ const Jobs = () => {
                         <input
                           onChange={handleFilterCheckBox}
                           type="checkbox"
-                          id="partTime"
+                          id="inOffice"
                         />
-                        <label htmlFor="partTime">Part-Time</label>
+                        <label htmlFor="inOffice">In Office</label>
                       </div>
                       <div className="flex gap-4">
                         <input
@@ -269,13 +272,9 @@ const Jobs = () => {
                 )}
               </div>
             )}
-            <div>
-              {/* Internship Cards with Pagination  */}
-              <div className="flex gap-10 items-center">
-                {/* <FaChevronLeft className="cursor-pointer" size={20} /> */}
-                <JobPageCards jobs={filteredJobs} />
-                {/* <FaChevronRight className="cursor-pointer" size={20} /> */}
-              </div>
+            {/* Internship Cards */}
+            <div className="w-full">
+              <JobPageCards jobs={filteredJobs} />
             </div>
           </div>
         </div>

@@ -104,11 +104,14 @@ const Internships = () => {
       return salary >= stipendVal;
     });
 
+    filter.current.inOffice = false;
+    filter.current.workFromHome = false;
     setFilteredInternships(totalInternships);
+    setisFilterDivAvailable(false);
   };
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-full w-full">
       <Navbar />
       {isLoading ? (
         <div className="flex justify-center items-center w-full h-full flex-row gap-2">
@@ -192,19 +195,19 @@ const Internships = () => {
           )}
 
           {/* Internships card showcase section  */}
-          <div className="gap-1 p-4 mx-auto">
+          <div className="p-4 mx-auto">
             {/* Filter section for small devices  */}
             {!isAboveSmallScreens && (
-              <div className="flex items-center justify-center relative">
+              <div className="flex items-center justify-center w-full">
                 <CiFilter className="text-blue-600" />
                 <p
-                  className="cursor-pointer"
+                  className="cursor-pointer relative"
                   onClick={() => setisFilterDivAvailable((prev) => !prev)}
                 >
                   Filters
                 </p>
                 {isFilterDivAvailable && (
-                  <form className="z-10 max-w-1/6 absolute top-4 right-[50%] bg-white mt-2 border-gray-500 border my-2 rounded p-3 text-wrap ml-5 flex flex-col">
+                  <form className="z-10 w-1/2 absolute top-32 bg-white border-gray-500 border rounded p-3 text-wrap flex flex-col">
                     <div className="flex flex-col gap-1">
                       <p>Profile</p>
                       <input

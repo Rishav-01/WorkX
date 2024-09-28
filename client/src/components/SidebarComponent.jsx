@@ -55,7 +55,10 @@ const SidebarComponent = ({ handleLogout, jobSeeker, recruiter }) => {
               </li>
 
               <li
-                onClick={handleLogout}
+                onClick={() => {
+                  setSidebarOpen(false);
+                  handleLogout();
+                }}
                 className="flex gap-x-1 items-center my-1 rounded hover:shadow hover:bg-blue-500 p-1"
               >
                 <IoLogOutOutline />
