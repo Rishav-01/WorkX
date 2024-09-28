@@ -24,11 +24,11 @@ const InternshipPageCard = ({ item }) => {
         navigate(`/internships/internshipDetails/${item._id}`);
         window.scrollTo({ top: 0, behavior: "smooth" });
       }}
-      className="shadow-lg bg-white hover:bg-slate-100 my-4 p-1 cursor-pointer hover:scale-105 transition max-w-[600px] duration-200 rounded-md border"
+      className="text-base md:textlg shadow-lg bg-white hover:bg-slate-100 my-4 p-2 cursor-pointer hover:scale-105 transition max-w-full duration-200 rounded-md border"
     >
       {/* Heading  */}
-      <div className="p-1 flex justify-between">
-        <div className="inline-flex items-center gap-1 text-lg font-semibold">
+      <div className="p-2 flex justify-between">
+        <div className="flex h-fit items-center gap-1 font-semibold">
           <IoIosTrendingUp size={15} />
           <p>Actively Hiring</p>
         </div>

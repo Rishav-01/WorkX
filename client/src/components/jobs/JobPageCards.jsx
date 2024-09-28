@@ -22,11 +22,11 @@ const JobPageCard = ({ item }) => {
         navigate(`/jobs/jobDetails/${item._id}`);
         window.scrollTo({ top: 0, behavior: "smooth" });
       }}
-      className="shadow-lg bg-white hover:bg-slate-100 my-4 p-1 cursor-pointer hover:scale-105 transition max-w-[600px] duration-200 rounded-md border"
+      className="text-base md:text-lg shadow-lg bg-white hover:bg-slate-100 my-4 p-2 cursor-pointer hover:scale-105 transition max-w-full duration-200 rounded-md border"
     >
       {/* Heading  */}
-      <div className="p-1 flex justify-between">
-        <div className="inline-flex items-center gap-1 text-lg font-semibold">
+      <div className="p-2 flex justify-between">
+        <div className="flex h-fit items-center gap-1 font-semibold">
           <IoIosTrendingUp size={15} />
           <p>Actively Hiring</p>
         </div>
@@ -45,14 +45,14 @@ const JobPageCard = ({ item }) => {
       <h2 className="font-semibold">{item.company}</h2>
 
       {/* Details  */}
-      <div className="flex gap-24 mt-4">
+      <div className="flex gap-14 mt-4">
         <div>
           <h3 className="font-medium">{item.location}</h3>
           <h3 className="font-normal">Full Time ({item.mode})</h3>
           <h3>Start Date - Immediately</h3>
         </div>
         <div>
-          <h3 className="flex gap-1 items-center">
+          <h3 className="flex gap-1 font-medium items-center">
             <FaBusinessTime /> Experience
           </h3>
           <h3>0 - {item.experience} years</h3>
