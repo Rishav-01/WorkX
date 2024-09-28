@@ -41,7 +41,6 @@ const RecruiterLogin = () => {
       .catch(() =>
         toast.error("Invalid Credentials", {
           duration: 2000,
-          position: "top-center",
         })
       );
   };
@@ -76,6 +75,7 @@ const RecruiterLogin = () => {
               </label>
               <div className="mt-2">
                 <input
+                  defaultValue={"Recruiter1"}
                   ref={name}
                   className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   type="text"
@@ -94,6 +94,7 @@ const RecruiterLogin = () => {
               </label>
               <div className="mt-2">
                 <input
+                  defaultValue={"1@2.com"}
                   ref={email}
                   className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   type="email"
@@ -114,6 +115,7 @@ const RecruiterLogin = () => {
               </div>
               <div className="mt-2">
                 <input
+                  defaultValue={"123456"}
                   ref={password}
                   className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   type="password"

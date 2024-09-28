@@ -5,15 +5,15 @@ import { auth, provider } from "../../firebase/firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { JobSeekerContext } from "../../context/JobSeekerContext";
 import { RecruiterContext } from "../../context/RecruiterContext";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const navigate = useNavigate();
   const { jobSeeker, setJobSeeker } = useContext(JobSeekerContext);
   const { recruiter } = useContext(RecruiterContext);
-  const [error, setError] = useState(null);
-  const name = useRef();
-  const email = useRef();
-  const password = useRef();
+  const name = useRef("test");
+  const email = useRef("test@1.com");
+  const password = useRef("123456");
 
   useEffect(() => {
     if (jobSeeker || recruiter) navigate("/");
@@ -34,9 +34,10 @@ const Login = () => {
         };
         localStorage.setItem("jobSeeker", JSON.stringify(jobSeekerValues));
         setJobSeeker(jobSeekerValues);
+        toast.success("Log in success", { duration: 2000 });
         navigate("/");
       })
-      .catch((error) => setError(error));
+      .catch(() => toast.error("Error occurred"));
   };
 
   const handleLoginWithGoogle = () => {
@@ -50,14 +51,14 @@ const Login = () => {
         };
         setJobSeeker(jobSeekerValues);
         localStorage.setItem("jobSeeker", JSON.stringify(jobSeekerValues));
+        toast.success("Log in success", { duration: 2000 });
         navigate("/");
       })
-      .catch((error) => setError(error.message));
+      .catch(() => toast.error("Error occurred", { duration: 2000 }));
   };
 
   return (
     <section>
-      {error && alert(error)}
       <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
         <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
           <div className="mb-2 flex justify-center">
@@ -87,6 +88,7 @@ const Login = () => {
                 </label>
                 <div className="mt-2">
                   <input
+                    defaultValue={"test"}
                     ref={name}
                     className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     type="text"
@@ -105,6 +107,7 @@ const Login = () => {
                 </label>
                 <div className="mt-2">
                   <input
+                    defaultValue={"test@1.com"}
                     ref={email}
                     className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     type="email"
@@ -125,6 +128,7 @@ const Login = () => {
                 </div>
                 <div className="mt-2">
                   <input
+                    defaultValue={"123456"}
                     ref={password}
                     className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     type="password"
