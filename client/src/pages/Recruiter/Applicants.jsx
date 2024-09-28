@@ -23,7 +23,6 @@ const Applicants = () => {
     } catch (error) {
       toast.error("Error fetching applicants", {
         duration: 2000,
-        position: "top-center",
       });
     }
   };
@@ -106,7 +105,7 @@ const Applicants = () => {
                         Resume :{" "}
                         <a
                           className="text-blue-500"
-                          href={`http://localhost:3000/uploads/${applicant.resume}`}
+                          href={`${VITE_BACKEND_URL}/uploads/${applicant.resume}`}
                           target="_blank"
                         >
                           {applicant.resume}
