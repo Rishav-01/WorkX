@@ -24,7 +24,7 @@ const JobPageCard = ({ item }) => {
         navigate(`/jobs/jobDetails/${item._id}`);
         window.scrollTo({ top: 0, behavior: "smooth" });
       }}
-      className="text-base md:text-lg shadow-lg bg-white hover:bg-slate-100 my-4 cursor-pointer hover:scale-105 p-2 transition w-full duration-200 rounded-md border"
+      className="text-base shadow-lg bg-white hover:bg-slate-100 my-4 cursor-pointer hover:scale-105 p-2 transition w-full duration-200 rounded-md border"
     >
       {/* Heading  */}
       <div className="p-2 flex justify-between">
