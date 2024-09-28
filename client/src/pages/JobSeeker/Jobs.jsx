@@ -56,10 +56,7 @@ const Jobs = () => {
   const handleFilterSubmit = (e) => {
     e.preventDefault();
     if (isFilterDivAvailable) setisFilterDivAvailable(false);
-
-    // console.log(category.current.value, location.current.value, filter.current);
     let salVal = salRange.current.value;
-    // console.log(salVal);
 
     let wfh = false,
       office = false;

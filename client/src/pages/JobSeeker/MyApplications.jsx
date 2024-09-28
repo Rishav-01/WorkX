@@ -9,18 +9,17 @@ import useMediaQuery from "../../hooks/useMediaQuery";
 const MyApplications = () => {
   const { VITE_BACKEND_URL } = import.meta.env;
   const navigate = useNavigate();
-  const [userId, setUserId] = useState(null);
   const [applications, setApplications] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
 
-  const getApplications = async () => {
+  const getApplications = async (userId) => {
     try {
       const res = await axios.get(
         `${VITE_BACKEND_URL}/api/jobSeeker/applications/${userId}`
       );
       setIsLoading(false);
-      return res.data;
+      setApplications(res.data);
     } catch (error) {
       toast.error("Error Fetching applications", {
         duration: 2000,
@@ -29,6 +28,7 @@ const MyApplications = () => {
       setIsLoading(false);
     }
   };
+  console.log(applications);
 
   useEffect(() => {
     try {
@@ -37,15 +37,13 @@ const MyApplications = () => {
         localStorage.removeItem("jobSeeker");
         navigate("/login");
       }
-      setUserId(jobSeeker.id);
-      getApplications().then((res) => {
-        setApplications(res);
-      });
+      let userId = jobSeeker.id;
+      getApplications(userId);
     } catch (error) {
       localStorage.removeItem("jobSeeker");
       navigate("/login");
     }
-  }, [userId, setUserId, applications, setApplications]);
+  }, []);
 
   return (
     <div className="flex flex-col h-screen">
@@ -69,7 +67,7 @@ const MyApplications = () => {
               </h1>
               <div className="grid md:text-lg text-base md:max-w-[85%] md:mx-auto md:gap-x-4 grid-cols-5 gap-x-2 mb-4">
                 <div className="bg-gray-200 text-center p-1 rounded-md">
-                  <span className="font-bold text-sm">Company Name</span>
+                  <span className="font-bold">Company Name</span>
                 </div>
                 <div className="bg-gray-200 text-center rounded-md">
                   <span className="font-bold">Category</span>
@@ -91,13 +89,13 @@ const MyApplications = () => {
                   className="md:max-w-[85%] md:mx-auto md:gap-x-4 grid grid-cols-5 bg-blue-50 gap-x-3 mb-4 shadow-md rounded-md p-2"
                 >
                   <div className="text-base md:text-lg text-center my-auto">
-                    {application.jobId.company}
+                    {application.jobId && application.jobId.company}
                   </div>
                   <div className="text-base md:text-lg text-center my-auto">
-                    {application.jobId.category}
+                    {application.jobId && application.jobId.category}
                   </div>
                   <div className="text-base md:text-lg text-center my-auto">
-                    {application.jobId.type === "internship"
+                    {application.type === "internship"
                       ? "Internship"
                       : "Full Time"}
                   </div>
@@ -131,25 +129,28 @@ const MyApplications = () => {
               <h1 className="text-3xl font-bold text-center my-5">
                 My Applications
               </h1>
-              <section className="shadow-md p-2 bg-blue-100">
+              <section className="shadow-md p-2">
                 {applications.map((application, idx) => (
-                  <div key={idx} className="md:max-w-[85%] md:mx-auto">
+                  <div
+                    key={idx}
+                    className="md:max-w-[85%] md:mx-auto bg-blue-100 mb-2 p-1"
+                  >
                     <div className="text-base flex gap-2 my-1 items-center justify-center md:text-lg">
                       <span className="font-bold">Company Name - </span>
                       <span className="text-base">
-                        {application.jobId.company}
+                        {application.jobId && application.jobId.company}
                       </span>
                     </div>
                     <div className="text-base md:text-lg my-1 flex gap-2 items-center justify-center">
                       <span className="font-bold">Category - </span>
                       <span className="text-base">
-                        {application.jobId.category}
+                        {application.jobId && application.jobId.category}
                       </span>
                     </div>
                     <div className="text-base md:text-lg my-1 flex gap-2 items-center justify-center">
                       <span className="font-bold">Type - </span>
                       <span className="text-base">
-                        {application.jobId.type === "internship"
+                        {application.type === "internship"
                           ? "Internship"
                           : "Full Time"}
                       </span>

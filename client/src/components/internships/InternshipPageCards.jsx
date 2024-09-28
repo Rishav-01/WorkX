@@ -51,7 +51,7 @@ const InternshipPageCard = ({ item }) => {
         <div>
           <h3 className="font-medium">{item.location}</h3>
           <h3 className="font-normal">Internship ({item.mode})</h3>
-          <h3>Start Date - Immediately</h3>
+          <h3 className="underline">Start Date - Immediately</h3>
         </div>
         <div>
           <h3 className="font-medium">Duration</h3>
