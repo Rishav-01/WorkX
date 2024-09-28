@@ -2,7 +2,7 @@ import React from "react";
 
 const Statistics = () => {
   return (
-    <div className="flex text-wrap max-w-full justify-around items-center mt-10">
+    <div className="flex gap-x-4 text-wrap max-w-full justify-around items-center mt-10">
       <div>
         <div className="flex flex-col items-center gap-1 justify-center">
           <h1 className="text-base md:text-4xl text-blue-600 font-bold">
