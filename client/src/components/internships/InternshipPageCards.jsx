@@ -15,6 +15,7 @@ const InternshipPageCards = ({ internships }) => {
 };
 
 const InternshipPageCard = ({ item }) => {
+  const { VITE_BACKEND_URL } = import.meta.env;
   const navigate = useNavigate();
 
   return (
@@ -34,7 +35,7 @@ const InternshipPageCard = ({ item }) => {
         {/* Logo  */}
         <div>
           <img
-            src={`http://localhost:3000/uploads/${item.logo}`}
+            src={`${VITE_BACKEND_URL}/uploads/${item.logo}`}
             className="w-7"
             alt="company-logo"
           />

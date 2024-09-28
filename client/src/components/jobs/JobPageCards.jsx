@@ -14,6 +14,7 @@ const JobPageCards = ({ jobs }) => {
 };
 
 const JobPageCard = ({ item }) => {
+  const { VITE_BACKEND_URL } = import.meta.env;
   const navigate = useNavigate();
   return (
     <div
@@ -31,7 +32,11 @@ const JobPageCard = ({ item }) => {
         </div>
         {/* Logo  */}
         <div>
-          <img src="img/work-x-logo.png" className="w-7" alt="company-logo" />
+          <img
+            src={`${VITE_BACKEND_URL}/uploads/${item.logo}`}
+            className="w-7"
+            alt="company-logo"
+          />
         </div>
       </div>
 
