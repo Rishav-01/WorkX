@@ -280,7 +280,6 @@ const Jobs = () => {
           </div>
         </div>
       )}
-
       <Footer />
     </div>
   );
