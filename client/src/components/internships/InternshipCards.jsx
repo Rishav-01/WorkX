@@ -1,7 +1,6 @@
 import InternshipCard from "./InternshipCard";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import { CiCircleChevLeft, CiCircleChevRight } from "react-icons/ci";
-import { internshipsData } from "../../constants";
 
 const InternshipCards = ({ category, allInternships }) => {
   const filteredInternships = allInternships.filter((item) => {

@@ -7,16 +7,16 @@ import toast from "react-hot-toast";
 const Jobs = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [allJobs, setAllJobs] = useState([]);
+  const { VITE_BACKEND_URL } = import.meta.env;
 
   const getJobs = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/jobSeeker/jobs");
+      const res = await axios.get(`${VITE_BACKEND_URL}/api/jobSeeker/jobs`);
       setAllJobs(res.data);
     } catch (error) {
       console.log(error);
       toast.error("Error fetching jobs", {
         duration: 2000,
-        position: "top-center",
       });
     }
   };

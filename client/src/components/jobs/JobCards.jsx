@@ -1,7 +1,6 @@
 import React from "react";
 import JobCard from "./JobCard";
 import { CiCircleChevLeft, CiCircleChevRight } from "react-icons/ci";
-import { jobsData } from "../../constants";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
 const JobCards = ({ category, allJobs }) => {

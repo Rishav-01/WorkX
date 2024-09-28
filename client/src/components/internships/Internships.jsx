@@ -5,20 +5,19 @@ import toast from "react-hot-toast";
 import axios from "axios";
 
 export default function JobCards() {
+  const { VITE_BACKEND_URL } = import.meta.env;
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [allInternships, setAllInternships] = useState([]);
 
   const getInternships = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:3000/api/jobSeeker/internships"
+        `${VITE_BACKEND_URL}/api/jobSeeker/internships`
       );
-      // console.log(res.data);
       setAllInternships(res.data);
     } catch (error) {
       toast.error("Error fetching Internships", {
         duration: 2000,
-        position: "top-center",
       });
     }
   };
