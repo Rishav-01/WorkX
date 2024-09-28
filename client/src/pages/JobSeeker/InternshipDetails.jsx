@@ -205,7 +205,7 @@ const InternshipDetails = () => {
                   {/* Logo */}
                   <div>
                     <img
-                      src="/img/work-x-logo.png"
+                      src={`${VITE_BACKEND_URL}/uploads/${internship.logo}`}
                       className="w-7"
                       alt="company-logo"
                     />
