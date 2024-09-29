@@ -158,7 +158,7 @@ const JobDetails = () => {
           <h1 className="text-center text-3xl font-bold mb-2">
             Applying for {job && job.role}
           </h1>
-          <div className="shadow-lg mx-auto mt-20 bg-white my-4 p-2 max-w-[750px] rounded-md border">
+          <div className="text-sm md:text-lg shadow-lg mx-auto mt-20 bg-white my-4 p-2 max-w-[750px] rounded-md border">
             {/* Heading  */}
             <div className="p-2 flex justify-between">
               <div className="flex items-center gap-1 text-lg font-semibold">
@@ -182,10 +182,10 @@ const JobDetails = () => {
             {/* Details  */}
             <div className="flex justify-between gap-14 mt-4">
               <div>
-                <h3 className="flex items-center gap-2 font-medium">
+                <h3 className="flex items-center gap-1 font-medium">
                   <CiLocationOn /> {job && job.location}
                 </h3>
-                <h3 className="font-normal">{job && job.type}</h3>
+                <h3 className="font-normal">Full Time</h3>
                 <h3>Start Date - Immediately</h3>
               </div>
               <div>
@@ -208,14 +208,6 @@ const JobDetails = () => {
               <h1 className="text-green-400">28/06/2024</h1>
             </div>
             <hr />
-
-            {/* About company */}
-            {/* <section>
-              <h1 className="font-semibold mt-10 text-2xl">
-                About {job && job.company}
-              </h1>
-              <h3>{job && job.aboutCompany}</h3>
-            </section> */}
 
             {/* About role  */}
             <section>
@@ -271,7 +263,11 @@ const JobDetails = () => {
                   setIsApplyDivVisible(true);
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
-                className="px-4 py-2 bg-blue-500 text-white mx"
+                className={`${
+                  isAlreadyApplied
+                    ? "bg-blue-400 cursor-not-allowed"
+                    : "bg-blue-500"
+                } px-4 py-2 text-white mx`}
               >
                 {isAlreadyApplied ? "Applied" : "Apply Now"}
               </button>

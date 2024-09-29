@@ -195,7 +195,7 @@ const InternshipDetails = () => {
               <h1 className="text-center text-3xl font-bold mb-2">
                 Applying for {internship && internship.role}
               </h1>
-              <div className="shadow-lg mx-auto mt-20 bg-white my-4 p-2 max-w-[750px] rounded-md border">
+              <div className="text-sm md:text-lg shadow-lg mx-auto mt-20 bg-white my-4 p-2 max-w-[750px] rounded-md border">
                 {/* Heading  */}
                 <div className="p-2 flex justify-between">
                   <div className="flex items-center gap-1 text-lg font-semibold">
@@ -223,7 +223,7 @@ const InternshipDetails = () => {
                 </h2>
 
                 {/* Details  */}
-                <div className="flex justify-between gap-14 mt-4">
+                <div className="flex justify-between md:gap-14 mt-4">
                   <div>
                     <h3 className="flex items-center gap-2 font-medium">
                       <CiLocationOn /> {internship && internship.location}
@@ -315,7 +315,11 @@ const InternshipDetails = () => {
                       setIsApplyDivVisible(true);
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
-                    className="px-4 py-2 bg-blue-500 text-white mx"
+                    className={`${
+                      isAlreadyApplied
+                        ? "bg-blue-400 cursor-not-allowed"
+                        : "bg-blue-500"
+                    } px-4 py-2 text-white mx`}
                   >
                     {isAlreadyApplied ? "Applied" : "Apply Now"}
                   </button>
