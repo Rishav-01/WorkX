@@ -28,8 +28,10 @@ To run the project locally, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/your-username/WorkX.git`
 2. Install dependencies: `npm install`
-3. Start the server: `npm start`
-4. Access the application: `http://localhost:3000`
+3. Make accounts on Firebase and MongoDB and add their respective keys
+4. Start the frontend: `npm run dev`
+5. Start the server: `npm start`
+6. Access the application: `http://localhost:5173`
 
 ### Contributing 🤝
 
