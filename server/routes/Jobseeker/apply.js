@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
   },
   filename: function (req, file, cb) {
     let fileName = file.originalname.split(".");
-    fileName[0] += "_#abcd";
+    fileName[0] += "_abcd";
     fileName = fileName.join(".");
     cb(null, fileName);
   },
@@ -24,7 +24,7 @@ const applyRouter = express.Router();
 applyRouter.post("/internship", upload.single("resume"), async (req, res) => {
   try {
     let fileName = req.file.originalname.split(".");
-    fileName[0] += "_#abcd";
+    fileName[0] += "_abcd";
     fileName = fileName.join(".");
     const resume = fileName;
     const { userId, jobId, coverLetter, availability, name, email } =

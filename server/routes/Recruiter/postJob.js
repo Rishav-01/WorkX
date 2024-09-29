@@ -30,7 +30,6 @@ postJobRouter.post("/", upload.single("logo"), async (req, res) => {
     const job = new Job(data);
     job.logo = fileName;
     await job.save();
-    console.log(job);
     res.json("Success");
   } catch (error) {
     console.log(error);
