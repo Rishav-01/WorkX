@@ -11,7 +11,6 @@ export default function JobCards() {
 
   const getInternships = async () => {
     try {
-      console.log(VITE_BACKEND_URL);
       const res = await axios.get(
         `${VITE_BACKEND_URL}/api/jobSeeker/internships`
       );

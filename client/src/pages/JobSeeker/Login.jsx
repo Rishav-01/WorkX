@@ -49,7 +49,6 @@ const Login = () => {
           email: result.user.email,
           role: "jobSeeker",
         };
-        console.log(result);
         setJobSeeker(jobSeekerValues);
         localStorage.setItem("jobSeeker", JSON.stringify(jobSeekerValues));
         toast.success("Log in success", { duration: 2000 });
