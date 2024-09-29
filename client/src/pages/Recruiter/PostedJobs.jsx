@@ -105,6 +105,9 @@ const PostedJobs = () => {
           <h1 className="text-center font-bold text-2xl my-5">
             All Posted Jobs
           </h1>
+          {allPostedJobs.length === 0 && (
+            <p className="text-base text-center underline">No Posted Jobs !</p>
+          )}
           <div className="text-center">
             {allPostedJobs.map((job) => (
               <PostedJob key={job._id} job={job} />
