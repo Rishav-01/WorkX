@@ -20,7 +20,7 @@ WorkX is a comprehensive job searching portal designed for both students and wor
 
 ### Project Overview 📚
 
-WorkX was built from scratch over a period of 4.5 months. The project aims to provide a seamless job searching experience, connecting job seekers with potential employers.
+WorkX was built from scratch over a period of 5 months. The project aims to provide a seamless job searching experience, connecting job seekers with potential employers.
 
 ### Getting Started 🚀
 
