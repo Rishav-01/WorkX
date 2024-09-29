@@ -180,21 +180,21 @@ const JobDetails = () => {
             <h2 className="font-semibold">{job && job.company}</h2>
 
             {/* Details  */}
-            <div className="flex justify-between gap-14 mt-4">
-              <div>
+            <div className="flex justify-between md:gap-14 mt-4">
+              <div className="flex-1">
                 <h3 className="flex items-center gap-1 font-medium">
                   <CiLocationOn /> {job && job.location}
                 </h3>
                 <h3 className="font-normal">Full Time</h3>
                 <h3>Start Date - Immediately</h3>
               </div>
-              <div>
+              <div className="flex-1">
                 <h3 className="flex gap-1 items-center">
                   <FaBusinessTime /> Experience
                 </h3>
                 <h3>0 - {job && job.experience} years</h3>
               </div>
-              <div>
+              <div className="flex-1">
                 <h2 className="flex items-center gap-2 font-medium">
                   <PiMoneyDuotone /> Salary
                 </h2>

@@ -223,20 +223,20 @@ const InternshipDetails = () => {
 
                 {/* Details  */}
                 <div className="flex justify-between md:gap-14 mt-4">
-                  <div>
-                    <h3 className="flex items-center gap-2 font-medium">
+                  <div className="flex-1">
+                    <h3 className="flex items-center gap-1 font-medium">
                       <CiLocationOn /> {internship && internship.location}
                     </h3>
                     <h3 className="font-normal">Internship</h3>
                     <h3>Start Date - Immediately</h3>
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <h3 className="flex items-center gap-1 font-medium">
                       <IoTimeOutline /> Duration
                     </h3>
                     <h4>{internship && internship.duration} months</h4>
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <h2 className="flex items-center gap-2 font-medium">
                       <PiMoneyDuotone /> Stipend
                     </h2>
