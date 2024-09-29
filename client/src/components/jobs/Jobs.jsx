@@ -14,7 +14,6 @@ const Jobs = () => {
       const res = await axios.get(`${VITE_BACKEND_URL}/api/jobSeeker/jobs`);
       setAllJobs(res.data);
     } catch (error) {
-      console.log(error);
       toast.error("Error fetching jobs", {
         duration: 2000,
       });

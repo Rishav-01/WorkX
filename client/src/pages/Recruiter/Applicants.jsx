@@ -32,7 +32,6 @@ const Applicants = () => {
   }, [job, setJob]);
 
   const handleAccept = async (applicant) => {
-    console.log("Accept");
     // Add logic to handle accept functionality
     try {
       const obj = { applicationId: applicant._id, jobId };
@@ -52,7 +51,6 @@ const Applicants = () => {
   };
 
   const handleReject = async (applicant) => {
-    console.log("Reject");
     // Add logic to handle reject functionality
     try {
       const obj = { applicationId: applicant._id, jobId };

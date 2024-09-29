@@ -28,7 +28,6 @@ const MyApplications = () => {
       setIsLoading(false);
     }
   };
-  console.log(applications);
 
   useEffect(() => {
     try {

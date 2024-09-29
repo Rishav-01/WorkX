@@ -58,7 +58,6 @@ const Internships = () => {
   const handleFilterSubmit = (e) => {
     e.preventDefault();
     if (isFilterDivAvailable) setisFilterDivAvailable(false);
-    // console.log(category.current.value, location.current.value, filter.current);
     let stipendVal = stipendRange.current.value * 1000;
 
     let wfh = false,

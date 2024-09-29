@@ -36,7 +36,6 @@ const InternshipDetails = () => {
       );
       return res.data;
     } catch (error) {
-      console.log(error);
       toast.error("Error Fetching Internship", {
         duration: 2000,
       });

@@ -34,7 +34,7 @@ const JobDetails = () => {
       );
       return res.data;
     } catch (error) {
-      console.log(error);
+      toast.error("Some Error occurred", { duration: 2000 });
     }
   };
   // Load required Job
