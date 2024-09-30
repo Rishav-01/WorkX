@@ -27,26 +27,24 @@ export default function JobCards() {
   }, []);
 
   return (
-    <div className="mt-14">
-      <h1 className="text-center my-10 font-semibold text-3xl">
+    <div className="container mx-auto p-4 pt-6">
+      <h1 className="text-center text-2xl font-bold mb-6">
         Latest Internships on WorkX
       </h1>
       {/* Different Categories */}
-      <div className="flex flex-col items-center justify-center lg:flex-row mb-20">
-        <h2 className="mb-4 lg:mb-0 mr-8 whitespace-nowrap">
-          Popular categories:
-        </h2>
-        <div className="flex flex-wrap gap-4">
+      <div className="text-base md:text-lg flex flex-col items-center justify-center mb-8">
+        <h2 className="font-bold mb-4">Popular categories:</h2>
+        <div className="flex flex-wrap gap-4 justify-center">
           {categories.map((item) => (
             <button
               key={item.id}
               id="internship-categories"
               onClick={() => setSelectedCategory(item.title)}
-              className={`px-2 py-1 text-sm  ${
+              className={`p-2 text-sm rounded-full border-2 ${
                 selectedCategory && selectedCategory === item.title
-                  ? "text-blue-500 border-blue-500 hover:text-blue-700"
-                  : "text-gray-500 hover:text-gray-700 border-gray-300"
-              } rounded-full border `}
+                  ? "bg-blue-500 text-white border-blue-500"
+                  : "bg-white text-gray-500 border-gray-300 hover:bg-gray-100"
+              }`}
             >
               {item.title}
             </button>

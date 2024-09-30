@@ -1,54 +1,55 @@
 import React, { useState } from "react";
 import { IoMdHome, IoIosMenu } from "react-icons/io";
-// import { CgProfile } from "react-icons/cg";
 import { RxCross2 } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import { IoLogOutOutline } from "react-icons/io5";
 
 const SidebarComponent = ({ handleLogout, jobSeeker, recruiter }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
   const handleToggleSidebar = () => {
     setSidebarOpen((prevState) => !prevState);
   };
+
   return (
     <>
-      <div className="flex items-center z-20" onClick={handleToggleSidebar}>
-        <IoIosMenu
-          size={20}
-          className={`${
-            sidebarOpen
-              ? "relative left-4 hidden"
-              : "inline-block cursor-pointer"
-          } `}
-        />
-        <RxCross2
-          size={20}
-          className={` ${
-            sidebarOpen
-              ? "cursor-pointer z-20 fixed right-40 text-black"
-              : "hidden"
-          } `}
-        />
-      </div>
+      <button
+        className={`fixed top-0 right-0 z-20 p-2 bg-gray-100 rounded-full shadow-md transition duration-300 ease-in-out ${
+          sidebarOpen ? "hidden" : "block"
+        }`}
+        onClick={handleToggleSidebar}
+      >
+        <IoIosMenu size={20} className="text-gray-600 cursor-pointer" />
+      </button>
+
       <div
-        className={`bg-gray-300 fixed w-1/2 z-10 text-black font-bold h-80 ${
-          sidebarOpen ? "left-1/2" : "right-full"
+        className={`fixed top-0 right-0 z-10 w-64 bg-white shadow-md transition duration-300 ease-in-out ${
+          sidebarOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <ul className="flex flex-col justify-center items-center mt-14">
+        <div className="flex justify-end p-4">
+          <button
+            className="p-2 bg-gray-100 rounded-full shadow-md transition duration-300 ease-in-out"
+            onClick={handleToggleSidebar}
+          >
+            <RxCross2 size={20} className="text-gray-600 cursor-pointer" />
+          </button>
+        </div>
+
+        <ul className="flex flex-col justify-center items-center py-4">
           {jobSeeker ? (
             <>
-              <li className="flex gap-x-1 items-center rounded hover:shadow hover:bg-blue-500 my-1 p-1">
+              <li className="flex gap-x-1 items-center py-2 px-4 hover:bg-gray-100">
                 <IoMdHome className="inline-block" size={15} />
                 <Link to="/">Home</Link>
               </li>
-              <li className="my-1 rounded hover:shadow hover:bg-blue-500 p-1">
+              <li className="py-2 px-4 hover:bg-gray-100">
                 <Link to="/internships">Internships</Link>
               </li>
-              <li className="my-1 rounded hover:shadow hover:bg-blue-500 p-1">
+              <li className="py-2 px-4 hover:bg-gray-100">
                 <Link to="/jobs">Jobs</Link>
               </li>
-              <li className="my-1 rounded hover:shadow hover:bg-blue-500 p-1">
+              <li className="py-2 px-4 hover:bg-gray-100">
                 <Link to={`/user/${jobSeeker.id}/applications`}>
                   My Applications
                 </Link>
@@ -59,7 +60,7 @@ const SidebarComponent = ({ handleLogout, jobSeeker, recruiter }) => {
                   setSidebarOpen(false);
                   handleLogout();
                 }}
-                className="flex gap-x-1 items-center my-1 rounded hover:shadow hover:bg-blue-500 p-1"
+                className="flex gap-x-1 items-center py-2 px-4 hover:bg-gray-100"
               >
                 <IoLogOutOutline />
                 <Link to="/">Logout</Link>
@@ -67,18 +68,18 @@ const SidebarComponent = ({ handleLogout, jobSeeker, recruiter }) => {
             </>
           ) : recruiter ? (
             <>
-              <li className="my-1 rounded hover:shadow hover:bg-blue-500 p-1">
+              <li className="py-2 px-4 hover:bg-gray-100">
                 <Link to="/recruiter">Home</Link>
               </li>
-              <li className="my-1 rounded hover:shadow hover:bg-blue-500 p-1">
+              <li className="py-2 px-4 hover:bg-gray-100">
                 <Link to="/post-job">Post A Job</Link>
               </li>
-              <li className="my-1 rounded hover:shadow hover:bg-blue-500 p-1">
+              <li className="py-2 px-4 hover:bg-gray-100">
                 <Link to="/my-jobs">Posted Jobs</Link>
               </li>
               <li
                 onClick={handleLogout}
-                className="flex gap-1 items-center my-1 rounded hover:shadow hover:bg-blue-500 p-1"
+                className="flex gap-1 items-center py-2 px-4 hover:bg-gray-100"
               >
                 <IoLogOutOutline />
                 <Link to="/">Logout</Link>
@@ -86,13 +87,13 @@ const SidebarComponent = ({ handleLogout, jobSeeker, recruiter }) => {
             </>
           ) : (
             <>
-              <li className="my-1 rounded hover:shadow hover:bg-blue-500 p-1">
+              <li className="py-2 px-4 hover:bg-gray-100">
                 <Link to="/login">Login</Link>
               </li>
-              <li className="my-1 rounded hover:shadow hover:bg-blue-500 p-1">
+              <li className="py-2 px-4 hover:bg-gray-100">
                 <Link to="/register">Register</Link>
               </li>
-              <li className="my-1 rounded hover:shadow hover:bg-blue-500 p-1">
+              <li className="py-2 px-4 hover:bg-gray-100">
                 <Link to="/recruiter-login">Hire Talent</Link>
               </li>
             </>
