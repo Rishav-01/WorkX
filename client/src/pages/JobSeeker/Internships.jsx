@@ -55,6 +55,18 @@ const Internships = () => {
     };
   };
 
+  const handleClearFilters = (e) => {
+    e.preventDefault();
+    category.current.value = "";
+    location.current.value = "";
+    filter.current = {
+      inOffice: false,
+      workFromHome: false,
+    };
+    stipendRange.current.value = "";
+    setFilteredInternships(allInternships);
+  };
+
   const handleFilterSubmit = (e) => {
     e.preventDefault();
     if (isFilterDivAvailable) setisFilterDivAvailable(false);
@@ -187,9 +199,12 @@ const Internships = () => {
               >
                 Apply
               </button>
-              <p className="mt-3 cursor-pointer text-end text-blue-400">
+              <button
+                onClick={handleClearFilters}
+                className="mt-3 cursor-pointer text-end text-blue-400"
+              >
                 Clear All
-              </p>
+              </button>
             </form>
           )}
 
@@ -269,9 +284,12 @@ const Internships = () => {
                     >
                       Apply
                     </button>
-                    <p className="mt-3 cursor-pointer text-end text-blue-400">
+                    <button
+                      onClick={handleClearFilters}
+                      className="mt-3 cursor-pointer text-end text-blue-400"
+                    >
                       Clear All
-                    </p>
+                    </button>
                   </form>
                 )}
               </div>

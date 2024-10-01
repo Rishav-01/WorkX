@@ -53,6 +53,18 @@ const Jobs = () => {
     };
   };
 
+  const handleClearFilters = (e) => {
+    e.preventDefault();
+    category.current.value = "";
+    location.current.value = "";
+    filter.current = {
+      inOffice: false,
+      workFromHome: false,
+    };
+    salRange.current.value = "";
+    setFilteredJobs(allJobs);
+  };
+
   const handleFilterSubmit = (e) => {
     e.preventDefault();
     if (isFilterDivAvailable) setisFilterDivAvailable(false);
@@ -180,9 +192,12 @@ const Jobs = () => {
               >
                 Apply
               </button>
-              <p className="mt-3 cursor-pointer text-end text-blue-400">
+              <button
+                onClick={handleClearFilters}
+                className="mt-3 cursor-pointer text-end text-blue-400"
+              >
                 Clear All
-              </p>
+              </button>
             </form>
           )}
 
@@ -262,9 +277,12 @@ const Jobs = () => {
                     >
                       Apply
                     </button>
-                    <p className="mt-3 cursor-pointer text-end text-blue-400">
+                    <button
+                      onClick={handleClearFilters}
+                      className="mt-3 cursor-pointer text-end text-blue-400"
+                    >
                       Clear All
-                    </p>
+                    </button>
                   </form>
                 )}
               </div>
