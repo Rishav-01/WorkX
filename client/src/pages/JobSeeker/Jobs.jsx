@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { createRef, useEffect, useRef, useState } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/footer/Footer";
 import { CiFilter, CiSearch } from "react-icons/ci";
@@ -15,6 +15,8 @@ const Jobs = () => {
   const [allJobs, setAllJobs] = useState([]);
   const [filteredJobs, setFilteredJobs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const inOfficeCheckBox = createRef(),
+    wfhCheckBox = createRef();
 
   const getJobs = async () => {
     try {
@@ -61,6 +63,8 @@ const Jobs = () => {
       inOffice: false,
       workFromHome: false,
     };
+    inOfficeCheckBox.current.checked = false;
+    wfhCheckBox.current.checked = false;
     salRange.current.value = "";
     setFilteredJobs(allJobs);
   };
@@ -154,6 +158,7 @@ const Jobs = () => {
               <div className="flex mt-3 mx-auto flex-col items-start justify-center gap-2">
                 <div className="flex gap-4">
                   <input
+                    ref={inOfficeCheckBox}
                     onChange={handleFilterCheckBox}
                     type="checkbox"
                     id="inOffice"
@@ -162,6 +167,7 @@ const Jobs = () => {
                 </div>
                 <div className="flex gap-4">
                   <input
+                    ref={wfhCheckBox}
                     onChange={handleFilterCheckBox}
                     type="checkbox"
                     id="workFromHome"
@@ -236,6 +242,7 @@ const Jobs = () => {
                     <div className="flex mt-3 mx-auto flex-col items-start justify-center gap-2">
                       <div className="flex gap-4">
                         <input
+                          ref={inOfficeCheckBox}
                           onChange={handleFilterCheckBox}
                           type="checkbox"
                           id="inOffice"
@@ -244,6 +251,7 @@ const Jobs = () => {
                       </div>
                       <div className="flex gap-4">
                         <input
+                          ref={inOfficeCheckBox}
                           onChange={handleFilterCheckBox}
                           type="checkbox"
                           id="workFromHome"
