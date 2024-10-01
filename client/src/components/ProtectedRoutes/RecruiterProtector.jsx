@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { RecruiterContext } from "../../context/RecruiterContext";
 import { Navigate, Outlet } from "react-router-dom";
+import toast from "react-hot-toast";
 
 export const RecruiterProtector = () => {
   const { recruiter, setRecruiter } = useContext(RecruiterContext);
@@ -23,5 +24,12 @@ export const RecruiterProtector = () => {
     );
   }
 
-  return recruiter ? <Outlet /> : <Navigate to={"/"} />;
+  return recruiter ? (
+    <Outlet />
+  ) : (
+    <>
+      {toast.error("Login Please !", { duration: 200 })}
+      <Navigate to={"/"} />
+    </>
+  );
 };

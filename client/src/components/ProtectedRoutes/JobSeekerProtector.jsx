@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { JobSeekerContext } from "../../context/JobSeekerContext";
 import { Navigate, Outlet } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const JobSeekerProtector = () => {
   const { jobSeeker, setJobSeeker } = useContext(JobSeekerContext);
@@ -23,7 +24,14 @@ const JobSeekerProtector = () => {
       </div>
     );
 
-  return jobSeeker ? <Outlet /> : <Navigate to={"/"} />;
+  return jobSeeker ? (
+    <Outlet />
+  ) : (
+    <>
+      {toast.error("Please Login !", { duration: 2000 })}
+      <Navigate to={"/"} />
+    </>
+  );
 };
 
 export default JobSeekerProtector;
