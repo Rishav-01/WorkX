@@ -94,7 +94,8 @@ const MyApplications = () => {
                     {application.jobId && application.jobId.category}
                   </div>
                   <div className="text-base md:text-lg text-center my-auto">
-                    {application.type === "internship"
+                    {application.jobId &&
+                    application.jobId.type === "internship"
                       ? "Internship"
                       : "Full Time"}
                   </div>
