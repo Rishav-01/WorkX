@@ -101,7 +101,7 @@ const PostedJobs = () => {
           <div className="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:.7s]"></div>
         </div>
       ) : (
-        <section>
+        <section className="h-screen">
           <h1 className="text-center font-bold text-2xl my-5">
             All Posted Jobs
           </h1>
