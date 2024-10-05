@@ -150,34 +150,31 @@ const Navbar = ({ selectedTab }) => {
               <>
                 <>
                   <li>
-                    <Link
-                      to={"/login"}
-                      className="border-blue-600 border px-4 py-2 rounded-full"
-                    >
-                      Login
+                    <Link to={"/login"}>
+                      <button className="relative py-2 px-8 text-black text-base font-bold nded-full overflow-hidden bg-white rounded-full transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-blue-500 before:to-blue-300 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-full hover:before:left-0">
+                        Login
+                      </button>
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      to={"/register"}
-                      className="bg-blue-500 text-white px-4 py-2 rounded-full"
-                    >
-                      Register
+                    <Link to={"/register"}>
+                      <button className="relative py-2 px-8 text-black text-base font-bold nded-full overflow-hidden bg-white rounded-full transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-blue-500 before:to-blue-300 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-full hover:before:left-0">
+                        Register
+                      </button>
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      to={"/recruiter-login"}
-                      className="border-yellow-400 border hover:bg-yellow-500 hover:text-teal-50 transition duration-150 px-4 py-2 rounded-full"
-                    >
-                      Hire Talent
+                    <Link to={"/recruiter-login"}>
+                      <button className="relative py-2 px-8 text-black text-base font-bold nded-full overflow-hidden bg-white rounded-full transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-yellow-500 before:to-yellow-300 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-full hover:before:left-0">
+                        Hire Talent
+                      </button>
                     </Link>
                   </li>
                 </>
               </>
             )}
             <li>
-              <button className="bg-slate-100 px-4 py-2 rounded-full">
+              <button className="relative py-2 px-8 text-black text-base font-bold nded-full overflow-hidden bg-white rounded-full transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-gray-500 before:to-gray-300 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-full hover:before:left-0">
                 About Us
               </button>
             </li>
