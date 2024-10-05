@@ -14,7 +14,15 @@ actionRouter.post("/accept", async (req, res) => {
       return res.status(404).send("Application not found");
 
     if (job.openings === 0) return res.status(500).send("No openings left");
-    else if (job.openings === 1) job.status = "Closed";
+    else if (job.openings === 1) {
+      job.status = "Closed";
+      // Reject all remaining applicants now
+      const remainingApplications = await Application.find({ jobId: jobId });
+      remainingApplications.forEach((application) => {
+        application.status = "Rejected";
+        application.save();
+      });
+    }
     application.status = "Accepted";
     const newApplicants = job.applicants.filter((id) => id != applicationId);
     job.applicants = newApplicants;
