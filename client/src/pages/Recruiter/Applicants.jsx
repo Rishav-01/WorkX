@@ -81,7 +81,7 @@ const Applicants = () => {
           <div className="flex-1 overflow-y-auto mx-auto p-4 pt-6 md:p-6 lg:p-12">
             {applicantsList.length > 0 ? (
               <>
-                <h1 className="text-base md:text-lg mb-4 text-center">
+                <h1 className="text-base md:text-3xl mb-4 text-center">
                   Applicants for {job.role} at {job.company}
                 </h1>
                 <ul className="list-none mb-4">
@@ -132,7 +132,9 @@ const Applicants = () => {
                 </ul>
               </>
             ) : (
-              <h1 className="text-center text-xl">No Applicants currently</h1>
+              <h1 className="text-center text-xl h-screen">
+                No Applicants currently
+              </h1>
             )}
           </div>
         </>
