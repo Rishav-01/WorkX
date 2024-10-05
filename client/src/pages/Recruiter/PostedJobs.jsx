@@ -12,7 +12,7 @@ const PostedJob = ({ job }) => {
   return (
     <div
       className={`bg-white shadow-md rounded-lg max-w-full p-2 mb-5 ${
-        job.openings === 0 && "bg-red-300"
+        job.openings == 0 && "bg-red-300"
       }`}
     >
       <div className="flex flex-col items-center md:flex-row md:justify-between">
