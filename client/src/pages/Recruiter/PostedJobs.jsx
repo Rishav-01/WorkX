@@ -95,16 +95,16 @@ const PostedJobs = () => {
     }
   }, []);
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col min-h-screen">
       <Navbar selectedTab={"myJobs"} />
       {isLoading ? (
-        <div className="flex justify-center items-center w-full h-full flex-row gap-2">
+        <div className="flex justify-center items-center w-full h-screen flex-row gap-2">
           <div className="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:.7s]"></div>
           <div className="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:.3s]"></div>
           <div className="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:.7s]"></div>
         </div>
       ) : (
-        <section className="h-screen">
+        <section className="flex-1 overflow-y-auto">
           <h1 className="text-center font-bold text-2xl my-5">
             All Posted Jobs
           </h1>
