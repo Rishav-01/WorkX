@@ -78,7 +78,7 @@ const Applicants = () => {
         </div>
       ) : (
         <>
-          <div className="container mx-auto p-4 pt-6 md:p-6 lg:p-12">
+          <div className="container h-screen mx-auto p-4 pt-6 md:p-6 lg:p-12">
             {applicantsList.length > 0 ? (
               <>
                 <h1 className="text-3xl mb-4 text-center">
