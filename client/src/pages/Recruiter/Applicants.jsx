@@ -68,7 +68,7 @@ const Applicants = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col min-h-screen">
       <Navbar />
       {isLoading ? (
         <div className="flex justify-center items-center w-full h-full flex-row gap-2">
@@ -78,10 +78,10 @@ const Applicants = () => {
         </div>
       ) : (
         <>
-          <div className="container h-screen mx-auto p-4 pt-6 md:p-6 lg:p-12">
+          <div className="flex-1 overflow-y-auto mx-auto p-4 pt-6 md:p-6 lg:p-12">
             {applicantsList.length > 0 ? (
               <>
-                <h1 className="text-3xl mb-4 text-center">
+                <h1 className="text-base md:text-lg mb-4 text-center">
                   Applicants for {job.role} at {job.company}
                 </h1>
                 <ul className="list-none mb-4">
@@ -90,7 +90,7 @@ const Applicants = () => {
                       key={index}
                       className="bg-white shadow-md rounded p-4 mb-4"
                     >
-                      <h2 className="text-lg font-bold">
+                      <h2 className="text-base md:text-lg font-bold">
                         Name : {applicant.name}
                       </h2>
                       <p className="text-gray-600">Email : {applicant.email}</p>
@@ -109,7 +109,7 @@ const Applicants = () => {
                           {applicant.resume}
                         </a>
                       </p>
-                      <h3 className="text-lg font-bold mt-4">
+                      <h3 className="text-base md:text-lg font-bold mt-4">
                         Why we should hire you?
                       </h3>
                       <p>{applicant.coverLetter}</p>

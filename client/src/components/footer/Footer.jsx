@@ -8,7 +8,7 @@ const Footer = () => {
   const { jobSeeker } = useContext(JobSeekerContext);
   const { recruiter } = useContext(RecruiterContext);
   return (
-    <footer className="w-full mt-5">
+    <footer className="w-full h-fit mt-5">
       {recruiter || jobSeeker ? null : (
         <div className="bg-blue-600 flex mx-auto rounded-md max-w-[90vw] items-center justify-between px-4 py-2 lg:px-0">
           <div className="p-4 inline-flex items-center">
