@@ -11,8 +11,8 @@ const PostedJob = ({ job }) => {
 
   return (
     <div
-      className={`bg-white shadow-md rounded-lg max-w-full p-2 mb-5 ${
-        job.openings == 0 && "bg-red-300"
+      className={`shadow-md rounded-lg max-w-full p-2 mb-5 ${
+        job.openings === 0 && "bg-red-200"
       }`}
     >
       <div className="flex flex-col items-center md:flex-row md:justify-between">
@@ -52,8 +52,11 @@ const PostedJob = ({ job }) => {
         </div>
         <div className="flex gap-4">
           <button
+            disabled={job.openings === 0}
             onClick={() => navigate(`${job._id}/applicants`)}
-            className="px-3 bg-blue-500 text-white rounded-lg"
+            className={`px-3 bg-blue-500 text-white rounded-lg ${
+              job.openings === 0 && "cursor-not-allowed"
+            }`}
           >
             View Applicants
           </button>
