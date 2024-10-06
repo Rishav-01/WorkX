@@ -23,7 +23,7 @@ const JobCards = ({ category, allJobs }) => {
         <div
           id="job-card"
           className={`flex gap-2 ${
-            isAboveSmallScreens ? "max-w-[1000px]" : "max-w-md"
+            isAboveSmallScreens ? "max-w-[1000px]" : "max-w-sm"
           } h-full overflow-hidden whitespace-nowrap scroll-smooth`}
         >
           {!category && <p className="text-base">Select a category</p>}

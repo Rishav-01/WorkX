@@ -24,12 +24,12 @@ const InternshipCards = ({ category, allInternships }) => {
           <div
             id="interncard"
             className={`flex gap-2 ${
-              isAboveSmallScreens ? "max-w-[1000px]" : "max-w-md"
+              isAboveSmallScreens ? "max-w-[1000px]" : "max-w-sm"
             } h-full overflow-hidden whitespace-nowrap scroll-smooth`}
           >
             {!category && <p className="text-base">Select a Category</p>}
             {category && filteredInternships.length === 0 ? (
-              <p className="h-32 text-base w-full text-center">
+              <p className="h-32 text-base text-center">
                 No internships available for {category} !
               </p>
             ) : (
