@@ -163,7 +163,7 @@ const Jobs = () => {
                     type="checkbox"
                     id="inOffice"
                   />
-                  <label htmlFor="inOffice">Part-Time</label>
+                  <label htmlFor="inOffice">In-Office</label>
                 </div>
                 <div className="flex gap-4">
                   <input
