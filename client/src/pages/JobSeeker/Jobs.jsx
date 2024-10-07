@@ -81,11 +81,16 @@ const Jobs = () => {
 
     // Filter jobs on the basis of profile, location and wfh or part time
     const jobs = allJobs.filter((item) => {
+      console.log(item);
       return (
-        category &&
-        item.category
-          .toLowerCase()
-          .includes(category.current.value.toLowerCase()) &&
+        ((category &&
+          item.category
+            .toLowerCase()
+            .includes(category.current.value.toLowerCase())) ||
+          (category &&
+            item.role
+              .toLowerCase()
+              .includes(category.current.value.toLowerCase()))) &&
         location &&
         item.location
           .toLowerCase()
