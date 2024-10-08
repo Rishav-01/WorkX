@@ -84,7 +84,7 @@ const Navbar = ({ selectedTab }) => {
                     {isJobsVisible && <JobsDropdown />}
                   </div>
                 </li>
-                <li className="flex items-center gap-x-2">
+                {/* <li className="flex items-center gap-x-2">
                   <div>
                     <IoIosSearch />
                   </div>
@@ -95,10 +95,11 @@ const Navbar = ({ selectedTab }) => {
                       placeholder="Search.."
                     />
                   </div>
-                </li>
+                </li> */}
                 <li>
                   <span
                     onMouseEnter={() => setIsUserDivVisible(true)}
+                    onMouseLeave={() => setIsUserDivVisible(false)}
                     src={workXLogo}
                     alt="user-profile"
                     className="w-7 h-7 p-2 bg-orange-300 rounded-full cursor-pointer"
@@ -108,6 +109,7 @@ const Navbar = ({ selectedTab }) => {
                   {isUserDivVisible && (
                     <div
                       onMouseLeave={() => setIsUserDivVisible(false)}
+                      onMouseEnter={() => setIsUserDivVisible(true)}
                       className="absolute rounded shadow-md z-10 p-2 bg-white"
                     >
                       <ul className="flex flex-col">
