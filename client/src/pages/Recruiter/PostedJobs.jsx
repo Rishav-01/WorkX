@@ -9,6 +9,10 @@ import toast from "react-hot-toast";
 const PostedJob = ({ job }) => {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <div
       className={`shadow-md rounded-lg max-w-full p-2 mb-5 ${
@@ -53,7 +57,11 @@ const PostedJob = ({ job }) => {
         <div className="flex gap-4">
           <button
             disabled={job.openings === 0}
-            onClick={() => navigate(`${job._id}/applicants`)}
+            onClick={() => {
+              console.log("HI");
+              navigate(`${job._id}/applicants`);
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
             className={`px-3 bg-blue-500 text-white rounded-lg ${
               job.openings === 0 && "cursor-not-allowed"
             }`}
