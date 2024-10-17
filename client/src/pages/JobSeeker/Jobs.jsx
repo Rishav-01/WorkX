@@ -117,8 +117,8 @@ const Jobs = () => {
       return salary >= salVal;
     });
 
-    filter.current.inOffice = false;
-    filter.current.workFromHome = false;
+    // filter.current.inOffice = false;
+    // filter.current.workFromHome = false;
     setFilteredJobs(totalJobs);
     setisFilterDivAvailable(false);
   };

@@ -72,6 +72,7 @@ const Internships = () => {
   };
 
   const handleFilterSubmit = (e) => {
+    console.log(filter.current);
     e.preventDefault();
     if (isFilterDivAvailable) setisFilterDivAvailable(false);
     let stipendVal = stipendRange.current.value * 1000;
@@ -123,8 +124,8 @@ const Internships = () => {
       return salary >= stipendVal;
     });
 
-    filter.current.inOffice = false;
-    filter.current.workFromHome = false;
+    // filter.current.inOffice = false;
+    // filter.current.workFromHome = false;
     setFilteredInternships(totalInternships);
     setisFilterDivAvailable(false);
   };
